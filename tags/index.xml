@@ -44,11 +44,20 @@
     </item>
     
     <item>
-      <title>MarkDown</title>
+      <title>Markdown</title>
       <link>https://devbricker.github.io/tags/markdown/</link>
       <pubDate>Sun, 25 Jul 2021 00:00:00 +0000</pubDate>
       
       <guid>https://devbricker.github.io/tags/markdown/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Visual studio code</title>
+      <link>https://devbricker.github.io/tags/visual-studio-code/</link>
+      <pubDate>Sun, 25 Jul 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://devbricker.github.io/tags/visual-studio-code/</guid>
       <description></description>
     </item>
     
