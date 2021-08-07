@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>搬磚人的部落格</title>
+    <link>https://devbricker.github.io/</link>
+    <description>Recent content on 搬磚人的部落格</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-TW</language>
+    <lastBuildDate>Sun, 25 Jul 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://devbricker.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>AXIE Infinity Play to Earn 新手入門-如何開始玩</title>
+      <link>https://devbricker.github.io/post/blockchain/axie/axie-infinity-play-to-earn-%E6%96%B0%E6%89%8B%E5%85%A5%E9%96%80-%E5%A6%82%E4%BD%95%E9%96%8B%E5%A7%8B%E7%8E%A9/</link>
+      <pubDate>Sun, 25 Jul 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://devbricker.github.io/post/blockchain/axie/axie-infinity-play-to-earn-%E6%96%B0%E6%89%8B%E5%85%A5%E9%96%80-%E5%A6%82%E4%BD%95%E9%96%8B%E5%A7%8B%E7%8E%A9/</guid>
+      <description>AXIE Infinity Play to Earn 新手入門-如何開始玩 AXIE Infinity 2021年最火熱的區塊鏈NFT遊戲，主打Play-to-Earn 邊玩邊賺的新概念席捲全球，加上疫情對收入及</description>
+    </item>
+    
+    <item>
+      <title>原來Markdown這樣寫</title>
+      <link>https://devbricker.github.io/post/hugo/markdown/%E5%8E%9F%E4%BE%86markdown%E9%80%99%E6%A8%A3%E5%AF%AB/</link>
+      <pubDate>Sun, 25 Jul 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://devbricker.github.io/post/hugo/markdown/%E5%8E%9F%E4%BE%86markdown%E9%80%99%E6%A8%A3%E5%AF%AB/</guid>
+      <description>原來Markdown這樣寫 原來Markdown這樣寫 標題表示法 項目清單表示法 檢查清單 字型 分隔線 引言 行內程式碼 程式碼區塊 超連結與圖片 跳脫字元 大</description>
+    </item>
+    
+    <item>
+      <title>聯絡我們</title>
+      <link>https://devbricker.github.io/contact/</link>
+      <pubDate>Sun, 25 Jul 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://devbricker.github.io/contact/</guid>
+      <description>若想要聯絡我們，請填寫以下表單</description>
+    </item>
+    
+    <item>
+      <title>親愛的，我把HTTP無痛變成HTTPS了</title>
+      <link>https://devbricker.github.io/post/cloud/aws/%E8%A6%AA%E6%84%9B%E7%9A%84%E6%88%91%E6%8A%8Ahttp%E7%84%A1%E7%97%9B%E8%AE%8A%E6%88%90https%E4%BA%86_20210725/</link>
+      <pubDate>Sun, 25 Jul 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://devbricker.github.io/post/cloud/aws/%E8%A6%AA%E6%84%9B%E7%9A%84%E6%88%91%E6%8A%8Ahttp%E7%84%A1%E7%97%9B%E8%AE%8A%E6%88%90https%E4%BA%86_20210725/</guid>
+      <description>親愛的，我把HTTP無痛變成HTTPS了 AWS API Gateway HTTP 代理整合教學 各位好，你是否也曾碰到需要使用HTTPS進行跨API通訊時，但卻苦於有一邊是HT</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://devbricker.github.io/archives/</link>
+      <pubDate>Tue, 28 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://devbricker.github.io/archives/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>關於我們</title>
+      <link>https://devbricker.github.io/about/</link>
+      <pubDate>Thu, 28 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://devbricker.github.io/about/</guid>
+      <description>程式開發就像蓋房子，需要一磚一瓦砌成。 而工程師們就像是搬磚工，需要將無數的磚瓦 建構成設計師規劃的樣子。 我們是一群有熱誠的搬磚工 希望透過部落格</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://devbricker.github.io/meeting/202107/%E7%99%BC%E6%83%B3%E5%8D%80/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://devbricker.github.io/meeting/202107/%E7%99%BC%E6%83%B3%E5%8D%80/</guid>
+      <description>發想區 sop 1.討論,撰寫hack md 2.規劃系列執行內容 2.1 起迄時間或篇幅 2.2 內容大綱 2.3 分工 3. 建立repository on org git 3.1 這邊要想一下 文章本身跟</description>
+    </item>
+    
+  </channel>
+</rss>
