@@ -3,7 +3,34 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://devbricker.github.io/archives/</loc>
-    <lastmod>2021-07-25T00:00:00+00:00</lastmod>
+    <lastmod>2021-08-07T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://devbricker.github.io/categories/blog-builder/</loc>
+    <lastmod>2021-08-07T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://devbricker.github.io/categories/</loc>
+    <lastmod>2021-08-07T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://devbricker.github.io/tags/github/</loc>
+    <lastmod>2021-08-07T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://devbricker.github.io/tags/hugo/</loc>
+    <lastmod>2021-08-07T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://devbricker.github.io/post/hugo/markdown/hugo-on-github-%E8%87%AA%E6%9E%B6%E5%85%A8%E7%B4%80%E9%8C%84-hugo%E7%92%B0%E5%A2%83%E5%AE%89%E8%A3%9D%E4%B8%80/</loc>
+    <lastmod>2021-08-07T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://devbricker.github.io/post/</loc>
+    <lastmod>2021-08-07T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://devbricker.github.io/tags/</loc>
+    <lastmod>2021-08-07T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://devbricker.github.io/archives/web/</loc>
+    <lastmod>2021-08-07T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://devbricker.github.io/</loc>
+    <lastmod>2021-08-07T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://devbricker.github.io/tags/aws/</loc>
     <lastmod>2021-07-25T00:00:00+00:00</lastmod>
@@ -17,31 +44,13 @@
     <loc>https://devbricker.github.io/archives/blockchain/</loc>
     <lastmod>2021-07-25T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://devbricker.github.io/categories/</loc>
-    <lastmod>2021-07-25T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://devbricker.github.io/tags/hugo/</loc>
-    <lastmod>2021-07-25T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://devbricker.github.io/tags/markdown/</loc>
-    <lastmod>2021-07-25T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://devbricker.github.io/post/</loc>
-    <lastmod>2021-07-25T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://devbricker.github.io/tags/</loc>
-    <lastmod>2021-07-25T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://devbricker.github.io/archives/web/</loc>
     <lastmod>2021-07-25T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://devbricker.github.io/post/hugo/markdown/%E5%8E%9F%E4%BE%86markdown%E9%80%99%E6%A8%A3%E5%AF%AB/</loc>
     <lastmod>2021-07-25T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://devbricker.github.io/categories/%E5%95%8F%E9%A1%8C%E8%A7%A3%E6%B1%BA/</loc>
-    <lastmod>2021-07-25T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://devbricker.github.io/</loc>
     <lastmod>2021-07-25T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://devbricker.github.io/categories/%E7%B6%B2%E7%AB%99%E6%9E%B6%E8%A8%AD/</loc>
