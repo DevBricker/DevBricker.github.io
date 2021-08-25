@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Visual studio code on DevBricker</title>
+    <link>https://devbricker.github.io/categories/visual-studio-code/</link>
+    <description>Recent content in Visual studio code on DevBricker</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-TW</language>
+    <lastBuildDate>Sat, 21 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://devbricker.github.io/categories/visual-studio-code/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Visual studio code隱身在GitHub內的秘密</title>
+      <link>https://devbricker.github.io/post/devtools/visualstudiocodeingithub/</link>
+      <pubDate>Sat, 21 Aug 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://devbricker.github.io/post/devtools/visualstudiocodeingithub/</guid>
+      <description>一個按鍵帶你發現隱身在GitHub內的秘密，快速開啟你的IDE(Integrated Development Environment)。VSCode GitHub Hotkey Demo GitHub Hotkey Setp1. 登入</description>
+    </item>
+    
+    <item>
+      <title>Markdown 從零開始</title>
+      <link>https://devbricker.github.io/post/hugo/markdown/markdown_basic_tutorial/</link>
+      <pubDate>Sun, 25 Jul 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://devbricker.github.io/post/hugo/markdown/markdown_basic_tutorial/</guid>
+      <description>Markdown 從零開始 Markdown 從零開始 標題表示法 項目清單表示法 檢查清單 字型 分隔線 引言 行內程式碼 程式碼區塊 超連結與圖片 跳脫字元 大綱產生方法 標題表示法 支援六個層級</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,63 +1,99 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tags on 搬磚人的部落格</title>
+    <title>Tags on DevBricker</title>
     <link>https://devbricker.github.io/tags/</link>
-    <description>Recent content in Tags on 搬磚人的部落格</description>
+    <description>Recent content in Tags on DevBricker</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-TW</language>
-    <lastBuildDate>Sat, 07 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://devbricker.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 22 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://devbricker.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Github</title>
-      <link>https://devbricker.github.io/tags/github/</link>
-      <pubDate>Sat, 07 Aug 2021 00:00:00 +0000</pubDate>
+      <title>Moralis</title>
+      <link>https://devbricker.github.io/tags/moralis/</link>
+      <pubDate>Sun, 22 Aug 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://devbricker.github.io/tags/github/</guid>
+      <guid>https://devbricker.github.io/tags/moralis/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Hugo</title>
-      <link>https://devbricker.github.io/tags/hugo/</link>
-      <pubDate>Sat, 07 Aug 2021 00:00:00 +0000</pubDate>
+      <title>OpenZeppelin</title>
+      <link>https://devbricker.github.io/tags/openzeppelin/</link>
+      <pubDate>Sun, 22 Aug 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://devbricker.github.io/tags/hugo/</guid>
+      <guid>https://devbricker.github.io/tags/openzeppelin/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>AWS</title>
-      <link>https://devbricker.github.io/tags/aws/</link>
-      <pubDate>Sun, 25 Jul 2021 00:00:00 +0000</pubDate>
+      <title>Remix</title>
+      <link>https://devbricker.github.io/tags/remix/</link>
+      <pubDate>Sun, 22 Aug 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://devbricker.github.io/tags/aws/</guid>
+      <guid>https://devbricker.github.io/tags/remix/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Axie</title>
-      <link>https://devbricker.github.io/tags/axie/</link>
-      <pubDate>Sun, 25 Jul 2021 00:00:00 +0000</pubDate>
+      <title>Tool</title>
+      <link>https://devbricker.github.io/tags/tool/</link>
+      <pubDate>Sat, 21 Aug 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://devbricker.github.io/tags/axie/</guid>
+      <guid>https://devbricker.github.io/tags/tool/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Git</title>
+      <link>https://devbricker.github.io/tags/git/</link>
+      <pubDate>Sun, 08 Aug 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://devbricker.github.io/tags/git/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>問題解決</title>
+      <link>https://devbricker.github.io/tags/%E5%95%8F%E9%A1%8C%E8%A7%A3%E6%B1%BA/</link>
+      <pubDate>Sun, 08 Aug 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://devbricker.github.io/tags/%E5%95%8F%E9%A1%8C%E8%A7%A3%E6%B1%BA/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Markdown</title>
       <link>https://devbricker.github.io/tags/markdown/</link>
-      <pubDate>Sun, 25 Jul 2021 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 07 Aug 2021 00:00:00 +0000</pubDate>
       
       <guid>https://devbricker.github.io/tags/markdown/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Visual studio code</title>
-      <link>https://devbricker.github.io/tags/visual-studio-code/</link>
+      <title>環境設定</title>
+      <link>https://devbricker.github.io/tags/%E7%92%B0%E5%A2%83%E8%A8%AD%E5%AE%9A/</link>
+      <pubDate>Sat, 07 Aug 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://devbricker.github.io/tags/%E7%92%B0%E5%A2%83%E8%A8%AD%E5%AE%9A/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>APIGateway</title>
+      <link>https://devbricker.github.io/tags/apigateway/</link>
       <pubDate>Sun, 25 Jul 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://devbricker.github.io/tags/visual-studio-code/</guid>
+      <guid>https://devbricker.github.io/tags/apigateway/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Proxy</title>
+      <link>https://devbricker.github.io/tags/proxy/</link>
+      <pubDate>Sun, 25 Jul 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://devbricker.github.io/tags/proxy/</guid>
       <description></description>
     </item>
     

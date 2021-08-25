@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tool on DevBricker</title>
+    <link>https://devbricker.github.io/tags/tool/</link>
+    <description>Recent content in Tool on DevBricker</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-TW</language>
+    <lastBuildDate>Sat, 21 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://devbricker.github.io/tags/tool/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Visual studio code隱身在GitHub內的秘密</title>
+      <link>https://devbricker.github.io/post/devtools/visualstudiocodeingithub/</link>
+      <pubDate>Sat, 21 Aug 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://devbricker.github.io/post/devtools/visualstudiocodeingithub/</guid>
+      <description>一個按鍵帶你發現隱身在GitHub內的秘密，快速開啟你的IDE(Integrated Development Environment)。VSCode GitHub Hotkey Demo GitHub Hotkey Setp1. 登入</description>
+    </item>
+    
+  </channel>
+</rss>

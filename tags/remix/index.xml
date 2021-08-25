@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Remix on DevBricker</title>
+    <link>https://devbricker.github.io/tags/remix/</link>
+    <description>Recent content in Remix on DevBricker</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-TW</language>
+    <lastBuildDate>Sun, 22 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://devbricker.github.io/tags/remix/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Polygon (Matic) 從零開始 發行自己的虛擬貨幣(Token)</title>
+      <link>https://devbricker.github.io/post/blockchain/moralis/polygon-matic-moralis/</link>
+      <pubDate>Sun, 22 Aug 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://devbricker.github.io/post/blockchain/moralis/polygon-matic-moralis/</guid>
+      <description>這篇文章將介紹如何運用Moralis,Remix,OpenZeppelin等資源快速創建自己在Polygon上的虛擬貨幣(Token) Pol</description>
+    </item>
+    
+  </channel>
+</rss>

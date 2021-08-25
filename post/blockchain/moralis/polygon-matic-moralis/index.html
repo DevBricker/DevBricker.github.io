@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+
+<html lang="zh-TW">
+<head>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-204784534-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-204784534-1');
+</script>
+
+
+<title>DevBricker | Polygon (Matic) 從零開始 發行自己的虛擬貨幣(Token)</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+    
+    
+    <meta name="description" content="DevBricker | 這篇文章將介紹如何運用Moralis,Remix,OpenZeppelin等資源快速創建自己在Polygon上的虛擬貨幣(Token)">
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/favicon/site.webmanifest" />
+    <link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#5bbad5" />
+    <link rel="shortcut icon" href="/favicon/favicon.ico" />
+    <meta name="theme-color" content="#ffffff">
+    <meta property="og:title" content="DevBricker | Polygon (Matic) 從零開始 發行自己的虛擬貨幣(Token)" />
+    
+    
+        
+        <link rel="stylesheet" href="https://devbricker.github.io/css/styles.min.b50ea4b93be37fee4d7ff8107f000105970338d07e26cc5efce997e2fd25bd7b.css">
+    
+    <link href="/css/blonde.min.css" rel="stylesheet" type="text/css" media="print"
+        onload="this.media='all'">
+    
+
+
+
+
+<meta property="og:site_name" content="DevBricker">
+
+<meta property="og:url" content="https://devbricker.github.io/post/blockchain/moralis/polygon-matic-moralis/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="">
+
+<link rel="canonical" href="https://devbricker.github.io/post/blockchain/moralis/polygon-matic-moralis/">
+
+
+<meta property="article:published_time" content="2021-08-22T00:00:00&#43;00:00">
+<meta property="article:updated_time" content="2021-08-22T00:00:00&#43;00:00">
+
+
+
+
+
+    
+<meta property="og:image" content="https://user-images.githubusercontent.com/22570705/130314816-f024cc25-15f2-4af6-8691-7c75d16734db.png">
+<meta property="og:image:url" content="https://user-images.githubusercontent.com/22570705/130314816-f024cc25-15f2-4af6-8691-7c75d16734db.png">
+    
+
+    
+    <link rel="stylesheet" href="/css/custom.css">
+    <link rel="stylesheet" href="/css/code.css">
+    <link rel="stylesheet" href="/css/code2.css">
+    <i class="dark hidden"></i>
+</head>
+<body class="font-sans">
+    <div
+        class="min-w-screen min-h-screen flex flex-col items-center bg-warmgray-700"><div class="w-full">
+    <div class="container max-w-screen-xl mr-auto ml-auto">
+        <nav class="flex items-center justify-between flex-wrap pt-4 pb-4 pl-6 pr-6">
+            <div class="flex items-center flex-no-shrink text-white mr-6">
+                <a href="https://devbricker.github.io/"><span class="font-semibold text-2xl tracking-tight">DevBricker</span></a>
+            </div>
+            <div class="flex md:hidden">
+                <div class="py-2">
+                    <button onclick="toggleDarkMode()" class="focus:outline-none mr-1" aria-label="Darkmode Toggle Button"><i id="icon"
+                            class="icon-moon inline-flex align-middle leading-normal text-lg text-white"></i></button>
+                    <span class="text-gray-300">|</span>
+                </div>
+                <button id="hamburgerbtn" class="flex items-center px-3 py-1 text-gray-300 hover:text-white" aria-label="Hamburger Button">
+                    <span class="icon-menu text-2xl"></span>
+                </button>
+            </div>
+            <div class="hidden w-full md:flex md:flex-row sm:items-center md:w-auto" id="mobileMenu">
+                <div class="text-sm lg:flex-grow">
+                </div>
+                <div class="navmenu">
+                    
+                    <a href="/"
+                        class="no-underline block mt-4 sm:inline-block sm:mt-0 text-gray-400 hover:text-white mr-4">
+                        主頁
+                    </a>
+                    
+                    <a href="/about/"
+                        class="no-underline block mt-4 sm:inline-block sm:mt-0 text-gray-400 hover:text-white mr-4">
+                        關於我們
+                    </a>
+                    
+                </div>
+                <div class="text-gray-400 invisible md:visible">
+                    <span>|</span>
+                    <button onclick="toggleDarkMode()" class="focus:outline-none" aria-label="Darkmode Toggle Button"><i id="icon2"
+                            class="icon-moon inline-flex align-middle leading-normal text-lg ml-2"></i></button>
+                </div>
+            </div>
+        </nav>
+    </div>
+</div>
+<style>
+    .active {
+        display: block;
+    }
+</style>
+
+<script>
+    let hamburger = document.getElementById('hamburgerbtn');
+    let mobileMenu = document.getElementById('mobileMenu');
+    hamburger.addEventListener('click', function () {
+        mobileMenu.classList.toggle('active');
+    });
+</script>
+<div class="w-full border-t border-gray-200 px-5 pt-4 container max-w-screen-xl mx-auto  flex-grow px-5 lg:px-0"
+            id="content">
+            <div class="lg:mx-5">
+<div class="grid grid-cols-3 gap-4">
+    <div class="bg-white col-span-3 lg:col-span-2 p-5 dark:bg-warmgray-900 dark:text-white">
+        <h1 class="title text-4xl">Polygon (Matic) 從零開始 發行自己的虛擬貨幣(Token)</h1>
+        <aside id="meta">
+            <div>
+                
+                <section>
+                    <h4 id="date"><span class="icon-access_time mr-1"></span>2021/08/22 </h4>
+                </section>
+            
+                
+                <div id="tags">
+                    <span class="icon-local_offer mr-1"></span>
+                    
+                    <a href="https://devbricker.github.io/tags/moralis">Moralis</a> |
+                    
+                    <a href="https://devbricker.github.io/tags/remix">Remix</a> |
+                    
+                    <a href="https://devbricker.github.io/tags/openzeppelin">OpenZeppelin</a> |
+                    
+                </div>
+                
+            </div>
+        </aside>
+        
+        <img class="py-4" src="https://user-images.githubusercontent.com/22570705/130314816-f024cc25-15f2-4af6-8691-7c75d16734db.png">
+        
+        <div class="content mt-5"><!-- raw HTML omitted -->
+<blockquote>
+<h2 id="這篇文章將介紹如何運用moralisremixopenzeppelin等資源快速創建自己在polygon上的虛擬貨幣token">這篇文章將介紹如何運用Moralis,Remix,OpenZeppelin等資源快速創建自己在Polygon上的虛擬貨幣(Token)</h2>
+</blockquote>
+<!-- raw HTML omitted -->
+<p>Polygon，前身名為Matic network，以太坊側鏈(layer-2 network)，創立於2017年7月，目的在創造以太坊生態的區塊鏈網路，2021年2月決定擴大項目服務範圍並更名為Polygon。
+如果已經有在以太坊上發行或Token(代幣)，那在Polygon上應該也可駕輕就熟，甚至覺得更簡單喔!</p>
+<p>*本篇文章使用Test Net 取得測試幣，如果要正式發行要用正式網路喔!</p>
+<h2 id="在創建polygon-token代幣前的準備">在創建Polygon Token(代幣)前的準備</h2>
+<h3 id="step-1-取得polygon節點">Step 1. 取得Polygon節點</h3>
+<p>這邊教大家兩種快速取得節點位置的方式</p>
+<h4 id="第一種方式-chainlisthttpschainlistorg">第一種方式 <a href="https://chainlist.org/">Chainlist</a></h4>
+<p>無須註冊，只要連結你的MetaMask錢包，搜尋關鍵字即可馬上加入節點位置</p>
+<p><img src="https://user-images.githubusercontent.com/22570705/130318415-ecec14ef-9411-4d2e-ac2e-4c865c144c6f.png" alt="image"></p>
+<p>輸入Polygon，可以看到主鏈與測試鏈，本次教學使用測試鏈Mumbai Testnet
+<img src="https://user-images.githubusercontent.com/22570705/130318474-7b62b7ab-a1c4-4402-bbcc-11af772b34d2.png" alt="image">
+按下Add To MetaMask 後會跳出錢包的確認視窗，確認後就會切換到Mumbai Testnet測試網路了!</p>
+<ul>
+<li>第二種方式 <a href="https://moralis.io/">Moralis</a></li>
+</ul>
+<p>除了取得節點外還有很多功能，若不想註冊的朋友可以用Chainlist就好喔!
+Moralis 是 blockchain middleware solution，幫我們串接了許多API，可讓開發者專注於前端開發。</p>
+<p>首先註冊免費的 <a href="https://moralis.io/">Moralis</a> 帳號，註冊後在左邊的選單中選擇Speedy Nodes，點選Polygon Network
+<img src="https://user-images.githubusercontent.com/22570705/130318142-877ebf6d-1ac5-4bdc-8ac5-9b71eb482af0.png" alt="image"></p>
+<p>如果要發行真的貨幣可以選擇Mainnet ，此篇教學我們就先用Mumbai Testnet囉！
+<img src="https://user-images.githubusercontent.com/22570705/130318223-bed52fce-0982-4457-ae4c-037152a1fceb.png" alt="image"></p>
+<h2 id="step-2-連結metamask錢包">Step 2. 連結MetaMask錢包</h2>
+<p>點擊右側 Add to Metamask 會跳出確認 (當然必須要先有MetaMask 錢包喔!)</p>
+<p><img src="https://user-images.githubusercontent.com/22570705/130318330-b60653a3-4ef6-4f76-a589-3440ce58b3f5.png" alt="image"></p>
+<h2 id="step-3-取得測試用的matic-tokens吧">Step 3. 取得測試用的Matic Tokens吧</h2>
+<p>要創建自己的代幣，一定需要一些手續費用，<a href="https://faucet.matic.network/">faucet.matic.network</a>  提供了 Test Net用的免費代幣，開啟後預設已經是 MATIC Token 與 Mumbai Network，把錢包的地址貼上按下Submit，再按一次Comfirm即可。
+<img src="https://user-images.githubusercontent.com/22570705/130318700-af7914d0-65ce-4b4f-a534-b2473fb2789c.png" alt="image">
+大概不到十秒中，就可以在自己的錢包上看到 1 顆MATIC囉!
+<img src="https://user-images.githubusercontent.com/22570705/130318722-43724f58-5c33-42cc-a1f3-8c640774a90b.png" alt="image"></p>
+<h2 id="接下來就來創造自己的虛擬貨幣吧">接下來就來創造自己的虛擬貨幣吧!</h2>
+<h2 id="step-1-使用remix-ide">Step 1. 使用Remix IDE</h2>
+<p>這篇教學使用非常紅的以太坊線上開發工具 (Integrated Development Environment) <a href="https://remix.ethereum.org/">Remix</a> ，打開後可以看到新版的Remix已經會自動代出智能合約的範例。
+<img src="https://user-images.githubusercontent.com/22570705/130319758-d0526ea8-f777-4ee8-8bb3-b661302f76b9.png" alt="image"></p>
+<p>再來就是開始來 &ldquo;找&rdquo; 現成的合約參考囉!</p>
+<h2 id="step-2-透過openzeppelin尋找智能合約模板">Step 2. 透過OpenZeppelin尋找智能合約模板</h2>
+<p>萬事起頭難，要創立一個自己的代幣，網路上已經有許多現成的開源，這邊介紹的是 OpenZeppelin ，上面有非常多開源的智能合約範例可以參考。
+免費註冊OpenZeppelin後，可以找到關於<a href="https://docs.openzeppelin.com/contracts/4.x/erc20">ERC 20</a>的建置教學，官方網站或是論壇內都還有許多神人的分享，可興趣深入可以多看看喔!</p>
+<pre><code class="language-Objective-C=+" data-lang="Objective-C=+">// contracts/DBKToken.sol
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+import &quot;@openzeppelin/contracts/token/ERC20/ERC20.sol&quot;;
+
+contract DBKToken is ERC20 {
+    constructor(uint256 initialSupply) ERC20(&quot;DevBrickers&quot;, &quot;DBK&quot;) {
+        _mint(msg.sender, initialSupply);
+    }
+}
+</code></pre><h2 id="step-3-發行在polygon上的代幣的智能合約smart-contract">Step 3. 發行在Polygon上的代幣的智能合約(Smart Contract)</h2>
+<p>回到Remix，新增一個檔案(這邊叫做DBKSToken.sol)，把上面那段Code 貼到內容中並將範例的名稱修改成我們要創的名字，這邊我創建一個DevBrickers Toekn 簡稱DBK，你可以輸入自己想要的名稱喔!
+<img src="https://user-images.githubusercontent.com/22570705/130320328-402fe9ad-f1bd-42c8-96e5-0e6025aa932e.png" alt="image"></p>
+<p>完成後點選左邊的 SOLIDITY COMPILER ，記得Compiler 版本要跟Code上面的一樣喔!
+(本篇文章撰寫時使用0.8.0)</p>
+<p>按下後若沒出現錯誤， SOLIDITY COMPILER會打一個綠色勾，此時就可以準備發布啦!</p>
+<p>因為我們要部屬再Polygon，所以Environment 要選擇 Injected Web3 ，Account的部分連接前面準的好的Metamask 錢包，Contrack要選擇剛剛建立的檔案，記得確認網路是在 Mumbai 測試鏈喔!
+要送出時發現失敗，原來是忘了設置參數，可以看到Deploy旁邊有個 initialSupply 就是範例碼中的參數，也就是要發行的代幣(Token)量，這邊就輸入1個億吧~!
+因為預設最小單位是小數12位，所以1億要用 100000000000000000000000000 喔!
+懶得數的朋友就複製貼上吧</p>
+<p><img src="https://user-images.githubusercontent.com/22570705/130320661-00aaed69-b48b-422b-bd4f-9a5ca2d86c69.png" alt="image"></p>
+<p>成功發布後會跳出錢包畫面，部屬智能合約要收取一些手續費，按下確認</p>
+<p><img src="https://user-images.githubusercontent.com/22570705/130320484-ca944350-705e-496c-b5af-214c90c87b48.png" alt="image"></p>
+<p>確認完後稍等一下(測試鏈很快，正式鏈會久一些) 就可以看到扣款成功，也可以在錢包上看到合約交易內容</p>
+<p><img src="https://user-images.githubusercontent.com/22570705/130321206-47646f5e-8167-436c-8851-973f936c99d2.png" alt="image"></p>
+<h2 id="step-5-確認你發行了你的代幣-當個億萬富翁吧">Step 5. 確認你發行了你的代幣 當個億萬富翁吧!</h2>
+<p>我們可以在部屬合約的詳情中，點擊右上角的箭頭符號，會帶出 <a href="https://mumbai.polygonscan.com/">mumbai.olygonscan</a>網站，可以查看你發行的合約。
+<img src="https://user-images.githubusercontent.com/22570705/130321289-9d77f5e7-6e3b-4ccd-a763-f2d31c68e7d8.png" alt="image"></p>
+<p>點擊中間的 interacted with(To) : Contract [xxxx] 位置，裡面就是我們部屬這份智能合約的交易細節，一開始只會有Contract Creation，就是我們剛剛做的部屬動作。</p>
+<p>那要如何確認我們的錢包已經有剛剛發行的1億個DevBrickers DBK 代幣(Token)呢?
+開啟Metamask錢包，選擇 加入代幣，貼上剛剛 Contract中的地址 [xxx]</p>
+<p><img src="https://user-images.githubusercontent.com/22570705/130321366-84b220e1-a501-4615-9e38-3ebf9b342523.png" alt="image"></p>
+<p>貼上後會自動查詢，可看到代幣代號出現了DBK</p>
+<p><img src="https://user-images.githubusercontent.com/22570705/130321564-df8bed75-34b2-4132-8875-4595e5a3d53d.png" alt="image"></p>
+<p>成功後可以看到Metamask 錢包中有1億個DBK Token了! 成了Polygon 測試鏈上的億萬富功囉!</p>
+<h3 id="參考文章">參考文章</h3>
+<p><a href="https://moralis.io/how-to-create-a-polygon-token/">How to Create a Polygon Token</a></p>
+</div>
+        <hr class="py-2">
+        <aside id="meta">
+            
+            <div id="categories">
+                <span class="icon-folder text-xl mr-1"></span>
+                
+                <span
+                    class="inline-flex py-2 leading-4 mr-2 mb-2 content-center bg-gray-200 justify-center h-8 px-3 text-blue-500 hover:text-black dark:bg-warmgray-800"><a
+                        href="https://devbricker.github.io/categories/polygon">Polygon</a></span>
+                
+            </div>
+            
+            <div class="grid grid-cols-2">
+                <div class="col-span-1">
+                    
+                    <a class="previous lg:text-l" href="https://devbricker.github.io/post/devtools/visualstudiocodeingithub/">
+                        <div
+                            class="transition-colors duration-300 border border-gray-600 hover:border-black h-auto m-3 text-center py-3 lg:py-1">
+                            <span class="icon-keyboard_arrow_left"></span> Visual studio code隱身在GitHub內的秘密
+                        </div>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </aside>
+        <hr class="py-2">
+        <div class="mb-3">
+            
+        </div>
+    </div>
+    <div class="hidden lg:block lg:col-span-1">
+        
+        
+
+
+
+<div class="mx-auto w-full px-3 pb-3">
+    <h1 class="mb-4 pl-2 text-xl font-bold dark:text-white text-gray-300">文件分類</h1>
+    
+    
+    <div
+        class="flex items-center bg-indigo-500 rounded-md px-3 text-white cursor-pointer transition duration-500 ease-in-out hover:shadow hover:bg-indigo-600">
+        <div>
+            <svg fill="currentColor" class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                <path d="M0 4c0-1.1.9-2 2-2h7l2 2h7a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4z"></path>
+            </svg>
+
+        </div>
+        <div class="px-3 mr-auto">
+            <a class="text-center block duration-100 py-2 px-1 mx-4 hover:bg-gray-800 text-gray-200 dark:text-gray-200 dark:hover:bg-warmgray-800"
+                href="https://devbricker.github.io//archives/blockchain">blockchain (1)</a>
+        </div>
+    </div>
+    
+    <div
+        class="flex items-center bg-indigo-500 rounded-md px-3 text-white cursor-pointer transition duration-500 ease-in-out hover:shadow hover:bg-indigo-600">
+        <div>
+            <svg fill="currentColor" class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                <path d="M0 4c0-1.1.9-2 2-2h7l2 2h7a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4z"></path>
+            </svg>
+
+        </div>
+        <div class="px-3 mr-auto">
+            <a class="text-center block duration-100 py-2 px-1 mx-4 hover:bg-gray-800 text-gray-200 dark:text-gray-200 dark:hover:bg-warmgray-800"
+                href="https://devbricker.github.io//archives/blog-builder">blog-builder (2)</a>
+        </div>
+    </div>
+    
+    <div
+        class="flex items-center bg-indigo-500 rounded-md px-3 text-white cursor-pointer transition duration-500 ease-in-out hover:shadow hover:bg-indigo-600">
+        <div>
+            <svg fill="currentColor" class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                <path d="M0 4c0-1.1.9-2 2-2h7l2 2h7a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4z"></path>
+            </svg>
+
+        </div>
+        <div class="px-3 mr-auto">
+            <a class="text-center block duration-100 py-2 px-1 mx-4 hover:bg-gray-800 text-gray-200 dark:text-gray-200 dark:hover:bg-warmgray-800"
+                href="https://devbricker.github.io//archives/cloud">cloud (1)</a>
+        </div>
+    </div>
+    
+    <div
+        class="flex items-center bg-indigo-500 rounded-md px-3 text-white cursor-pointer transition duration-500 ease-in-out hover:shadow hover:bg-indigo-600">
+        <div>
+            <svg fill="currentColor" class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                <path d="M0 4c0-1.1.9-2 2-2h7l2 2h7a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4z"></path>
+            </svg>
+
+        </div>
+        <div class="px-3 mr-auto">
+            <a class="text-center block duration-100 py-2 px-1 mx-4 hover:bg-gray-800 text-gray-200 dark:text-gray-200 dark:hover:bg-warmgray-800"
+                href="https://devbricker.github.io//archives/devtools">devtools (3)</a>
+        </div>
+    </div>
+    
+    
+</div>
+
+        
+
+<div class="mb-3 pt-2">
+    
+    <h1 class="pl-4 text-xl font-bold dark:text-white text-gray-300 mb-2">主題</h1>
+    <div class="w-full rounded-lg px-2 py-2">
+        
+        <ul class="divide-y-2 divide-gray-100 ml-0 mt-2 mb-2">
+            <li class="mx-1 hover:bg-warmgray-900 hover:text-white my-2" style="list-style: none">
+                <a class="mx-1 font-bold text-white" href="https://devbricker.github.io//categories/aws">Aws</a>
+            </li>
+        </ul>
+        
+        <ul class="divide-y-2 divide-gray-100 ml-0 mt-2 mb-2">
+            <li class="mx-1 hover:bg-warmgray-900 hover:text-white my-2" style="list-style: none">
+                <a class="mx-1 font-bold text-white" href="https://devbricker.github.io//categories/github">Github</a>
+            </li>
+        </ul>
+        
+        <ul class="divide-y-2 divide-gray-100 ml-0 mt-2 mb-2">
+            <li class="mx-1 hover:bg-warmgray-900 hover:text-white my-2" style="list-style: none">
+                <a class="mx-1 font-bold text-white" href="https://devbricker.github.io//categories/hugo">Hugo</a>
+            </li>
+        </ul>
+        
+        <ul class="divide-y-2 divide-gray-100 ml-0 mt-2 mb-2">
+            <li class="mx-1 hover:bg-warmgray-900 hover:text-white my-2" style="list-style: none">
+                <a class="mx-1 font-bold text-white" href="https://devbricker.github.io//categories/polygon">Polygon</a>
+            </li>
+        </ul>
+        
+        <ul class="divide-y-2 divide-gray-100 ml-0 mt-2 mb-2">
+            <li class="mx-1 hover:bg-warmgray-900 hover:text-white my-2" style="list-style: none">
+                <a class="mx-1 font-bold text-white" href="https://devbricker.github.io//categories/sourcetree">Sourcetree</a>
+            </li>
+        </ul>
+        
+        <ul class="divide-y-2 divide-gray-100 ml-0 mt-2 mb-2">
+            <li class="mx-1 hover:bg-warmgray-900 hover:text-white my-2" style="list-style: none">
+                <a class="mx-1 font-bold text-white" href="https://devbricker.github.io//categories/visual-studio-code">Visual studio code</a>
+            </li>
+        </ul>
+        
+    </div>
+</div>
+
+
+        
+        
+    </div>
+</div>
+
+            </div>
+        </div>
+        <div
+        class="w-full  px-5 pb-5 container max-w-screen-xl mx-auto  flex-grow px-5 lg:px-0">
+            
+
+
+
+<h1 class="px-5 mb-4 text-xl font-bold dark:text-white text-gray-300 mt-4 w-full text-left">最近釋出</h1>
+<div class="px-5 flex overflow-x-auto lg:w-6/6">
+    
+    <div class="mr-2 w-6/6 flex flex-col min-w-1/5 mb-4 px-3 pt-2 mx-auto bg-white rounded-lg shadow-md dark:bg-warmgray-900">
+        
+        <div class="mt-4"><a href="/post/hugo/deploy/hugo_build1/" class="text-gray-900 font-bold text-xl dark:text-white font-medium hover:underline">
+            Hugo 從零開始 建立自己的部落格</a></div>
+        <div class="flex items-center justify-between mt-4">
+            <div class="flex items-center">
+                <p class="text-sm text-gray-600 flex items-center pb-1 dark:text-gray-400">
+                    <time><span class="icon-access_time mr-1"></span>2021/08/07</time>
+                </p>
+                </div>  
+        </div>
+    </div>
+    <div class="mr-2 w-6/6 flex flex-col min-w-1/5 mb-4 px-3 pt-2 mx-auto bg-white rounded-lg shadow-md dark:bg-warmgray-900">
+        
+        <div class="mt-4"><a href="/post/blockchain/moralis/polygon-matic-moralis/" class="text-gray-900 font-bold text-xl dark:text-white font-medium hover:underline">
+            Polygon (Matic) 從零開始 發行自己的虛擬貨幣(Token)</a></div>
+        <div class="flex items-center justify-between mt-4">
+            <div class="flex items-center">
+                <p class="text-sm text-gray-600 flex items-center pb-1 dark:text-gray-400">
+                    <time><span class="icon-access_time mr-1"></span>2021/08/22</time>
+                </p>
+                </div>  
+        </div>
+    </div>
+    <div class="mr-2 w-6/6 flex flex-col min-w-1/5 mb-4 px-3 pt-2 mx-auto bg-white rounded-lg shadow-md dark:bg-warmgray-900">
+        
+        <div class="mt-4"><a href="/post/hugo/deploy/hugo_environment/" class="text-gray-900 font-bold text-xl dark:text-white font-medium hover:underline">
+            Hugo 從零開始 環境安裝(Windows)</a></div>
+        <div class="flex items-center justify-between mt-4">
+            <div class="flex items-center">
+                <p class="text-sm text-gray-600 flex items-center pb-1 dark:text-gray-400">
+                    <time><span class="icon-access_time mr-1"></span>2021/08/07</time>
+                </p>
+                </div>  
+        </div>
+    </div>
+    <div class="mr-2 w-6/6 flex flex-col min-w-1/5 mb-4 px-3 pt-2 mx-auto bg-white rounded-lg shadow-md dark:bg-warmgray-900">
+        
+        <div class="mt-4"><a href="/post/cloud/aws/%E8%A6%AA%E6%84%9B%E7%9A%84%E6%88%91%E6%8A%8Ahttp%E7%84%A1%E7%97%9B%E8%AE%8A%E6%88%90https%E4%BA%86_20210725/" class="text-gray-900 font-bold text-xl dark:text-white font-medium hover:underline">
+            親愛的，我把HTTP無痛變成HTTPS了</a></div>
+        <div class="flex items-center justify-between mt-4">
+            <div class="flex items-center">
+                <p class="text-sm text-gray-600 flex items-center pb-1 dark:text-gray-400">
+                    <time><span class="icon-access_time mr-1"></span>2021/07/25</time>
+                </p>
+                </div>  
+        </div>
+    </div>
+</div>
+
+
+            
+
+
+
+<div class='px-6 w-full'>
+    <h1 class="mb-4 text-xl font-bold text-white mt-3">標籤</h1>
+    
+    <div class='my-3 flex flex-wrap -m-1'>
+        <a href="/tags/apigateway">
+            <span
+                class="m-1 duration-100 bg-white dark:bg-gray-200 hover:bg-gray-300 rounded-full px-2 font-bold text-md leading-loose cursor-pointer hover:text-blue-900 ">apigateway</span>
+        </a>
+        <a href="/tags/git">
+            <span
+                class="m-1 duration-100 bg-white dark:bg-gray-200 hover:bg-gray-300 rounded-full px-2 font-bold text-md leading-loose cursor-pointer hover:text-blue-900 ">git</span>
+        </a>
+        <a href="/tags/markdown">
+            <span
+                class="m-1 duration-100 bg-white dark:bg-gray-200 hover:bg-gray-300 rounded-full px-2 font-bold text-md leading-loose cursor-pointer hover:text-blue-900 ">markdown</span>
+        </a>
+        <a href="/tags/moralis">
+            <span
+                class="m-1 duration-100 bg-white dark:bg-gray-200 hover:bg-gray-300 rounded-full px-2 font-bold text-md leading-loose cursor-pointer hover:text-blue-900 ">moralis</span>
+        </a>
+        <a href="/tags/openzeppelin">
+            <span
+                class="m-1 duration-100 bg-white dark:bg-gray-200 hover:bg-gray-300 rounded-full px-2 font-bold text-md leading-loose cursor-pointer hover:text-blue-900 ">openzeppelin</span>
+        </a>
+        <a href="/tags/proxy">
+            <span
+                class="m-1 duration-100 bg-white dark:bg-gray-200 hover:bg-gray-300 rounded-full px-2 font-bold text-md leading-loose cursor-pointer hover:text-blue-900 ">proxy</span>
+        </a>
+        <a href="/tags/remix">
+            <span
+                class="m-1 duration-100 bg-white dark:bg-gray-200 hover:bg-gray-300 rounded-full px-2 font-bold text-md leading-loose cursor-pointer hover:text-blue-900 ">remix</span>
+        </a>
+        <a href="/tags/tool">
+            <span
+                class="m-1 duration-100 bg-white dark:bg-gray-200 hover:bg-gray-300 rounded-full px-2 font-bold text-md leading-loose cursor-pointer hover:text-blue-900 ">tool</span>
+        </a>
+        <a href="/tags/%E5%95%8F%E9%A1%8C%E8%A7%A3%E6%B1%BA">
+            <span
+                class="m-1 duration-100 bg-white dark:bg-gray-200 hover:bg-gray-300 rounded-full px-2 font-bold text-md leading-loose cursor-pointer hover:text-blue-900 ">問題解決</span>
+        </a>
+        <a href="/tags/%E7%92%B0%E5%A2%83%E8%A8%AD%E5%AE%9A">
+            <span
+                class="m-1 duration-100 bg-white dark:bg-gray-200 hover:bg-gray-300 rounded-full px-2 font-bold text-md leading-loose cursor-pointer hover:text-blue-900 ">環境設定</span>
+        </a>
+    </div>
+</div>
+
+ 
+        </div><footer class=" text-white p-6 w-full border-t border-gray-200">
+    
+    <div class="container max-w-screen-xl mr-auto ml-auto">
+        <p>&copy; 2021 <a href="https://devbricker.github.io/" class="hover:text-gray-500">DevBricker</a></p>
+    </div>
+    <script src="https://devbricker.github.io/js/main.js"></script>
+    <script src="https://devbricker.github.io/js/prism.js"></script>
+
+    
+    <script src="https://devbricker.github.io/js/languageSelector.js"></script>
+  
+    <script>
+        var icon = document.getElementById("icon");
+        var icon2 = document.getElementById("icon2");
+        
+        if (document.documentElement.classList.contains("dark") || localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            icon.classList.remove("icon-moon");
+            icon.classList.add("icon-sun");
+            icon2.classList.remove("icon-moon");
+            icon2.classList.add("icon-sun");
+            document.documentElement.classList.add('dark')
+        } else {
+            document.documentElement.classList.remove('dark')
+        }
+        function toggleDarkMode() {
+            if (document.documentElement.classList.contains('dark')) {
+                icon.classList.remove("icon-sun");
+                icon.classList.add("icon-moon");
+                icon2.classList.remove("icon-sun");
+                icon2.classList.add("icon-moon");
+                document.documentElement.classList.remove('dark')
+                localStorage.theme = 'light'
+            } else {
+                icon.classList.remove("icon-moon");
+                icon.classList.add("icon-sun");
+                icon2.classList.remove("icon-moon");
+                icon2.classList.add("icon-sun");
+                document.documentElement.classList.add('dark')
+                localStorage.theme = 'dark'
+            }
+        }
+    </script>
+</footer></div>
+</body>
+
+</html>

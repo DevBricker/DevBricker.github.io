@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+
+<html lang="zh-TW">
+<head>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-204784534-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-204784534-1');
+</script>
+
+
+<title>DevBricker | Hugo 從零開始 建立自己的部落格</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+    
+    
+    <meta name="description" content="DevBricker | 一開始想建立一個屬於自己的個人部落格，於是乎尋找了各式各樣建立部落格的方法，在google神的庇佑下，發現了 **Hugo**">
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/favicon/site.webmanifest" />
+    <link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#5bbad5" />
+    <link rel="shortcut icon" href="/favicon/favicon.ico" />
+    <meta name="theme-color" content="#ffffff">
+    <meta property="og:title" content="DevBricker | Hugo 從零開始 建立自己的部落格" />
+    
+    
+        
+        <link rel="stylesheet" href="https://devbricker.github.io/css/styles.min.b50ea4b93be37fee4d7ff8107f000105970338d07e26cc5efce997e2fd25bd7b.css">
+    
+    <link href="/css/blonde.min.css" rel="stylesheet" type="text/css" media="print"
+        onload="this.media='all'">
+    
+
+
+
+
+<meta property="og:site_name" content="DevBricker">
+
+<meta property="og:url" content="https://devbricker.github.io/post/hugo/deploy/hugo_build1/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="">
+
+<link rel="canonical" href="https://devbricker.github.io/post/hugo/deploy/hugo_build1/">
+
+
+<meta property="article:published_time" content="2021-08-07T00:00:00&#43;00:00">
+<meta property="article:updated_time" content="2021-08-07T00:00:00&#43;00:00">
+
+
+
+
+
+    
+<meta property="og:image" content="https://d33wubrfki0l68.cloudfront.net/c38c7334cc3f23585738e40334284fddcaf03d5e/2e17c/images/hugo-logo-wide.svg">
+<meta property="og:image:url" content="https://d33wubrfki0l68.cloudfront.net/c38c7334cc3f23585738e40334284fddcaf03d5e/2e17c/images/hugo-logo-wide.svg">
+    
+
+    
+    <link rel="stylesheet" href="/css/custom.css">
+    <link rel="stylesheet" href="/css/code.css">
+    <link rel="stylesheet" href="/css/code2.css">
+    <i class="dark hidden"></i>
+</head>
+<body class="font-sans">
+    <div
+        class="min-w-screen min-h-screen flex flex-col items-center bg-warmgray-700"><div class="w-full">
+    <div class="container max-w-screen-xl mr-auto ml-auto">
+        <nav class="flex items-center justify-between flex-wrap pt-4 pb-4 pl-6 pr-6">
+            <div class="flex items-center flex-no-shrink text-white mr-6">
+                <a href="https://devbricker.github.io/"><span class="font-semibold text-2xl tracking-tight">DevBricker</span></a>
+            </div>
+            <div class="flex md:hidden">
+                <div class="py-2">
+                    <button onclick="toggleDarkMode()" class="focus:outline-none mr-1" aria-label="Darkmode Toggle Button"><i id="icon"
+                            class="icon-moon inline-flex align-middle leading-normal text-lg text-white"></i></button>
+                    <span class="text-gray-300">|</span>
+                </div>
+                <button id="hamburgerbtn" class="flex items-center px-3 py-1 text-gray-300 hover:text-white" aria-label="Hamburger Button">
+                    <span class="icon-menu text-2xl"></span>
+                </button>
+            </div>
+            <div class="hidden w-full md:flex md:flex-row sm:items-center md:w-auto" id="mobileMenu">
+                <div class="text-sm lg:flex-grow">
+                </div>
+                <div class="navmenu">
+                    
+                    <a href="/"
+                        class="no-underline block mt-4 sm:inline-block sm:mt-0 text-gray-400 hover:text-white mr-4">
+                        主頁
+                    </a>
+                    
+                    <a href="/about/"
+                        class="no-underline block mt-4 sm:inline-block sm:mt-0 text-gray-400 hover:text-white mr-4">
+                        關於我們
+                    </a>
+                    
+                </div>
+                <div class="text-gray-400 invisible md:visible">
+                    <span>|</span>
+                    <button onclick="toggleDarkMode()" class="focus:outline-none" aria-label="Darkmode Toggle Button"><i id="icon2"
+                            class="icon-moon inline-flex align-middle leading-normal text-lg ml-2"></i></button>
+                </div>
+            </div>
+        </nav>
+    </div>
+</div>
+<style>
+    .active {
+        display: block;
+    }
+</style>
+
+<script>
+    let hamburger = document.getElementById('hamburgerbtn');
+    let mobileMenu = document.getElementById('mobileMenu');
+    hamburger.addEventListener('click', function () {
+        mobileMenu.classList.toggle('active');
+    });
+</script>
+<div class="w-full border-t border-gray-200 px-5 pt-4 container max-w-screen-xl mx-auto  flex-grow px-5 lg:px-0"
+            id="content">
+            <div class="lg:mx-5">
+<div class="grid grid-cols-3 gap-4">
+    <div class="bg-white col-span-3 lg:col-span-2 p-5 dark:bg-warmgray-900 dark:text-white">
+        <h1 class="title text-4xl">Hugo 從零開始 建立自己的部落格</h1>
+        <aside id="meta">
+            <div>
+                
+                <section>
+                    <h4 id="date"><span class="icon-access_time mr-1"></span>2021/08/07 </h4>
+                </section>
+            
+                
+                <div id="tags">
+                    <span class="icon-local_offer mr-1"></span>
+                    
+                    <a href="https://devbricker.github.io/tags/markdown">Markdown</a> |
+                    
+                </div>
+                
+            </div>
+        </aside>
+        
+        <img class="py-4" src="https://d33wubrfki0l68.cloudfront.net/c38c7334cc3f23585738e40334284fddcaf03d5e/2e17c/images/hugo-logo-wide.svg">
+        
+        <div class="content mt-5"><h1 id="前言">前言</h1>
+<p>一開始想建立一個屬於自己的個人部落格，於是乎尋找了各式各樣建立部落格的方法，在google神的庇佑下，發現了 <strong>Hugo</strong> 這個產生靜態網站生成器的工具，就是就開始入坑了！！！</p>
+<h1 id="什麼是hugo">什麼是Hugo?</h1>
+<p>這裏先基本介紹Hugo是什麼～
+那基本來說它是一個靜態網頁生成器，相較於其他的網頁編譯速度來說，它非常的快，那它的其他優點如下：</p>
+<ul>
+<li>社區活躍性高</li>
+<li>前端語言的支持種類豐富</li>
+<li>Hot Reload</li>
+<li>可非常客製化</li>
+</ul>
+<blockquote>
+<p>那這裏就附上Hugo的官網連結:https://gohugo.io/</p>
+</blockquote>
+<hr>
+<h2 id="開始建立屬於自己的hugo">開始建立屬於自己的HUGO</h2>
+<ol>
+<li>
+<h3 id="前置作業">前置作業</h3>
+</li>
+</ol>
+<p>由於使用MacOS，所以可以直接使用 <a href="https://brew.sh/">HomeBrew</a> 安裝Hugo</p>
+<pre><code>brew install hugo
+</code></pre><p>那在Window要安裝的話可以參考這篇 <a href="https://devbricker.github.io/post/hugo/markdown/hugo-on-github-%E8%87%AA%E6%9E%B6%E5%85%A8%E7%B4%80%E9%8C%84-hugo%E7%92%B0%E5%A2%83%E5%AE%89%E8%A3%9D%E4%B8%80/">Hugo window 安裝篇</a></p>
+<hr>
+<ol start="2">
+<li>
+<h3 id="建立一個新專案">建立一個新專案</h3>
+</li>
+</ol>
+<p>安裝完成之後，就開始我們的新專案吧～～
+首先可以自行選擇放hugo的資料夾，那這裡實做的話放在 <strong>~/Documents/Hugo</strong> 底下
+開啟終端機並到上述的資料夾路徑，執行</p>
+<pre><code>hugo new site blog
+</code></pre><p>blog是可以被自定義的名稱
+當輸入完成之後 hugo-cli就會自動幫你生成一個資料夾，裡面的結構如下：</p>
+<pre><code>myBlog/
+│
+├── archetypes/
+│ │
+│ └─ default.md  # 預設 markdown
+├── content/     # 頁面、文章（markdown）
+├── data/        # 資料庫
+├── layouts/     # 自定義的樣板
+├── static/      # 靜態資源
+├── themes/      # 網站的主題
+└── config.toml  # 網站的配置
+</code></pre><p>下一步就是加入很興奮的主題啦～</p>
+<hr>
+<ol start="3">
+<li>
+<h3 id="加入theme-主題">加入Theme 主題</h3>
+</li>
+</ol>
+<p>在寫自己的文章之前，當然是要選擇自己的主題，當然也可以製作自己的主題，但是沒有開發者經驗，建議是從別人的主題慢慢的去更改，這樣會比較容易理解程式的結構（個人感想）
+那HUGO 主題的連結 如下：</p>
+<blockquote>
+<p><a href="https://themes.gohugo.io/">https://themes.gohugo.io/</a></p>
+</blockquote>
+<p>每一個主題安裝都有它自己本身的安裝步驟，這裏先選擇用    <a href="https://themes.gohugo.io/themes/hugo-tranquilpeak-theme/">https://themes.gohugo.io/themes/hugo-tranquilpeak-theme/</a> 
+這個主題作為示範，那它本身也有demo Site 有興趣的各位可以去觀摩觀摩～
+那先輸入指令：</p>
+<pre><code>cd themes
+git clone https://github.com/kakawait/hugo-tranquilpeak-theme.git
+cd ..
+</code></pre><p>就會幫你把他的主題下載到你的hugo上，下一步可以先複製他的範例的配置，這樣就可以不用重頭開始去設定。</p>
+<pre><code>cp ./themes/hugo-tranquilpeak-theme/exampleSite/config.toml ./config.toml
+</code></pre><p>那這裏先寫基本的配置範例</p>
+<pre><code>baseURL = &quot;https://devbricker.github.io/&quot; # 部署到線上之後要使用的主要域名
+defaultContentLanguage = &quot;zh-tw&quot;    # 預設語系
+title = &quot;DevBriker&quot;                # 網站 title
+theme = &quot;tranquilpeak&quot;              # 指定使用的佈景 (與資料夾名稱一樣)
+paginate = 7                        # 每頁顯示幾筆文章
+canonifyurls = true                 # 設為 true 讓全站資源網址都套用 baseURL
+</code></pre><p>那到這裡一步，就完成了一大半，接下來就是新增頁面了～</p>
+<hr>
+<ol start="4">
+<li>
+<h3 id="新增頁面">新增頁面</h3>
+</li>
+</ol>
+<p>接下來就是要到content 裡面就新增文章了，所有文章都會集中在content底下，那它的規則就要看主題的設定如何設定了。那首先呢，在content底下新增一個文件夾命名post，再往下產生新文章  <strong><code>test.md</code></strong></p>
+<pre><code>myBlog/
+├── content/ 
+│ └─ post
+| │ └─ test.md 新增的文章
+
+</code></pre><p>在 <code>**test.md**</code> 裡面的內容輸入如下</p>
+<blockquote>
+<p>-&ndash;
+title: &ldquo;我的第一篇文章&rdquo;
+thumbnailImagePosition: left
+thumbnailImage: <a href="https://d1u9biwaxjngwg.cloudfront.net/cover-image-showcase/city-750.jpg">https://d1u9biwaxjngwg.cloudfront.net/cover-image-showcase/city-750.jpg</a>
+coverImage: https:////d1u9biwaxjngwg.cloudfront.net/cover-image-showcase/city.jpg
+metaAlignment: center
+coverMeta: out
+date: 2015-05-13
+categories:</p>
+<ul>
+<li>tranquilpeak</li>
+<li>features
+tags:</li>
+<li>cover image</li>
+</ul>
+<p>-&ndash;</p>
+<p>我的第一篇文章內容</p>
+</blockquote>
+<p>然後就能開始啟動local測試了！</p>
+<hr>
+<ol start="5">
+<li>
+<h3 id="local測試">Local測試</h3>
+</li>
+</ol>
+<p>開始local測試也很簡單，只要輸入 <code>hugo server</code> 電腦就會幫你自動部署在port 1313上，那在瀏覽器中打開<a href="http://localhost:1313/">http://localhost:1313</a> 就會看到你的網頁了！</p>
+<p>結果如下
+<img src="https://devbricker.github.io/ImageStorage/Hugo/%E6%88%AA%E5%9C%96%202021-08-08%20%E4%B8%8B%E5%8D%888.23.00.png" alt="">
+<img src="https://devbricker.github.io/ImageStorage/Hugo/%E6%88%AA%E5%9C%96%202021-08-08%20%E4%B8%8B%E5%8D%888.23.09.png" alt=""></p>
+<p>那下一章會更加詳細介紹文章的結構，再歡迎大家回來查閱喔！</p>
+<hr>
+</div>
+        <hr class="py-2">
+        <aside id="meta">
+            
+            <div id="categories">
+                <span class="icon-folder text-xl mr-1"></span>
+                
+                <span
+                    class="inline-flex py-2 leading-4 mr-2 mb-2 content-center bg-gray-200 justify-center h-8 px-3 text-blue-500 hover:text-black dark:bg-warmgray-800"><a
+                        href="https://devbricker.github.io/categories/hugo">Hugo</a></span>
+                
+                <span
+                    class="inline-flex py-2 leading-4 mr-2 mb-2 content-center bg-gray-200 justify-center h-8 px-3 text-blue-500 hover:text-black dark:bg-warmgray-800"><a
+                        href="https://devbricker.github.io/categories/github">Github</a></span>
+                
+            </div>
+            
+            <div class="grid grid-cols-2">
+                <div class="col-span-1">
+                    
+                    <a class="previous lg:text-l" href="https://devbricker.github.io/post/hugo/deploy/hugo_environment/">
+                        <div
+                            class="transition-colors duration-300 border border-gray-600 hover:border-black h-auto m-3 text-center py-3 lg:py-1">
+                            <span class="icon-keyboard_arrow_left"></span> Hugo 從零開始 環境安裝(Windows)
+                        </div>
+                    </a>
+                    
+                </div>
+                
+                <a class="next lg:text-l" href="https://devbricker.github.io/post/devtools/sourcetree_github_organization_private_repositories/">
+                    <div
+                        class="transition-colors duration-300 col-span-1 border border-gray-600 hover:border-black h-auto m-3 text-center py-3 lg:py-1">
+                        SourceTree 無法對Github內的Organization Private Repositories執行指令 <span class="icon-keyboard_arrow_right"></span>
+                    </div>
+                </a>
+                
+            </div>
+        </aside>
+        <hr class="py-2">
+        <div class="mb-3">
+            
+        </div>
+    </div>
+    <div class="hidden lg:block lg:col-span-1">
+        
+        
+
+
+
+<div class="mx-auto w-full px-3 pb-3">
+    <h1 class="mb-4 pl-2 text-xl font-bold dark:text-white text-gray-300">文件分類</h1>
+    
+    
+    <div
+        class="flex items-center bg-indigo-500 rounded-md px-3 text-white cursor-pointer transition duration-500 ease-in-out hover:shadow hover:bg-indigo-600">
+        <div>
+            <svg fill="currentColor" class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                <path d="M0 4c0-1.1.9-2 2-2h7l2 2h7a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4z"></path>
+            </svg>
+
+        </div>
+        <div class="px-3 mr-auto">
+            <a class="text-center block duration-100 py-2 px-1 mx-4 hover:bg-gray-800 text-gray-200 dark:text-gray-200 dark:hover:bg-warmgray-800"
+                href="https://devbricker.github.io//archives/blockchain">blockchain (1)</a>
+        </div>
+    </div>
+    
+    <div
+        class="flex items-center bg-indigo-500 rounded-md px-3 text-white cursor-pointer transition duration-500 ease-in-out hover:shadow hover:bg-indigo-600">
+        <div>
+            <svg fill="currentColor" class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                <path d="M0 4c0-1.1.9-2 2-2h7l2 2h7a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4z"></path>
+            </svg>
+
+        </div>
+        <div class="px-3 mr-auto">
+            <a class="text-center block duration-100 py-2 px-1 mx-4 hover:bg-gray-800 text-gray-200 dark:text-gray-200 dark:hover:bg-warmgray-800"
+                href="https://devbricker.github.io//archives/blog-builder">blog-builder (2)</a>
+        </div>
+    </div>
+    
+    <div
+        class="flex items-center bg-indigo-500 rounded-md px-3 text-white cursor-pointer transition duration-500 ease-in-out hover:shadow hover:bg-indigo-600">
+        <div>
+            <svg fill="currentColor" class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                <path d="M0 4c0-1.1.9-2 2-2h7l2 2h7a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4z"></path>
+            </svg>
+
+        </div>
+        <div class="px-3 mr-auto">
+            <a class="text-center block duration-100 py-2 px-1 mx-4 hover:bg-gray-800 text-gray-200 dark:text-gray-200 dark:hover:bg-warmgray-800"
+                href="https://devbricker.github.io//archives/cloud">cloud (1)</a>
+        </div>
+    </div>
+    
+    <div
+        class="flex items-center bg-indigo-500 rounded-md px-3 text-white cursor-pointer transition duration-500 ease-in-out hover:shadow hover:bg-indigo-600">
+        <div>
+            <svg fill="currentColor" class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                <path d="M0 4c0-1.1.9-2 2-2h7l2 2h7a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4z"></path>
+            </svg>
+
+        </div>
+        <div class="px-3 mr-auto">
+            <a class="text-center block duration-100 py-2 px-1 mx-4 hover:bg-gray-800 text-gray-200 dark:text-gray-200 dark:hover:bg-warmgray-800"
+                href="https://devbricker.github.io//archives/devtools">devtools (3)</a>
+        </div>
+    </div>
+    
+    
+</div>
+
+        
+
+<div class="mb-3 pt-2">
+    
+    <h1 class="pl-4 text-xl font-bold dark:text-white text-gray-300 mb-2">主題</h1>
+    <div class="w-full rounded-lg px-2 py-2">
+        
+        <ul class="divide-y-2 divide-gray-100 ml-0 mt-2 mb-2">
+            <li class="mx-1 hover:bg-warmgray-900 hover:text-white my-2" style="list-style: none">
+                <a class="mx-1 font-bold text-white" href="https://devbricker.github.io//categories/aws">Aws</a>
+            </li>
+        </ul>
+        
+        <ul class="divide-y-2 divide-gray-100 ml-0 mt-2 mb-2">
+            <li class="mx-1 hover:bg-warmgray-900 hover:text-white my-2" style="list-style: none">
+                <a class="mx-1 font-bold text-white" href="https://devbricker.github.io//categories/github">Github</a>
+            </li>
+        </ul>
+        
+        <ul class="divide-y-2 divide-gray-100 ml-0 mt-2 mb-2">
+            <li class="mx-1 hover:bg-warmgray-900 hover:text-white my-2" style="list-style: none">
+                <a class="mx-1 font-bold text-white" href="https://devbricker.github.io//categories/hugo">Hugo</a>
+            </li>
+        </ul>
+        
+        <ul class="divide-y-2 divide-gray-100 ml-0 mt-2 mb-2">
+            <li class="mx-1 hover:bg-warmgray-900 hover:text-white my-2" style="list-style: none">
+                <a class="mx-1 font-bold text-white" href="https://devbricker.github.io//categories/polygon">Polygon</a>
+            </li>
+        </ul>
+        
+        <ul class="divide-y-2 divide-gray-100 ml-0 mt-2 mb-2">
+            <li class="mx-1 hover:bg-warmgray-900 hover:text-white my-2" style="list-style: none">
+                <a class="mx-1 font-bold text-white" href="https://devbricker.github.io//categories/sourcetree">Sourcetree</a>
+            </li>
+        </ul>
+        
+        <ul class="divide-y-2 divide-gray-100 ml-0 mt-2 mb-2">
+            <li class="mx-1 hover:bg-warmgray-900 hover:text-white my-2" style="list-style: none">
+                <a class="mx-1 font-bold text-white" href="https://devbricker.github.io//categories/visual-studio-code">Visual studio code</a>
+            </li>
+        </ul>
+        
+    </div>
+</div>
+
+
+        
+        
+    </div>
+</div>
+
+            </div>
+        </div>
+        <div
+        class="w-full  px-5 pb-5 container max-w-screen-xl mx-auto  flex-grow px-5 lg:px-0">
+            
+
+
+
+<h1 class="px-5 mb-4 text-xl font-bold dark:text-white text-gray-300 mt-4 w-full text-left">最近釋出</h1>
+<div class="px-5 flex overflow-x-auto lg:w-6/6">
+    
+    <div class="mr-2 w-6/6 flex flex-col min-w-1/5 mb-4 px-3 pt-2 mx-auto bg-white rounded-lg shadow-md dark:bg-warmgray-900">
+        
+        <div class="mt-4"><a href="/post/devtools/visualstudiocodeingithub/" class="text-gray-900 font-bold text-xl dark:text-white font-medium hover:underline">
+            Visual studio code隱身在GitHub內的秘密</a></div>
+        <div class="flex items-center justify-between mt-4">
+            <div class="flex items-center">
+                <p class="text-sm text-gray-600 flex items-center pb-1 dark:text-gray-400">
+                    <time><span class="icon-access_time mr-1"></span>2021/08/21</time>
+                </p>
+                </div>  
+        </div>
+    </div>
+    <div class="mr-2 w-6/6 flex flex-col min-w-1/5 mb-4 px-3 pt-2 mx-auto bg-white rounded-lg shadow-md dark:bg-warmgray-900">
+        
+        <div class="mt-4"><a href="/post/hugo/markdown/markdown_basic_tutorial/" class="text-gray-900 font-bold text-xl dark:text-white font-medium hover:underline">
+            Markdown 從零開始</a></div>
+        <div class="flex items-center justify-between mt-4">
+            <div class="flex items-center">
+                <p class="text-sm text-gray-600 flex items-center pb-1 dark:text-gray-400">
+                    <time><span class="icon-access_time mr-1"></span>2021/07/25</time>
+                </p>
+                </div>  
+        </div>
+    </div>
+    <div class="mr-2 w-6/6 flex flex-col min-w-1/5 mb-4 px-3 pt-2 mx-auto bg-white rounded-lg shadow-md dark:bg-warmgray-900">
+        
+        <div class="mt-4"><a href="/post/cloud/aws/%E8%A6%AA%E6%84%9B%E7%9A%84%E6%88%91%E6%8A%8Ahttp%E7%84%A1%E7%97%9B%E8%AE%8A%E6%88%90https%E4%BA%86_20210725/" class="text-gray-900 font-bold text-xl dark:text-white font-medium hover:underline">
+            親愛的，我把HTTP無痛變成HTTPS了</a></div>
+        <div class="flex items-center justify-between mt-4">
+            <div class="flex items-center">
+                <p class="text-sm text-gray-600 flex items-center pb-1 dark:text-gray-400">
+                    <time><span class="icon-access_time mr-1"></span>2021/07/25</time>
+                </p>
+                </div>  
+        </div>
+    </div>
+    <div class="mr-2 w-6/6 flex flex-col min-w-1/5 mb-4 px-3 pt-2 mx-auto bg-white rounded-lg shadow-md dark:bg-warmgray-900">
+        
+        <div class="mt-4"><a href="/post/hugo/deploy/hugo_environment/" class="text-gray-900 font-bold text-xl dark:text-white font-medium hover:underline">
+            Hugo 從零開始 環境安裝(Windows)</a></div>
+        <div class="flex items-center justify-between mt-4">
+            <div class="flex items-center">
+                <p class="text-sm text-gray-600 flex items-center pb-1 dark:text-gray-400">
+                    <time><span class="icon-access_time mr-1"></span>2021/08/07</time>
+                </p>
+                </div>  
+        </div>
+    </div>
+</div>
+
+
+            
+
+
+
+<div class='px-6 w-full'>
+    <h1 class="mb-4 text-xl font-bold text-white mt-3">標籤</h1>
+    
+    <div class='my-3 flex flex-wrap -m-1'>
+        <a href="/tags/apigateway">
+            <span
+                class="m-1 duration-100 bg-white dark:bg-gray-200 hover:bg-gray-300 rounded-full px-2 font-bold text-md leading-loose cursor-pointer hover:text-blue-900 ">apigateway</span>
+        </a>
+        <a href="/tags/git">
+            <span
+                class="m-1 duration-100 bg-white dark:bg-gray-200 hover:bg-gray-300 rounded-full px-2 font-bold text-md leading-loose cursor-pointer hover:text-blue-900 ">git</span>
+        </a>
+        <a href="/tags/markdown">
+            <span
+                class="m-1 duration-100 bg-white dark:bg-gray-200 hover:bg-gray-300 rounded-full px-2 font-bold text-md leading-loose cursor-pointer hover:text-blue-900 ">markdown</span>
+        </a>
+        <a href="/tags/moralis">
+            <span
+                class="m-1 duration-100 bg-white dark:bg-gray-200 hover:bg-gray-300 rounded-full px-2 font-bold text-md leading-loose cursor-pointer hover:text-blue-900 ">moralis</span>
+        </a>
+        <a href="/tags/openzeppelin">
+            <span
+                class="m-1 duration-100 bg-white dark:bg-gray-200 hover:bg-gray-300 rounded-full px-2 font-bold text-md leading-loose cursor-pointer hover:text-blue-900 ">openzeppelin</span>
+        </a>
+        <a href="/tags/proxy">
+            <span
+                class="m-1 duration-100 bg-white dark:bg-gray-200 hover:bg-gray-300 rounded-full px-2 font-bold text-md leading-loose cursor-pointer hover:text-blue-900 ">proxy</span>
+        </a>
+        <a href="/tags/remix">
+            <span
+                class="m-1 duration-100 bg-white dark:bg-gray-200 hover:bg-gray-300 rounded-full px-2 font-bold text-md leading-loose cursor-pointer hover:text-blue-900 ">remix</span>
+        </a>
+        <a href="/tags/tool">
+            <span
+                class="m-1 duration-100 bg-white dark:bg-gray-200 hover:bg-gray-300 rounded-full px-2 font-bold text-md leading-loose cursor-pointer hover:text-blue-900 ">tool</span>
+        </a>
+        <a href="/tags/%E5%95%8F%E9%A1%8C%E8%A7%A3%E6%B1%BA">
+            <span
+                class="m-1 duration-100 bg-white dark:bg-gray-200 hover:bg-gray-300 rounded-full px-2 font-bold text-md leading-loose cursor-pointer hover:text-blue-900 ">問題解決</span>
+        </a>
+        <a href="/tags/%E7%92%B0%E5%A2%83%E8%A8%AD%E5%AE%9A">
+            <span
+                class="m-1 duration-100 bg-white dark:bg-gray-200 hover:bg-gray-300 rounded-full px-2 font-bold text-md leading-loose cursor-pointer hover:text-blue-900 ">環境設定</span>
+        </a>
+    </div>
+</div>
+
+ 
+        </div><footer class=" text-white p-6 w-full border-t border-gray-200">
+    
+    <div class="container max-w-screen-xl mr-auto ml-auto">
+        <p>&copy; 2021 <a href="https://devbricker.github.io/" class="hover:text-gray-500">DevBricker</a></p>
+    </div>
+    <script src="https://devbricker.github.io/js/main.js"></script>
+    <script src="https://devbricker.github.io/js/prism.js"></script>
+
+    
+    <script src="https://devbricker.github.io/js/languageSelector.js"></script>
+  
+    <script>
+        var icon = document.getElementById("icon");
+        var icon2 = document.getElementById("icon2");
+        
+        if (document.documentElement.classList.contains("dark") || localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            icon.classList.remove("icon-moon");
+            icon.classList.add("icon-sun");
+            icon2.classList.remove("icon-moon");
+            icon2.classList.add("icon-sun");
+            document.documentElement.classList.add('dark')
+        } else {
+            document.documentElement.classList.remove('dark')
+        }
+        function toggleDarkMode() {
+            if (document.documentElement.classList.contains('dark')) {
+                icon.classList.remove("icon-sun");
+                icon.classList.add("icon-moon");
+                icon2.classList.remove("icon-sun");
+                icon2.classList.add("icon-moon");
+                document.documentElement.classList.remove('dark')
+                localStorage.theme = 'light'
+            } else {
+                icon.classList.remove("icon-moon");
+                icon.classList.add("icon-sun");
+                icon2.classList.remove("icon-moon");
+                icon2.classList.add("icon-sun");
+                document.documentElement.classList.add('dark')
+                localStorage.theme = 'dark'
+            }
+        }
+    </script>
+</footer></div>
+</body>
+
+</html>
