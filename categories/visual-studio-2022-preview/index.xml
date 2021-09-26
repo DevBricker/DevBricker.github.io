@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Visual Studio 2022 Preview on DevBricker</title>
+    <link>https://devbricker.github.io/categories/visual-studio-2022-preview/</link>
+    <description>Recent content in Visual Studio 2022 Preview on DevBricker</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-TW</language>
+    <lastBuildDate>Mon, 13 Sep 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://devbricker.github.io/categories/visual-studio-2022-preview/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Visual Studio 2022 Preview 跨平台遠端單元測試</title>
+      <link>https://devbricker.github.io/post/devtools/visualstudio2022testeeplorer/</link>
+      <pubDate>Mon, 13 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://devbricker.github.io/post/devtools/visualstudio2022testeeplorer/</guid>
+      <description>今年2021年6月17日 微軟發佈 Visual Studio 2022 Preview第一版，趕緊來安裝感受一下吧。 今天要介紹Visual Studio中的遠端測試，遠端測試能</description>
+    </item>
+    
+  </channel>
+</rss>

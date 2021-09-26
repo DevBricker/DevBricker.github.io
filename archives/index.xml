@@ -6,22 +6,22 @@
     <description>Recent content in Archives on DevBricker</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-TW</language>
-    <lastBuildDate>Sun, 22 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://devbricker.github.io/archives/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 15 Sep 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://devbricker.github.io/archives/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>DevTools</title>
+      <link>https://devbricker.github.io/archives/devtools/</link>
+      <pubDate>Wed, 15 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://devbricker.github.io/archives/devtools/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>BlockChain</title>
       <link>https://devbricker.github.io/archives/blockchain/</link>
       <pubDate>Sun, 22 Aug 2021 00:00:00 +0000</pubDate>
       
       <guid>https://devbricker.github.io/archives/blockchain/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>DevTools</title>
-      <link>https://devbricker.github.io/archives/devtools/</link>
-      <pubDate>Sat, 21 Aug 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://devbricker.github.io/archives/devtools/</guid>
       <description></description>
     </item>
     

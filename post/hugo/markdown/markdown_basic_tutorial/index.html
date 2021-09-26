@@ -14,25 +14,25 @@
 </script>
 
 
-<title>DevBricker | Markdown 從零開始</title>
+<title>DevBricker | Markdown 從零開始 基本文法篇</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
     
     
-    <meta name="description" content="DevBricker | 基本markdown 文法">
+    <meta name="description" content="DevBricker | 基本markdown 文法，要寫好一篇漂亮的Blog文章，就從認識Markdown開始">
     
-    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/little_bot2.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/little_bot2.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/little_bot2.png">
     <link rel="manifest" href="/favicon/site.webmanifest" />
     <link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#5bbad5" />
-    <link rel="shortcut icon" href="/favicon/favicon.ico" />
+    <link rel="shortcut icon" href="/favicon/little_bot2.png" />
     <meta name="theme-color" content="#ffffff">
-    <meta property="og:title" content="DevBricker | Markdown 從零開始" />
+    <meta property="og:title" content="DevBricker | Markdown 從零開始 基本文法篇" />
     
     
         
-        <link rel="stylesheet" href="https://devbricker.github.io/css/styles.min.b50ea4b93be37fee4d7ff8107f000105970338d07e26cc5efce997e2fd25bd7b.css">
+        <link rel="stylesheet" href="https://devbricker.github.io/css/styles.min.f5bc8dfc6909d5063d8c94d085d1d7ba22bb8bd9b1672a1af2f456100cd328eb.css">
     
     <link href="/css/blonde.min.css" rel="stylesheet" type="text/css" media="print"
         onload="this.media='all'">
@@ -52,39 +52,39 @@
 <link rel="canonical" href="https://devbricker.github.io/post/hugo/markdown/markdown_basic_tutorial/">
 
 
-<meta property="article:published_time" content="2021-07-25T00:00:00&#43;00:00">
-<meta property="article:updated_time" content="2021-07-25T00:00:00&#43;00:00">
+<meta property="article:published_time" content="2021-08-28T00:00:00&#43;00:00">
+<meta property="article:updated_time" content="2021-08-28T00:00:00&#43;00:00">
 
 
 
 
 
-    
-<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Markdown-mark-solid.svg/1200px-Markdown-mark-solid.svg.png">
-<meta property="og:image:url" content="https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Markdown-mark-solid.svg/1200px-Markdown-mark-solid.svg.png">
-    
+<meta property="og:image" content="https://devbricker.github.io/">
+<meta property="og:image:url" content="https://devbricker.github.io/">
 
     
     <link rel="stylesheet" href="/css/custom.css">
     <link rel="stylesheet" href="/css/code.css">
-    <link rel="stylesheet" href="/css/code2.css">
-    <i class="dark hidden"></i>
+    <link rel="stylesheet" href="/css/prism.css">
+    <meta name="robots" content="index, follow, archive">
+    
+    <script src="https://devbricker.github.io/js/prism.js"></script>
+    
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="https://devbricker.github.io/sitemap.xml">
 </head>
 <body class="font-sans">
     <div
         class="min-w-screen min-h-screen flex flex-col items-center bg-warmgray-700"><div class="w-full">
-    <div class="container max-w-screen-xl mr-auto ml-auto">
-        <nav class="flex items-center justify-between flex-wrap pt-4 pb-4 pl-6 pr-6">
+    <div class="container-fluid w-full mr-auto ml-auto pr-6 pl-6 lg:pl-10 lg:pr-10 md:pl-5 md:pr-5">
+        <nav class="flex items-center justify-between flex-wrap pt-4 pb-4 ">
             <div class="flex items-center flex-no-shrink text-white mr-6">
+                <img style="width:44px" src="/favicon/little_bot2.png">
                 <a href="https://devbricker.github.io/"><span class="font-semibold text-2xl tracking-tight">DevBricker</span></a>
             </div>
             <div class="flex md:hidden">
-                <div class="py-2">
-                    <button onclick="toggleDarkMode()" class="focus:outline-none mr-1" aria-label="Darkmode Toggle Button"><i id="icon"
-                            class="icon-moon inline-flex align-middle leading-normal text-lg text-white"></i></button>
-                    <span class="text-gray-300">|</span>
-                </div>
-                <button id="hamburgerbtn" class="flex items-center px-3 py-1 text-gray-300 hover:text-white" aria-label="Hamburger Button">
+                
+                <button id="hamburgerbtn" class="flex items-center px-3 py-1 text-gray-300 hover:text-white"
+                    aria-label="Hamburger Button">
                     <span class="icon-menu text-2xl"></span>
                 </button>
             </div>
@@ -94,20 +94,30 @@
                 <div class="navmenu">
                     
                     <a href="/"
-                        class="no-underline block mt-4 sm:inline-block sm:mt-0 text-gray-400 hover:text-white mr-4">
+                        class="no-underline block mt-4 sm:inline-block sm:mt-0 text-white hover:text-gray-400 mr-4">
                         主頁
                     </a>
                     
                     <a href="/about/"
-                        class="no-underline block mt-4 sm:inline-block sm:mt-0 text-gray-400 hover:text-white mr-4">
+                        class="no-underline block mt-4 sm:inline-block sm:mt-0 text-white hover:text-gray-400 mr-4">
                         關於我們
                     </a>
                     
                 </div>
-                <div class="text-gray-400 invisible md:visible">
+                <div class="text-white invisible md:visible ">
                     <span>|</span>
-                    <button onclick="toggleDarkMode()" class="focus:outline-none" aria-label="Darkmode Toggle Button"><i id="icon2"
-                            class="icon-moon inline-flex align-middle leading-normal text-lg ml-2"></i></button>
+                </div>
+                <div class="text-white invisible md:visible ">
+                    <button onclick="openSideBar()" class="focus:outline-none" aria-label="open Side">
+                        <span>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 pt-2" viewBox="0 0 20 20"
+                                fill="currentColor">
+                                <path fill-rule="evenodd"
+                                    d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                        </span>
+                    </button>
                 </div>
             </div>
         </nav>
@@ -125,55 +135,43 @@
     hamburger.addEventListener('click', function () {
         mobileMenu.classList.toggle('active');
     });
-</script>
-<div class="w-full border-t border-gray-200 px-5 pt-4 container max-w-screen-xl mx-auto  flex-grow px-5 lg:px-0"
+</script><div class="bg-white w-full border-t border-gray-200 pt-4 container-fluid mx-auto flex-grow"
             id="content">
-            <div class="lg:mx-5">
-<div class="grid grid-cols-3 gap-4">
-    <div class="bg-white col-span-3 lg:col-span-2 p-5 dark:bg-warmgray-900 dark:text-white">
-        <h1 class="title text-4xl">Markdown 從零開始</h1>
+            <div class="pr-6 pl-6 lg:pl-12 lg:pr-12 md:pl-7 md:pr-7  mx-auto">
+<div class="grid grid-cols-4  md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-5 gap-4 ">
+    <div id="main" class="bg-warmgray-100 col-span-4 md:col-span-4 lg:col-span-4  xl:col-span-4 pt-4 rounded-md border-solid ring-2 ring-gray-700 pb-6 px-3 mb-2">
+        <h1 class="title text-4xl">Markdown 從零開始 基本文法篇</h1>
         <aside id="meta">
             <div>
-                
                 <section>
-                    <h4 id="date"><span class="icon-access_time mr-1"></span>2021/07/25 </h4>
+                    <h4 id="date"><span class="icon-access_time mr-1"></span>2021/08/28 </h4>
                 </section>
-            
+
                 
                 <div id="tags">
                     <span class="icon-local_offer mr-1"></span>
                     
-                    <a href="https://devbricker.github.io/tags/markdown">Markdown</a> |
+                    <a href="https://devbricker.github.io/%20tags/markdown">Markdown</a> |
                     
                 </div>
                 
             </div>
         </aside>
         
-        <img class="py-4" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Markdown-mark-solid.svg/1200px-Markdown-mark-solid.svg.png">
-        
-        <div class="content mt-5"><h1 id="markdown-從零開始">Markdown 從零開始</h1>
+        <div class="content mt-5"><h2 id="要寫好一篇漂亮的blog文章就從認識markdown開始本篇使用visual-studio-code-開發-關於vscode開發markdown文件請參考markdown-從零開始-開發工具篇markdown_basic_ide在開始之前先讓我們一起認識markdown的基本文法有哪些吧---omit-in-toc---">要寫好一篇漂亮的Blog文章，就從認識Markdown開始，本篇使用Visual studio code 開發 (關於VSCode開發Markdown文件請參考<a href="../markdown_basic_ide">Markdown 從零開始 開發工具篇</a>)，在開始之前先讓我們一起認識Markdown的基本文法有哪些吧！<!-- raw HTML omitted --></h2>
 <ul>
-<li><a href="#markdown-%E5%BE%9E%E9%9B%B6%E9%96%8B%E5%A7%8B">Markdown 從零開始</a>
-<ul>
-<li><a href="#%E6%A8%99%E9%A1%8C%E8%A1%A8%E7%A4%BA%E6%B3%95"><strong>標題表示法</strong></a></li>
-<li><a href="#%E9%A0%85%E7%9B%AE%E6%B8%85%E5%96%AE%E8%A1%A8%E7%A4%BA%E6%B3%95"><strong>項目清單表示法</strong></a></li>
-<li><a href="#%E6%AA%A2%E6%9F%A5%E6%B8%85%E5%96%AE"><strong>檢查清單</strong></a></li>
-<li><a href="#%E5%AD%97%E5%9E%8B"><strong>字型</strong></a></li>
-<li><a href="#%E5%88%86%E9%9A%94%E7%B7%9A"><strong>分隔線</strong></a></li>
-<li><a href="#%E5%BC%95%E8%A8%80"><strong>引言</strong></a></li>
-<li><a href="#%E8%A1%8C%E5%85%A7%E7%A8%8B%E5%BC%8F%E7%A2%BC"><strong>行內程式碼</strong></a></li>
-<li><a href="#%E7%A8%8B%E5%BC%8F%E7%A2%BC%E5%8D%80%E5%A1%8A"><strong>程式碼區塊</strong></a></li>
-<li><a href="#%E8%B6%85%E9%80%A3%E7%B5%90%E8%88%87%E5%9C%96%E7%89%87"><strong>超連結與圖片</strong></a></li>
-<li><a href="#%E8%B7%B3%E8%84%AB%E5%AD%97%E5%85%83"><strong>跳脫字元</strong></a></li>
-<li><a href="#%E5%A4%A7%E7%B6%B1%E7%94%A2%E7%94%9F%E6%96%B9%E6%B3%95"><strong>大綱產生方法</strong></a></li>
-</ul>
-</li>
+<li><a href="#%E5%A5%97%E4%BB%B6%E5%AE%89%E8%A3%9D"><strong>套件安裝</strong></a></li>
+<li><a href="#%E6%96%87%E6%B3%95%E4%BB%8B%E7%B4%B9"><strong>文法介紹</strong></a></li>
 </ul>
 <!-- raw HTML omitted -->
 <hr>
-<h2 id="標題表示法"><strong>標題表示法</strong></h2>
-<p>支援六個層級的標題表示法，透過 <code>#</code> 符號，符號越多代表層級越低，結構以HTML的 <code>&lt;h1&gt; ~ &lt;h6&gt;</code> 表示。</p>
+<h2 id="套件安裝"><strong>套件安裝</strong></h2>
+<h4 id="本篇使用的是-markdown-all-in-onehttpsmarketplacevisualstudiocomitemsitemnameyzhangmarkdown-all-in-one-套件----omit-in-toc---">本篇使用的是 <a href="https://marketplace.visualstudio.com/items?itemName=yzhang.markdown-all-in-one">Markdown All in One</a> 套件。 <!-- raw HTML omitted --></h4>
+<!-- raw HTML omitted -->
+<hr>
+<h2 id="文法介紹"><strong>文法介紹</strong></h2>
+<h3 id="setp1-標題表示法---omit-in-toc---">Setp1. 標題表示法<!-- raw HTML omitted --></h3>
+<p>支援六個層級的標題表示法，透過 <strong><code>#</code></strong> 符號，符號越多代表層級越低，結構以HTML的 <strong><code>&lt;h1&gt; ~ &lt;h6&gt;</code></strong> 表示。</p>
 <blockquote>
 <h1 id="標題一">標題一</h1>
 <h2 id="標題二">標題二</h2>
@@ -191,7 +189,7 @@
 </code></pre>
 <!-- raw HTML omitted -->
 <hr>
-<h2 id="項目清單表示法"><strong>項目清單表示法</strong></h2>
+<h3 id="setp2-項目清單表示法---omit-in-toc---">Setp2. 項目清單表示法<!-- raw HTML omitted --></h3>
 <p>項目清單表示法有三種：【*】【-】【+】，
 可透過Markdown All in One提供的 Toggle list快速產生項目清單清單功能</p>
 <!-- raw HTML omitted -->
@@ -206,8 +204,8 @@
 <p><img src="https://user-images.githubusercontent.com/15353001/126647968-19b26553-3f1c-4689-bcb6-da67ff725331.gif" alt="Markdown_numberlist"></p>
 <!-- raw HTML omitted -->
 <hr>
-<h2 id="檢查清單"><strong>檢查清單</strong></h2>
-<p>快速實現檢查清單功能，透過Visual Studio Code 快速選取首字快速鍵 <code>Ctrl + Alt + 上下鍵</code> 直接於首字前面輸入 <code>-[ ]</code> 符號，即可快速產生檢查清單功能，並且可透過快速鍵 <code>Alt + C</code> 實現快速勾選檢查清單功能 。</p>
+<h3 id="setp3-檢查清單---omit-in-toc---">Setp3. 檢查清單<!-- raw HTML omitted --></h3>
+<p>快速實現檢查清單功能，透過Visual Studio Code 快速選取首字快速鍵 <strong><code>Ctrl + Alt + 上下鍵</code></strong> 直接於首字前面輸入 <strong><code>-[ ]</code></strong> 符號，即可快速產生檢查清單功能，並且可透過快速鍵 <strong><code>Alt + C</code></strong> 實現快速勾選檢查清單功能 。</p>
 <ul>
 <li><input disabled="" type="checkbox"> 汽車</li>
 <li><input checked="" disabled="" type="checkbox"> 機車</li>
@@ -222,7 +220,7 @@
 </code></pre>
 <!-- raw HTML omitted -->
 <hr>
-<h2 id="字型"><strong>字型</strong></h2>
+<h3 id="setp4-字型---omit-in-toc---">Setp4. 字型<!-- raw HTML omitted --></h3>
 <blockquote>
 <p><strong>粗體</strong> <!-- raw HTML omitted -->
 <em>斜體</em> <!-- raw HTML omitted -->
@@ -234,7 +232,7 @@ _斜體_
 </code></pre>
 <!-- raw HTML omitted -->
 <hr>
-<h2 id="分隔線"><strong>分隔線</strong></h2>
+<h3 id="setp5-分隔線---omit-in-toc---">Setp5. 分隔線<!-- raw HTML omitted --></h3>
 <p>可透過以下符號：星號、減號、底線來建立一個分隔線</p>
 <pre><code>***
 * * *
@@ -243,8 +241,8 @@ _斜體_
 </code></pre>
 <!-- raw HTML omitted -->
 <hr>
-<h2 id="引言"><strong>引言</strong></h2>
-<p>若要特別引用或是標籤式概念，可在字首透過 <code>&gt;</code> 符號產生區塊引言，支援多個層級的寫法</p>
+<h3 id="setp6-引言---omit-in-toc---">Setp6. 引言<!-- raw HTML omitted --></h3>
+<p>若要特別引用或是標籤式概念，可在字首透過 <strong><code>&gt;</code></strong> 符號產生區塊引言，支援多個層級的寫法</p>
 <blockquote>
 <p>測試測試測試測試</p>
 <blockquote>
@@ -268,7 +266,7 @@ _斜體_
 </code></pre>
 <!-- raw HTML omitted -->
 <hr>
-<h2 id="行內程式碼"><strong>行內程式碼</strong></h2>
+<h3 id="setp7-行內程式碼---omit-in-toc---">Setp7. 行內程式碼<!-- raw HTML omitted --></h3>
 <p>在一個段落的句子中間，可以將程式碼內容前後加上反引號【`】，我們就可以在一個段落中穿插程式碼語言囉。</p>
 <blockquote>
 <p>前後包夾文字 <code>var a = 1</code>前後包夾文字</p>
@@ -277,7 +275,7 @@ _斜體_
 </code></pre>
 <!-- raw HTML omitted -->
 <hr>
-<h2 id="程式碼區塊"><strong>程式碼區塊</strong></h2>
+<h3 id="setp8-程式碼區塊---omit-in-toc---">Setp8. 程式碼區塊<!-- raw HTML omitted --></h3>
 <p>使用三個連續的反引號【`】作為開頭與結尾，即可展示區塊程式碼，並且於首行加上特定程式碼語言名稱，該區塊就可使用特定語言的 Highlight，可參考　<a href="https://github.com/highlightjs/highlight.js/blob/main/SUPPORTED_LANGUAGES.md">Highlight Supported Languages</a></p>
 <blockquote>
 <p>c#</p>
@@ -331,18 +329,18 @@ select * from mytable
 </code></pre>
 <!-- raw HTML omitted -->
 <hr>
-<h2 id="超連結與圖片"><strong>超連結與圖片</strong></h2>
+<h3 id="setp9-超連結與圖片---omit-in-toc---">Setp9. 超連結與圖片<!-- raw HTML omitted --></h3>
 <!-- raw HTML omitted -->
 <blockquote>
 <p>一般文字超連結</p>
 </blockquote>
-<p>選取文字反白後，將已經複製的連結<code>Ctrl + ｖ</code>貼上即可產生文字超連結</p>
+<p>選取文字反白後，將已經複製的連結 <strong><code>Ctrl + ｖ</code></strong> 貼上即可產生文字超連結</p>
 <p><img src="https://user-images.githubusercontent.com/15353001/126637796-fbb9c41d-e9bc-4a1c-b6ab-e4b572991f0f.gif" alt="Markdown_Link"></p>
 <!-- raw HTML omitted -->
 <blockquote>
 <p>載入圖片</p>
 </blockquote>
-<p>選取文字反白後，將已經複製的圖片連結<code>Ctrl + ｖ</code>貼上即可產生文字超連結</p>
+<p>選取文字反白後，將已經複製的圖片連結 <strong><code>Ctrl + ｖ</code></strong> 貼上即可產生文字超連結</p>
 <p><img src="https://user-images.githubusercontent.com/15353001/126637274-3ba5e730-177f-4711-80b1-7429f53c3f0f.gif" alt="Markdown_LinkImage"></p>
 <!-- raw HTML omitted -->
 <blockquote>
@@ -354,12 +352,12 @@ select * from mytable
 <p><img src="https://user-images.githubusercontent.com/15353001/126636363-63d7cccf-dedc-4ba8-8330-56d9635175f9.gif" alt="Markdown_GitHubImage"></p>
 <!-- raw HTML omitted -->
 <hr>
-<h2 id="跳脫字元"><strong>跳脫字元</strong></h2>
+<h3 id="setp10-跳脫字元---omit-in-toc---">Setp10. 跳脫字元<!-- raw HTML omitted --></h3>
 <p>Markdown中使用了非常多常用的符號，若想在文件當中插入普通的符號需透過跳脫字源反斜線 <code>\</code> 來幫助。</p>
 <!-- raw HTML omitted -->
 <hr>
-<h2 id="大綱產生方法"><strong>大綱產生方法</strong></h2>
-<p>透過Markdown All in One提供的  <code>Create Table of Contents</code> 快速產生整份文件大綱
+<h3 id="setp11-大綱產生方法---omit-in-toc---">Setp11. 大綱產生方法<!-- raw HTML omitted --></h3>
+<p>透過Markdown All in One提供的  <strong><code>Create Table of Contents</code></strong> 快速產生整份文件大綱
 <img src="https://user-images.githubusercontent.com/15353001/126656571-8df263e2-3d80-4f6b-b21c-94425e5cd3c9.png" alt="image"></p>
 <!-- raw HTML omitted -->
 <hr>
@@ -367,40 +365,29 @@ select * from mytable
 <li>參考文章</li>
 </ul>
 <blockquote>
-<p><a href="https://www.facebook.com/watch/live/?v=660368844830037&amp;ref=watch_permalink">Will 保哥的技術交流中心 - 你一定不能不知道的 Markdown 寫作技巧</a>
-<a href="https://marketplace.visualstudio.com/items?itemName=yzhang.markdown-all-in-one">Markdown All in One</a>
-<a href="https://marketplace.visualstudio.com/items?itemName=doggy8088.markdown-extension-pack">Markdown Extension Pack</a></p>
+<p><a href="https://www.facebook.com/watch/live/?v=660368844830037&amp;ref=watch_permalink">Will 保哥的技術交流中心 - 你一定不能不知道的 Markdown 寫作技巧</a></p>
+<p><a href="https://marketplace.visualstudio.com/items?itemName=yzhang.markdown-all-in-one">Markdown All in One</a></p>
+<p><a href="https://marketplace.visualstudio.com/items?itemName=doggy8088.markdown-extension-pack">Markdown Extension Pack</a></p>
 </blockquote>
-<p>tags: <code>Visual studio code</code>,<code>Markdown</code></p>
 </div>
         <hr class="py-2">
         <aside id="meta">
-            
-            <div id="categories">
-                <span class="icon-folder text-xl mr-1"></span>
-                
-                <span
-                    class="inline-flex py-2 leading-4 mr-2 mb-2 content-center bg-gray-200 justify-center h-8 px-3 text-blue-500 hover:text-black dark:bg-warmgray-800"><a
-                        href="https://devbricker.github.io/categories/visual-studio-code">Visual studio code</a></span>
-                
-            </div>
-            
             <div class="grid grid-cols-2">
                 <div class="col-span-1">
                     
-                    <a class="previous lg:text-l" href="https://devbricker.github.io/post/cloud/aws/%E8%A6%AA%E6%84%9B%E7%9A%84%E6%88%91%E6%8A%8Ahttp%E7%84%A1%E7%97%9B%E8%AE%8A%E6%88%90https%E4%BA%86_20210725/">
+                    <a class="previous lg:text-l" href="https://devbricker.github.io/post/hugo/markdown/markdown_basic_ide/">
                         <div
-                            class="transition-colors duration-300 border border-gray-600 hover:border-black h-auto m-3 text-center py-3 lg:py-1">
-                            <span class="icon-keyboard_arrow_left"></span> 親愛的，我把HTTP無痛變成HTTPS了
+                            class="transition-colors rounded-md duration-300 border border-gray-600 hover:border-black h-auto m-3 text-center py-3 lg:py-1">
+                            <span class="icon-keyboard_arrow_left"></span> Markdown 從零開始 開發工具篇
                         </div>
                     </a>
                     
                 </div>
                 
-                <a class="next lg:text-l" href="https://devbricker.github.io/post/hugo/deploy/hugo_environment/">
+                <a class="next lg:text-l" href="https://devbricker.github.io/post/devtools/visualstudio2022testeeplorer/">
                     <div
-                        class="transition-colors duration-300 col-span-1 border border-gray-600 hover:border-black h-auto m-3 text-center py-3 lg:py-1">
-                        Hugo 從零開始 環境安裝(Windows) <span class="icon-keyboard_arrow_right"></span>
+                        class="transition-colors rounded-md duration-300 col-span-1 border border-gray-600 hover:border-black h-auto m-3 text-center py-3 lg:py-1">
+                        Visual Studio 2022 Preview 跨平台遠端單元測試 <span class="icon-keyboard_arrow_right"></span>
                     </div>
                 </a>
                 
@@ -411,69 +398,69 @@ select * from mytable
             
         </div>
     </div>
-    <div class="hidden lg:block lg:col-span-1">
+    <div  id="sidebar" class="hidden lg:block lg:col-span-2 xl:col-span-1 full">
         
         
 
 
 
 <div class="mx-auto w-full px-3 pb-3">
-    <h1 class="mb-4 pl-2 text-xl font-bold dark:text-white text-gray-300">文件分類</h1>
+    <h1 class="mb-4 pl-2 text-xl font-bold text-gray-700 border-gray-400 border-b-2 pb-2">文件分類</h1>
     
     
     <div
-        class="flex items-center bg-indigo-500 rounded-md px-3 text-white cursor-pointer transition duration-500 ease-in-out hover:shadow hover:bg-indigo-600">
+        class="flex items-center bg-indigo-500 rounded-md px-3 text-gray-700 cursor-pointer hover:bg-gray-800 hover:text-white transition duration-500 ease-in-out hover:shadow hover:bg-indigo-600">
         <div>
             <svg fill="currentColor" class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
                 <path d="M0 4c0-1.1.9-2 2-2h7l2 2h7a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4z"></path>
             </svg>
 
         </div>
-        <div class="px-3 mr-auto">
-            <a class="text-center block duration-100 py-2 px-1 mx-4 hover:bg-gray-800 text-gray-200 dark:text-gray-200 dark:hover:bg-warmgray-800"
+        <div class=" mr-auto">
+            <a class="text-center block duration-100 py-2 px-1 mx-4"
                 href="https://devbricker.github.io//archives/blockchain">blockchain (1)</a>
         </div>
     </div>
     
     <div
-        class="flex items-center bg-indigo-500 rounded-md px-3 text-white cursor-pointer transition duration-500 ease-in-out hover:shadow hover:bg-indigo-600">
+        class="flex items-center bg-indigo-500 rounded-md px-3 text-gray-700 cursor-pointer hover:bg-gray-800 hover:text-white transition duration-500 ease-in-out hover:shadow hover:bg-indigo-600">
         <div>
             <svg fill="currentColor" class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
                 <path d="M0 4c0-1.1.9-2 2-2h7l2 2h7a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4z"></path>
             </svg>
 
         </div>
-        <div class="px-3 mr-auto">
-            <a class="text-center block duration-100 py-2 px-1 mx-4 hover:bg-gray-800 text-gray-200 dark:text-gray-200 dark:hover:bg-warmgray-800"
+        <div class=" mr-auto">
+            <a class="text-center block duration-100 py-2 px-1 mx-4"
                 href="https://devbricker.github.io//archives/blog-builder">blog-builder (2)</a>
         </div>
     </div>
     
     <div
-        class="flex items-center bg-indigo-500 rounded-md px-3 text-white cursor-pointer transition duration-500 ease-in-out hover:shadow hover:bg-indigo-600">
+        class="flex items-center bg-indigo-500 rounded-md px-3 text-gray-700 cursor-pointer hover:bg-gray-800 hover:text-white transition duration-500 ease-in-out hover:shadow hover:bg-indigo-600">
         <div>
             <svg fill="currentColor" class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
                 <path d="M0 4c0-1.1.9-2 2-2h7l2 2h7a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4z"></path>
             </svg>
 
         </div>
-        <div class="px-3 mr-auto">
-            <a class="text-center block duration-100 py-2 px-1 mx-4 hover:bg-gray-800 text-gray-200 dark:text-gray-200 dark:hover:bg-warmgray-800"
+        <div class=" mr-auto">
+            <a class="text-center block duration-100 py-2 px-1 mx-4"
                 href="https://devbricker.github.io//archives/cloud">cloud (1)</a>
         </div>
     </div>
     
     <div
-        class="flex items-center bg-indigo-500 rounded-md px-3 text-white cursor-pointer transition duration-500 ease-in-out hover:shadow hover:bg-indigo-600">
+        class="flex items-center bg-indigo-500 rounded-md px-3 text-gray-700 cursor-pointer hover:bg-gray-800 hover:text-white transition duration-500 ease-in-out hover:shadow hover:bg-indigo-600">
         <div>
             <svg fill="currentColor" class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
                 <path d="M0 4c0-1.1.9-2 2-2h7l2 2h7a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4z"></path>
             </svg>
 
         </div>
-        <div class="px-3 mr-auto">
-            <a class="text-center block duration-100 py-2 px-1 mx-4 hover:bg-gray-800 text-gray-200 dark:text-gray-200 dark:hover:bg-warmgray-800"
-                href="https://devbricker.github.io//archives/devtools">devtools (3)</a>
+        <div class=" mr-auto">
+            <a class="text-center block duration-100 py-2 px-1 mx-4"
+                href="https://devbricker.github.io//archives/devtools">devtools (7)</a>
         </div>
     </div>
     
@@ -482,44 +469,56 @@ select * from mytable
 
         
 
-<div class="mb-3 pt-2">
+<div class=" pt-2">
     
-    <h1 class="pl-4 text-xl font-bold dark:text-white text-gray-300 mb-2">主題</h1>
+    <h1 class="pl-4 text-xl font-bold text-gray-700 border-gray-400 border-b-2 pb-2">主題</h1>
     <div class="w-full rounded-lg px-2 py-2">
         
-        <ul class="divide-y-2 divide-gray-100 ml-0 mt-2 mb-2">
-            <li class="mx-1 hover:bg-warmgray-900 hover:text-white my-2" style="list-style: none">
-                <a class="mx-1 font-bold text-white" href="https://devbricker.github.io//categories/aws">Aws</a>
+        <ul class="divide-y-2 divide-gray-100 ml-0  mb-2">
+            <li class="mx-1 hover:bg-gray-700  text-gray-700 hover:text-white my-2" style="list-style: none">
+                <a class="mx-1 font-bold " href="https://devbricker.github.io//categories/aws">Aws</a>
             </li>
         </ul>
         
-        <ul class="divide-y-2 divide-gray-100 ml-0 mt-2 mb-2">
-            <li class="mx-1 hover:bg-warmgray-900 hover:text-white my-2" style="list-style: none">
-                <a class="mx-1 font-bold text-white" href="https://devbricker.github.io//categories/github">Github</a>
+        <ul class="divide-y-2 divide-gray-100 ml-0  mb-2">
+            <li class="mx-1 hover:bg-gray-700  text-gray-700 hover:text-white my-2" style="list-style: none">
+                <a class="mx-1 font-bold " href="https://devbricker.github.io//categories/github">Github</a>
             </li>
         </ul>
         
-        <ul class="divide-y-2 divide-gray-100 ml-0 mt-2 mb-2">
-            <li class="mx-1 hover:bg-warmgray-900 hover:text-white my-2" style="list-style: none">
-                <a class="mx-1 font-bold text-white" href="https://devbricker.github.io//categories/hugo">Hugo</a>
+        <ul class="divide-y-2 divide-gray-100 ml-0  mb-2">
+            <li class="mx-1 hover:bg-gray-700  text-gray-700 hover:text-white my-2" style="list-style: none">
+                <a class="mx-1 font-bold " href="https://devbricker.github.io//categories/hugo">Hugo</a>
             </li>
         </ul>
         
-        <ul class="divide-y-2 divide-gray-100 ml-0 mt-2 mb-2">
-            <li class="mx-1 hover:bg-warmgray-900 hover:text-white my-2" style="list-style: none">
-                <a class="mx-1 font-bold text-white" href="https://devbricker.github.io//categories/polygon">Polygon</a>
+        <ul class="divide-y-2 divide-gray-100 ml-0  mb-2">
+            <li class="mx-1 hover:bg-gray-700  text-gray-700 hover:text-white my-2" style="list-style: none">
+                <a class="mx-1 font-bold " href="https://devbricker.github.io//categories/polygon">Polygon</a>
             </li>
         </ul>
         
-        <ul class="divide-y-2 divide-gray-100 ml-0 mt-2 mb-2">
-            <li class="mx-1 hover:bg-warmgray-900 hover:text-white my-2" style="list-style: none">
-                <a class="mx-1 font-bold text-white" href="https://devbricker.github.io//categories/sourcetree">Sourcetree</a>
+        <ul class="divide-y-2 divide-gray-100 ml-0  mb-2">
+            <li class="mx-1 hover:bg-gray-700  text-gray-700 hover:text-white my-2" style="list-style: none">
+                <a class="mx-1 font-bold " href="https://devbricker.github.io//categories/sourcetree">Sourcetree</a>
             </li>
         </ul>
         
-        <ul class="divide-y-2 divide-gray-100 ml-0 mt-2 mb-2">
-            <li class="mx-1 hover:bg-warmgray-900 hover:text-white my-2" style="list-style: none">
-                <a class="mx-1 font-bold text-white" href="https://devbricker.github.io//categories/visual-studio-code">Visual studio code</a>
+        <ul class="divide-y-2 divide-gray-100 ml-0  mb-2">
+            <li class="mx-1 hover:bg-gray-700  text-gray-700 hover:text-white my-2" style="list-style: none">
+                <a class="mx-1 font-bold " href="https://devbricker.github.io//categories/visual-studio-2019">Visual studio 2019</a>
+            </li>
+        </ul>
+        
+        <ul class="divide-y-2 divide-gray-100 ml-0  mb-2">
+            <li class="mx-1 hover:bg-gray-700  text-gray-700 hover:text-white my-2" style="list-style: none">
+                <a class="mx-1 font-bold " href="https://devbricker.github.io//categories/visual-studio-2022-preview">Visual studio 2022 preview</a>
+            </li>
+        </ul>
+        
+        <ul class="divide-y-2 divide-gray-100 ml-0  mb-2">
+            <li class="mx-1 hover:bg-gray-700  text-gray-700 hover:text-white my-2" style="list-style: none">
+                <a class="mx-1 font-bold " href="https://devbricker.github.io//categories/visual-studio-code">Visual studio code</a>
             </li>
         </ul>
         
@@ -535,158 +534,235 @@ select * from mytable
             </div>
         </div>
         <div
-        class="w-full  px-5 pb-5 container max-w-screen-xl mx-auto  flex-grow px-5 lg:px-0">
+        class="bg-white w-full pr-6 pl-6  lg:pl-12 lg:pr-12 md:pl-7 md:pr-7 pb-5  container-fluid mx-auto flex-grow  lg:px-0">
             
 
 
-
-<h1 class="px-5 mb-4 text-xl font-bold dark:text-white text-gray-300 mt-4 w-full text-left">最近釋出</h1>
-<div class="px-5 flex overflow-x-auto lg:w-6/6">
+<div class="mt-5 border-t border-gray-500 mx-auto">
+    <h1 class=" mt-4 mb-4 text-xl font-bold text-gray-900 w-full text-left">最近釋出</h1>
+    <div class="flex overflow-x-auto w-full">
+        
+        
+        <div
+            class="relative rounded-lg shadow-md border-gray-900 border-2 border-solid flex flex-col mr-4 px-4 pb-4 min-w-1/2 md:min-w-1/2 lg:min-w-1/5 xl:min-w-1/5  min-h-100">
+            <div class="mt-4"><a href="/post/blockchain/moralis/polygon-matic-moralis/"
+                    class="text-gray-900 font-bold text-xl font-medium hover:underline">
+                    Polygon (Matic) 從零開始 發行自己的虛擬貨幣(Token)</a></div>
+            <div class="flex items-center justify-between mt-4">
+                <div class=" flex items-center">
+                    <p class="text-sm text-gray-600 flex items-center pb-1 absolute bottom-2 right-4">
+                        <time><span class="icon-access_time mr-1"></span>2021/08/22</time>
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div
+            class="relative rounded-lg shadow-md border-gray-900 border-2 border-solid flex flex-col mr-4 px-4 pb-4 min-w-1/2 md:min-w-1/2 lg:min-w-1/5 xl:min-w-1/5  min-h-100">
+            <div class="mt-4"><a href="/post/hugo/deploy/hugo_environment/"
+                    class="text-gray-900 font-bold text-xl font-medium hover:underline">
+                    Hugo 從零開始 環境安裝(Windows)</a></div>
+            <div class="flex items-center justify-between mt-4">
+                <div class=" flex items-center">
+                    <p class="text-sm text-gray-600 flex items-center pb-1 absolute bottom-2 right-4">
+                        <time><span class="icon-access_time mr-1"></span>2021/08/07</time>
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div
+            class="relative rounded-lg shadow-md border-gray-900 border-2 border-solid flex flex-col mr-4 px-4 pb-4 min-w-1/2 md:min-w-1/2 lg:min-w-1/5 xl:min-w-1/5  min-h-100">
+            <div class="mt-4"><a href="/post/hugo/deploy/hugo_build1/"
+                    class="text-gray-900 font-bold text-xl font-medium hover:underline">
+                    Hugo 從零開始 建立自己的部落格</a></div>
+            <div class="flex items-center justify-between mt-4">
+                <div class=" flex items-center">
+                    <p class="text-sm text-gray-600 flex items-center pb-1 absolute bottom-2 right-4">
+                        <time><span class="icon-access_time mr-1"></span>2021/08/07</time>
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div
+            class="relative rounded-lg shadow-md border-gray-900 border-2 border-solid flex flex-col mr-4 px-4 pb-4 min-w-1/2 md:min-w-1/2 lg:min-w-1/5 xl:min-w-1/5  min-h-100">
+            <div class="mt-4"><a href="/post/devtools/visualstudio2019remotedebugwindows/"
+                    class="text-gray-900 font-bold text-xl font-medium hover:underline">
+                    .NET Core 的遠端偵錯工具 Windows篇</a></div>
+            <div class="flex items-center justify-between mt-4">
+                <div class=" flex items-center">
+                    <p class="text-sm text-gray-600 flex items-center pb-1 absolute bottom-2 right-4">
+                        <time><span class="icon-access_time mr-1"></span>2021/09/14</time>
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div
+            class="relative rounded-lg shadow-md border-gray-900 border-2 border-solid flex flex-col mr-4 px-4 pb-4 min-w-1/2 md:min-w-1/2 lg:min-w-1/5 xl:min-w-1/5  min-h-100">
+            <div class="mt-4"><a href="/post/cloud/aws/%E8%A6%AA%E6%84%9B%E7%9A%84%E6%88%91%E6%8A%8Ahttp%E7%84%A1%E7%97%9B%E8%AE%8A%E6%88%90https%E4%BA%86_20210725/"
+                    class="text-gray-900 font-bold text-xl font-medium hover:underline">
+                    親愛的，我把HTTP無痛變成HTTPS了</a></div>
+            <div class="flex items-center justify-between mt-4">
+                <div class=" flex items-center">
+                    <p class="text-sm text-gray-600 flex items-center pb-1 absolute bottom-2 right-4">
+                        <time><span class="icon-access_time mr-1"></span>2021/07/25</time>
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div
+            class="relative rounded-lg shadow-md border-gray-900 border-2 border-solid flex flex-col mr-4 px-4 pb-4 min-w-1/2 md:min-w-1/2 lg:min-w-1/5 xl:min-w-1/5  min-h-100">
+            <div class="mt-4"><a href="/post/hugo/markdown/markdown_basic_tutorial/"
+                    class="text-gray-900 font-bold text-xl font-medium hover:underline">
+                    Markdown 從零開始 基本文法篇</a></div>
+            <div class="flex items-center justify-between mt-4">
+                <div class=" flex items-center">
+                    <p class="text-sm text-gray-600 flex items-center pb-1 absolute bottom-2 right-4">
+                        <time><span class="icon-access_time mr-1"></span>2021/08/28</time>
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div
+            class="relative rounded-lg shadow-md border-gray-900 border-2 border-solid flex flex-col mr-4 px-4 pb-4 min-w-1/2 md:min-w-1/2 lg:min-w-1/5 xl:min-w-1/5  min-h-100">
+            <div class="mt-4"><a href="/post/devtools/sourcetree_github_organization_private_repositories/"
+                    class="text-gray-900 font-bold text-xl font-medium hover:underline">
+                    SourceTree 無法對Github內的Organization Private Repositories執行指令</a></div>
+            <div class="flex items-center justify-between mt-4">
+                <div class=" flex items-center">
+                    <p class="text-sm text-gray-600 flex items-center pb-1 absolute bottom-2 right-4">
+                        <time><span class="icon-access_time mr-1"></span>2021/08/08</time>
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div
+            class="relative rounded-lg shadow-md border-gray-900 border-2 border-solid flex flex-col mr-4 px-4 pb-4 min-w-1/2 md:min-w-1/2 lg:min-w-1/5 xl:min-w-1/5  min-h-100">
+            <div class="mt-4"><a href="/post/devtools/visualstudio2022testeeplorer/"
+                    class="text-gray-900 font-bold text-xl font-medium hover:underline">
+                    Visual Studio 2022 Preview 跨平台遠端單元測試</a></div>
+            <div class="flex items-center justify-between mt-4">
+                <div class=" flex items-center">
+                    <p class="text-sm text-gray-600 flex items-center pb-1 absolute bottom-2 right-4">
+                        <time><span class="icon-access_time mr-1"></span>2021/09/13</time>
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div
+            class="relative rounded-lg shadow-md border-gray-900 border-2 border-solid flex flex-col mr-4 px-4 pb-4 min-w-1/2 md:min-w-1/2 lg:min-w-1/5 xl:min-w-1/5  min-h-100">
+            <div class="mt-4"><a href="/post/devtools/visualstudio2019remotedebuglinux/"
+                    class="text-gray-900 font-bold text-xl font-medium hover:underline">
+                    .NET Core 的遠端偵錯工具SSH Linux篇</a></div>
+            <div class="flex items-center justify-between mt-4">
+                <div class=" flex items-center">
+                    <p class="text-sm text-gray-600 flex items-center pb-1 absolute bottom-2 right-4">
+                        <time><span class="icon-access_time mr-1"></span>2021/09/15</time>
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div
+            class="relative rounded-lg shadow-md border-gray-900 border-2 border-solid flex flex-col mr-4 px-4 pb-4 min-w-1/2 md:min-w-1/2 lg:min-w-1/5 xl:min-w-1/5  min-h-100">
+            <div class="mt-4"><a href="/post/devtools/visualstudiocodeingithub/"
+                    class="text-gray-900 font-bold text-xl font-medium hover:underline">
+                    Visual studio code隱身在GitHub內的秘密</a></div>
+            <div class="flex items-center justify-between mt-4">
+                <div class=" flex items-center">
+                    <p class="text-sm text-gray-600 flex items-center pb-1 absolute bottom-2 right-4">
+                        <time><span class="icon-access_time mr-1"></span>2021/08/21</time>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
     
-    <div class="mr-2 w-6/6 flex flex-col min-w-1/5 mb-4 px-3 pt-2 mx-auto bg-white rounded-lg shadow-md dark:bg-warmgray-900">
-        
-        <div class="mt-4"><a href="/post/hugo/deploy/hugo_environment/" class="text-gray-900 font-bold text-xl dark:text-white font-medium hover:underline">
-            Hugo 從零開始 環境安裝(Windows)</a></div>
-        <div class="flex items-center justify-between mt-4">
-            <div class="flex items-center">
-                <p class="text-sm text-gray-600 flex items-center pb-1 dark:text-gray-400">
-                    <time><span class="icon-access_time mr-1"></span>2021/08/07</time>
-                </p>
-                </div>  
-        </div>
-    </div>
-    <div class="mr-2 w-6/6 flex flex-col min-w-1/5 mb-4 px-3 pt-2 mx-auto bg-white rounded-lg shadow-md dark:bg-warmgray-900">
-        
-        <div class="mt-4"><a href="/post/cloud/aws/%E8%A6%AA%E6%84%9B%E7%9A%84%E6%88%91%E6%8A%8Ahttp%E7%84%A1%E7%97%9B%E8%AE%8A%E6%88%90https%E4%BA%86_20210725/" class="text-gray-900 font-bold text-xl dark:text-white font-medium hover:underline">
-            親愛的，我把HTTP無痛變成HTTPS了</a></div>
-        <div class="flex items-center justify-between mt-4">
-            <div class="flex items-center">
-                <p class="text-sm text-gray-600 flex items-center pb-1 dark:text-gray-400">
-                    <time><span class="icon-access_time mr-1"></span>2021/07/25</time>
-                </p>
-                </div>  
-        </div>
-    </div>
-    <div class="mr-2 w-6/6 flex flex-col min-w-1/5 mb-4 px-3 pt-2 mx-auto bg-white rounded-lg shadow-md dark:bg-warmgray-900">
-        
-        <div class="mt-4"><a href="/post/hugo/markdown/markdown_basic_tutorial/" class="text-gray-900 font-bold text-xl dark:text-white font-medium hover:underline">
-            Markdown 從零開始</a></div>
-        <div class="flex items-center justify-between mt-4">
-            <div class="flex items-center">
-                <p class="text-sm text-gray-600 flex items-center pb-1 dark:text-gray-400">
-                    <time><span class="icon-access_time mr-1"></span>2021/07/25</time>
-                </p>
-                </div>  
-        </div>
-    </div>
-    <div class="mr-2 w-6/6 flex flex-col min-w-1/5 mb-4 px-3 pt-2 mx-auto bg-white rounded-lg shadow-md dark:bg-warmgray-900">
-        
-        <div class="mt-4"><a href="/post/blockchain/moralis/polygon-matic-moralis/" class="text-gray-900 font-bold text-xl dark:text-white font-medium hover:underline">
-            Polygon (Matic) 從零開始 發行自己的虛擬貨幣(Token)</a></div>
-        <div class="flex items-center justify-between mt-4">
-            <div class="flex items-center">
-                <p class="text-sm text-gray-600 flex items-center pb-1 dark:text-gray-400">
-                    <time><span class="icon-access_time mr-1"></span>2021/08/22</time>
-                </p>
-                </div>  
-        </div>
-    </div>
 </div>
+        </div>  
+
+        
 
 
-            
 
-
-
-<div class='px-6 w-full'>
-    <h1 class="mb-4 text-xl font-bold text-white mt-3">標籤</h1>
+<div class='pr-6 pl-6  lg:pl-12 lg:pr-12 md:pl-7 md:pr-7 w-full bg-warmgray-700'>
+    <h1 class="pt-4 text-xl font-bold text-white pb-4">標籤</h1>
     
-    <div class='my-3 flex flex-wrap -m-1'>
+    <div class='flex flex-wrap -m-1 pb-4'>
         <a href="/tags/apigateway">
             <span
-                class="m-1 duration-100 bg-white dark:bg-gray-200 hover:bg-gray-300 rounded-full px-2 font-bold text-md leading-loose cursor-pointer hover:text-blue-900 ">apigateway</span>
+                class="m-1 duration-100 bg-white hover:bg-gray-300 rounded-full px-2 font-bold text-md leading-loose cursor-pointer hover:text-blue-900 ">apigateway</span>
         </a>
         <a href="/tags/git">
             <span
-                class="m-1 duration-100 bg-white dark:bg-gray-200 hover:bg-gray-300 rounded-full px-2 font-bold text-md leading-loose cursor-pointer hover:text-blue-900 ">git</span>
+                class="m-1 duration-100 bg-white hover:bg-gray-300 rounded-full px-2 font-bold text-md leading-loose cursor-pointer hover:text-blue-900 ">git</span>
         </a>
         <a href="/tags/markdown">
             <span
-                class="m-1 duration-100 bg-white dark:bg-gray-200 hover:bg-gray-300 rounded-full px-2 font-bold text-md leading-loose cursor-pointer hover:text-blue-900 ">markdown</span>
+                class="m-1 duration-100 bg-white hover:bg-gray-300 rounded-full px-2 font-bold text-md leading-loose cursor-pointer hover:text-blue-900 ">markdown</span>
         </a>
         <a href="/tags/moralis">
             <span
-                class="m-1 duration-100 bg-white dark:bg-gray-200 hover:bg-gray-300 rounded-full px-2 font-bold text-md leading-loose cursor-pointer hover:text-blue-900 ">moralis</span>
+                class="m-1 duration-100 bg-white hover:bg-gray-300 rounded-full px-2 font-bold text-md leading-loose cursor-pointer hover:text-blue-900 ">moralis</span>
         </a>
         <a href="/tags/openzeppelin">
             <span
-                class="m-1 duration-100 bg-white dark:bg-gray-200 hover:bg-gray-300 rounded-full px-2 font-bold text-md leading-loose cursor-pointer hover:text-blue-900 ">openzeppelin</span>
+                class="m-1 duration-100 bg-white hover:bg-gray-300 rounded-full px-2 font-bold text-md leading-loose cursor-pointer hover:text-blue-900 ">openzeppelin</span>
         </a>
         <a href="/tags/proxy">
             <span
-                class="m-1 duration-100 bg-white dark:bg-gray-200 hover:bg-gray-300 rounded-full px-2 font-bold text-md leading-loose cursor-pointer hover:text-blue-900 ">proxy</span>
+                class="m-1 duration-100 bg-white hover:bg-gray-300 rounded-full px-2 font-bold text-md leading-loose cursor-pointer hover:text-blue-900 ">proxy</span>
         </a>
         <a href="/tags/remix">
             <span
-                class="m-1 duration-100 bg-white dark:bg-gray-200 hover:bg-gray-300 rounded-full px-2 font-bold text-md leading-loose cursor-pointer hover:text-blue-900 ">remix</span>
+                class="m-1 duration-100 bg-white hover:bg-gray-300 rounded-full px-2 font-bold text-md leading-loose cursor-pointer hover:text-blue-900 ">remix</span>
         </a>
         <a href="/tags/tool">
             <span
-                class="m-1 duration-100 bg-white dark:bg-gray-200 hover:bg-gray-300 rounded-full px-2 font-bold text-md leading-loose cursor-pointer hover:text-blue-900 ">tool</span>
+                class="m-1 duration-100 bg-white hover:bg-gray-300 rounded-full px-2 font-bold text-md leading-loose cursor-pointer hover:text-blue-900 ">tool</span>
         </a>
         <a href="/tags/%E5%95%8F%E9%A1%8C%E8%A7%A3%E6%B1%BA">
             <span
-                class="m-1 duration-100 bg-white dark:bg-gray-200 hover:bg-gray-300 rounded-full px-2 font-bold text-md leading-loose cursor-pointer hover:text-blue-900 ">問題解決</span>
+                class="m-1 duration-100 bg-white hover:bg-gray-300 rounded-full px-2 font-bold text-md leading-loose cursor-pointer hover:text-blue-900 ">問題解決</span>
         </a>
         <a href="/tags/%E7%92%B0%E5%A2%83%E8%A8%AD%E5%AE%9A">
             <span
-                class="m-1 duration-100 bg-white dark:bg-gray-200 hover:bg-gray-300 rounded-full px-2 font-bold text-md leading-loose cursor-pointer hover:text-blue-900 ">環境設定</span>
+                class="m-1 duration-100 bg-white hover:bg-gray-300 rounded-full px-2 font-bold text-md leading-loose cursor-pointer hover:text-blue-900 ">環境設定</span>
         </a>
     </div>
 </div>
 
- 
-        </div><footer class=" text-white p-6 w-full border-t border-gray-200">
+<footer
+    class="pr-6 pl-6 lg:pl-12 lg:pr-12 md:pl-7 md:pr-7 bg-warmgray-700 text-white p-6 w-full border-t border-gray-200">
     
-    <div class="container max-w-screen-xl mr-auto ml-auto">
+    <div class="container-fluid mr-auto ml-auto">
         <p>&copy; 2021 <a href="https://devbricker.github.io/" class="hover:text-gray-500">DevBricker</a></p>
     </div>
-    <script src="https://devbricker.github.io/js/main.js"></script>
-    <script src="https://devbricker.github.io/js/prism.js"></script>
-
-    
-    <script src="https://devbricker.github.io/js/languageSelector.js"></script>
-  
+    <div class="hidden lg:col-span-full xl:col-span-full lg:hidden"></div>
     <script>
-        var icon = document.getElementById("icon");
-        var icon2 = document.getElementById("icon2");
-        
-        if (document.documentElement.classList.contains("dark") || localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-            icon.classList.remove("icon-moon");
-            icon.classList.add("icon-sun");
-            icon2.classList.remove("icon-moon");
-            icon2.classList.add("icon-sun");
-            document.documentElement.classList.add('dark')
+        function openSideBar() {
+        let elem = document.getElementById('sidebar')
+        let main = document.getElementById('main')
+        if (elem.classList.contains('full')) {
+            elem.classList.remove('full')
+            elem.classList.add('non-full')
+            elem.classList.add('lg:hidden')
+            main.classList.add('lg:col-span-full')
+            main.classList.add('xl:col-span-full')
         } else {
-            document.documentElement.classList.remove('dark')
+            elem.classList.add('full')
+            elem.classList.remove('non-full')
+            elem.classList.remove('lg:hidden')
+            main.classList.remove('lg:col-span-full')
+            main.classList.remove('xl:col-span-full')
         }
-        function toggleDarkMode() {
-            if (document.documentElement.classList.contains('dark')) {
-                icon.classList.remove("icon-sun");
-                icon.classList.add("icon-moon");
-                icon2.classList.remove("icon-sun");
-                icon2.classList.add("icon-moon");
-                document.documentElement.classList.remove('dark')
-                localStorage.theme = 'light'
-            } else {
-                icon.classList.remove("icon-moon");
-                icon.classList.add("icon-sun");
-                icon2.classList.remove("icon-moon");
-                icon2.classList.add("icon-sun");
-                document.documentElement.classList.add('dark')
-                localStorage.theme = 'dark'
-            }
-        }
+    } 
     </script>
 </footer></div>
 </body>

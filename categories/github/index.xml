@@ -13,7 +13,7 @@
       <pubDate>Sat, 21 Aug 2021 00:00:00 +0000</pubDate>
       
       <guid>https://devbricker.github.io/post/devtools/visualstudiocodeingithub/</guid>
-      <description>一個按鍵帶你發現隱身在GitHub內的秘密，快速開啟你的IDE(Integrated Development Environment)。VSCode GitHub Hotkey Demo GitHub Hotkey Setp1. 登入</description>
+      <description>一個按鍵帶你發現隱身在GitHub內的秘密，快速開啟你的IDE(Integrated Development Environment)。 GitHub Hotkey Demo GitHub Hotkey Step 1. 登入GitHu</description>
     </item>
     
     <item>
@@ -40,7 +40,7 @@
       <pubDate>Sat, 07 Aug 2021 00:00:00 +0000</pubDate>
       
       <guid>https://devbricker.github.io/post/hugo/deploy/hugo_environment/</guid>
-      <description>Hugo 從零開始 環境安裝(Windows) 創建我們的Blog第一步，怎麼就卡關了呢？很開心寫了腳本，想透過git直接更新我們的Blog，指令一下就</description>
+      <description>創建我們的Blog第一步，怎麼就卡關了呢？很開心寫了腳本，想透過git直接更新我們的Blog，指令一下就GG。一起看看如何在Windows下</description>
     </item>
     
   </channel>

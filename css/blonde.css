@@ -57,48 +57,12 @@
 .icon-person:before {
   content: "\e90a";
 }
-.pagination {
-  display: flex;
-  list-style: none;
-  border-radius: 0.25rem;
-  margin: 20px 0;
-  padding: 0;
-  justify-content: center;
-}
+
+/* content */
+
 .content li li {
   margin-left: 0.8em;
   font-size: 0.9em;
-}
-.page-link {
-  position: relative;
-  display: block;
-  padding: 0.75rem 1rem;
-  margin-left: -1px;
-  line-height: 1.25;
-  border: 1px solid #dee2e6;
-}
-.homepage .page-link,
-.listing .page-link {
-  background-color: #fff;
-}
-.page-item.disabled .page-link {
-  color: #6c757d;
-  pointer-events: none;
-  cursor: auto;
-  background-color: #fff;
-  border-color: #dee2e6;
-}
-.page-item.active .page-link {
-  z-index: 1;
-}
-.hover4 {
-  color: #fff;
-  cursor: pointer;
-  transition: all 0.3s ease 0s;
-}
-.hover4:hover {
-  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.25);
-  transform: translateY(-0.1875em);
 }
 .content {
   margin-bottom: 3em;
@@ -120,10 +84,22 @@
   font-size: 1.1em;
   letter-spacing: 0.03em;
 }
-.content h1,.content h2,.content h3,.content h4,.content h5,.content h6 {
-  margin: 3em 0 .25em;
+.content h1,
+.content h2,
+.content h3,
+.content h4,
+.content h5,
+.content h6 {
+  margin: 3em 0 0.25em;
 }
-.content h1+h2, .content h2+h3, .content h3+h4, .content h4+h5, .content h5+h6, .content h2+h4, .content h3+h5, .content h4+h6 {
+.content h1 + h2,
+.content h2 + h3,
+.content h3 + h4,
+.content h4 + h5,
+.content h5 + h6,
+.content h2 + h4,
+.content h3 + h5,
+.content h4 + h6 {
   margin-top: 1em;
 }
 .content h1 {
@@ -227,12 +203,4 @@ ul {
 input,
 textarea {
   -webkit-appearance: none;
-}
-@media (min-width: 1024px) {
-  .lg\:h-auto {
-    height: auto;
-  }
-}
-.w-56 {
-  width: 14rem;
 }

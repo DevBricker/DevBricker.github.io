@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Visual Studio 2019 on DevBricker</title>
+    <link>https://devbricker.github.io/categories/visual-studio-2019/</link>
+    <description>Recent content in Visual Studio 2019 on DevBricker</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-TW</language>
+    <lastBuildDate>Wed, 15 Sep 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://devbricker.github.io/categories/visual-studio-2019/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>.NET Core 的遠端偵錯工具SSH Linux篇</title>
+      <link>https://devbricker.github.io/post/devtools/visualstudio2019remotedebuglinux/</link>
+      <pubDate>Wed, 15 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://devbricker.github.io/post/devtools/visualstudio2019remotedebuglinux/</guid>
+      <description>上一篇文章我們介紹了在Windows環境下，透過遠端工具在Visual Studio中的遠端偵錯（可參考文章.NET Core 的遠端偵錯工具 Windo</description>
+    </item>
+    
+    <item>
+      <title>.NET Core 的遠端偵錯工具 Windows篇</title>
+      <link>https://devbricker.github.io/post/devtools/visualstudio2019remotedebugwindows/</link>
+      <pubDate>Tue, 14 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://devbricker.github.io/post/devtools/visualstudio2019remotedebugwindows/</guid>
+      <description>今天要介紹Visual Studio中的遠端偵錯工具，遠端偵錯能夠讓開發人員將 Visual Studio 連接到遠端環境以運行和偵錯，這個功能對於有些客戶環境只能遠端</description>
+    </item>
+    
+  </channel>
+</rss>
