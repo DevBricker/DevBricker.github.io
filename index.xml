@@ -40,7 +40,7 @@
       <pubDate>Wed, 03 Nov 2021 00:00:00 +0000</pubDate>
       
       <guid>https://devbricker.github.io/post/aspnetcore/aspnetcoremvc3/</guid>
-      <description>接續上一篇ASP .NET Core MVC 從零開始 (2) - 建立資料庫模型 DataBase First)文章，完成資料庫連件與模組建立後，開始我們的第一個功能介面。 ASP .NET Core MVC CRUD 。 Step 1. 在</description>
+      <description>接續上一篇ASP .NET Core MVC 從零開始 (2) - 建立資料庫模型 DataBase First文章，完成資料庫連件與模組建立後，開始我們的第一個功能介面。 ASP .NET Core MVC CRUD Step 1. 在 Pages 目</description>
     </item>
     
     <item>
@@ -49,7 +49,7 @@
       <pubDate>Tue, 02 Nov 2021 00:00:00 +0000</pubDate>
       
       <guid>https://devbricker.github.io/post/aspnetcore/aspnetcoremvc2/</guid>
-      <description>接續上一篇ASP .NET Core MVC 從零開始 (1) - 建立專案)文章，完成MVC基本專案後，下一步就是連接資料庫，今天帶大家看一下 .NET Core專案，在既有資料庫的</description>
+      <description>接續上一篇ASP .NET Core MVC 從零開始 (1) - 建立專案文章，完成MVC基本專案後，下一步就是連接資料庫，今天帶大家看一下 .NET Core專案，在既有資料庫的狀</description>
     </item>
     
     <item>
