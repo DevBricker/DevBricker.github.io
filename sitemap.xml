@@ -80,29 +80,29 @@
   </url>
   
   <url>
-    <loc>https://devbricker.github.io/post/aspnetcore/aspnetcoremvc1/</loc>
-    <lastmod>2021-10-31T00:00:00+00:00</lastmod>
-    <changefreq>hourly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://devbricker.github.io/post/aspnetcore/aspnetcoremvc2/</loc>
-    <lastmod>2021-10-31T00:00:00+00:00</lastmod>
-    <changefreq>hourly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>https://devbricker.github.io/post/aspnetcore/aspnetcoremvc3/</loc>
-    <lastmod>2021-10-31T00:00:00+00:00</lastmod>
+    <lastmod>2021-11-03T00:00:00+00:00</lastmod>
     <changefreq>hourly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://devbricker.github.io/categories/visual-studio-2019/</loc>
-    <lastmod>2021-10-31T00:00:00+00:00</lastmod>
+    <lastmod>2021-11-03T00:00:00+00:00</lastmod>
+    <changefreq>hourly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://devbricker.github.io/post/aspnetcore/aspnetcoremvc2/</loc>
+    <lastmod>2021-11-02T00:00:00+00:00</lastmod>
+    <changefreq>hourly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://devbricker.github.io/post/aspnetcore/aspnetcoremvc1/</loc>
+    <lastmod>2021-11-01T00:00:00+00:00</lastmod>
     <changefreq>hourly</changefreq>
     <priority>0.5</priority>
   </url>

@@ -26,30 +26,30 @@
     </item>
     
     <item>
-      <title>ASP .NET Core MVC 從零開始 (1) - 建立專案</title>
-      <link>https://devbricker.github.io/post/aspnetcore/aspnetcoremvc1/</link>
-      <pubDate>Sun, 31 Oct 2021 00:00:00 +0000</pubDate>
+      <title>ASP .NET Core MVC 從零開始 (3) - 快速建立CRUD頁面</title>
+      <link>https://devbricker.github.io/post/aspnetcore/aspnetcoremvc3/</link>
+      <pubDate>Wed, 03 Nov 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://devbricker.github.io/post/aspnetcore/aspnetcoremvc1/</guid>
-      <description>跟著我一步一步完成自己第一個ASP.NET Core MVC專案。 建立專案 Step 1. 在Visual Studio 中，選取 [建立新專案]，點擊下一步 &amp;gt; 選取 [ASP.NET Core Web 應用程式]</description>
+      <guid>https://devbricker.github.io/post/aspnetcore/aspnetcoremvc3/</guid>
+      <description>接續上一篇ASP .NET Core MVC 從零開始 (2) - 建立資料庫模型 DataBase First)文章，完成資料庫連件與模組建立後，開始我們的第一個功能介面。 ASP .NET Core MVC CRUD 。 Step 1. 在</description>
     </item>
     
     <item>
       <title>ASP .NET Core MVC 從零開始 (2) - 建立資料庫模型 DataBase First</title>
       <link>https://devbricker.github.io/post/aspnetcore/aspnetcoremvc2/</link>
-      <pubDate>Sun, 31 Oct 2021 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 02 Nov 2021 00:00:00 +0000</pubDate>
       
       <guid>https://devbricker.github.io/post/aspnetcore/aspnetcoremvc2/</guid>
       <description>接續上一篇ASP .NET Core MVC 從零開始 (1) - 建立專案)文章，完成MVC基本專案後，下一步就是連接資料庫，今天帶大家看一下 .NET Core專案，在既有資料庫的</description>
     </item>
     
     <item>
-      <title>ASP .NET Core MVC 從零開始 (3) - 快速建立CRUD頁面</title>
-      <link>https://devbricker.github.io/post/aspnetcore/aspnetcoremvc3/</link>
-      <pubDate>Sun, 31 Oct 2021 00:00:00 +0000</pubDate>
+      <title>ASP .NET Core MVC 從零開始 (1) - 建立專案</title>
+      <link>https://devbricker.github.io/post/aspnetcore/aspnetcoremvc1/</link>
+      <pubDate>Mon, 01 Nov 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://devbricker.github.io/post/aspnetcore/aspnetcoremvc3/</guid>
-      <description>接續上一篇ASP .NET Core MVC 從零開始 (2) - 建立資料庫模型 DataBase First)文章，完成資料庫連件與模組建立後，開始我們的第一個功能介面。 ASP .NET Core MVC CRUD 。 Step 1. 在</description>
+      <guid>https://devbricker.github.io/post/aspnetcore/aspnetcoremvc1/</guid>
+      <description>跟著我一步一步完成自己第一個ASP.NET Core MVC專案。 建立專案 Step 1. 在Visual Studio 中，選取 [建立新專案]，點擊下一步 &amp;gt; 選取 [ASP.NET Core Web 應用程式]</description>
     </item>
     
     <item>
