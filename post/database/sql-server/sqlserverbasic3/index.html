@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+
+<html lang="zh-TW">
+<head>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-204784534-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-204784534-1');
+</script>
+
+
+<title>DevBricker | SQL Server 快速上手 (3) - 建立你的第一個關聯式資料庫</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+    
+    
+    <meta name="description" content="DevBricker | SQL SERVER 從零開始快速上手，適合完全不懂資料庫的人看喔!">
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/little_bot2.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/little_bot2.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/little_bot2.png">
+    <link rel="manifest" href="/favicon/site.webmanifest" />
+    <link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#5bbad5" />
+    <link rel="shortcut icon" href="/favicon/little_bot2.png" />
+    <meta name="theme-color" content="#ffffff">
+    <meta property="og:title" content="DevBricker | SQL Server 快速上手 (3) - 建立你的第一個關聯式資料庫" />
+    
+    
+    
+    <link rel="stylesheet" href="https://devbricker.github.io/css/styles.min.9212b55dbd0e8549cf2c0cc6313f912fdf23793d0d89fd5706d03aa9cbc42ee9.css">
+    
+    <link href="/css/blonde.min.css" rel="stylesheet" type="text/css" media="print"
+        onload="this.media='all'">
+    
+
+
+
+
+<meta property="og:site_name" content="DevBricker">
+
+<meta property="og:url" content="https://devbricker.github.io/post/database/sql-server/sqlserverbasic3/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="">
+
+<link rel="canonical" href="https://devbricker.github.io/post/database/sql-server/sqlserverbasic3/">
+
+
+<meta property="article:published_time" content="2021-10-19T00:00:00&#43;00:00">
+<meta property="article:updated_time" content="2021-10-19T00:00:00&#43;00:00">
+
+
+
+
+
+<meta property="og:image" content="https://devbricker.github.io/">
+<meta property="og:image:url" content="https://devbricker.github.io/">
+
+    
+    <link rel="stylesheet" href="/css/custom.css">
+    <link rel="stylesheet" href="/css/code.css">
+    <link rel="stylesheet" href="/css/prism.css">
+    
+    <meta name="robots" content="index, follow, archive">
+    
+    <script src="https://devbricker.github.io/js/prism.js"></script>
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="https://devbricker.github.io/sitemap.xml">
+    
+</head><body class="font-sans">
+    <div
+        class="min-w-screen min-h-screen flex flex-col items-center bg-warmgray-700"><div class="w-full">
+    <div class="container-fluid w-full mr-auto ml-auto pr-6 pl-6 lg:pl-10 lg:pr-10 md:pl-5 md:pr-5">
+        <nav class="flex items-center justify-between flex-wrap pt-4 pb-4 ">
+            <div class="flex items-center flex-no-shrink text-white mr-6">
+                <img style="width:44px" src="/favicon/little_bot2.png">
+                <a href="https://devbricker.github.io/"><span class="font-semibold text-2xl tracking-tight">DevBricker</span></a>
+            </div>
+            <div class="flex md:hidden">
+                
+                <button id="hamburgerbtn" class="flex items-center px-3 py-1 text-gray-300 hover:text-white"
+                    aria-label="Hamburger Button">
+                    <span class="icon-menu text-2xl"></span>
+                </button>
+            </div>
+            <div class="hidden w-full md:flex md:flex-row sm:items-center md:w-auto" id="mobileMenu">
+                <div class="text-sm lg:flex-grow">
+                </div>
+                <div class="navmenu">
+                    
+                    <a href="/"
+                        class="no-underline block mt-4 sm:inline-block sm:mt-0 text-white hover:text-gray-400 mr-4">
+                        主頁
+                    </a>
+                    
+                    <a href="/about/"
+                        class="no-underline block mt-4 sm:inline-block sm:mt-0 text-white hover:text-gray-400 mr-4">
+                        關於我們
+                    </a>
+                    
+                </div>
+                <div class="text-white invisible md:visible ">
+                    <span>|</span>
+                </div>
+                <div class="text-white invisible md:visible ">
+                    <button onclick="openSideBar()" class="focus:outline-none" aria-label="open Side">
+                        <span>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 pt-2" viewBox="0 0 20 20"
+                                fill="currentColor">
+                                <path fill-rule="evenodd"
+                                    d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                        </span>
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </div>
+</div>
+<style>
+    .active {
+        display: block;
+    }
+</style>
+
+<script>
+    let hamburger = document.getElementById('hamburgerbtn');
+    let mobileMenu = document.getElementById('mobileMenu');
+    hamburger.addEventListener('click', function () {
+        mobileMenu.classList.toggle('active');
+    });
+</script><div class="bg-white w-full border-t border-gray-200 pt-4 container-fluid mx-auto flex-grow"
+            id="content">
+            <div class="pr-6 pl-6 lg:pl-12 lg:pr-12 md:pl-7 md:pr-7  mx-auto">
+<div class="grid grid-cols-4  md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-5 gap-4 ">
+    <div id="main" class="bg-warmgray-100 col-span-4 md:col-span-4 lg:col-span-4  xl:col-span-4 pt-4 rounded-md border-solid ring-2 ring-gray-700 pb-6 px-3 mb-2">
+        <h1 id="asfafjghqugf1" class="title text-4xl">SQL Server 快速上手 (3) - 建立你的第一個關聯式資料庫</h1>
+        <aside id="meta">
+            <div>
+                <section>
+                    <h4 id="date"><span class="icon-access_time mr-1"></span>2021/10/19 </h4>
+                </section>
+
+                
+                <div id="tags">
+                    <span class="icon-local_offer mr-1"></span>
+                    
+                    <a href="https://devbricker.github.io/%20tags/sql-server">SQL SERVER</a> |
+                    
+                </div>
+                
+            </div>
+        </aside>
+        
+        <div class="content mt-5"><h4 id="本篇以-sql-server-2019-express-edition-及-sql-server-management-studio-189-為教學範例透過sql-server-匯入和匯出精靈-快速入門">本篇以 SQL Server 2019 Express Edition 及 SQL Server Management Studio 18.9 為教學範例，透過SQL Server 匯入和匯出精靈 快速入門</h4>
+<h2 id="概要">概要</h2>
+<p><img src="https://i.imgur.com/5lfnLbe.jpg" alt="">
+(<a href="https://en.itpedia.nl/2020/01/20/de-relationele-database-het-hart-van-saas/">圖源自ITpedia</a>)</p>
+<p>資料庫的應用落實在我們生活的任何角落，包含大家常用的社交軟體(IG,FB&hellip;)、每天聊天的通訊軟體(Line,Wechat&hellip;)、電商軟體(蝦皮、PChome、Momo)、醫療軟體等系統都有龐大的資料庫系統在運作中，本篇文章將帶著大家來建立出自己的第一個資料庫。</p>
+<h2 id="資料庫與資料表概述">資料庫與資料表概述</h2>
+<hr>
+<p><img src="https://i.imgur.com/m6cCz2q.png" alt=""></p>
+<p>在關聯式資料庫的架構中，一個資料庫(Database)內可以有許多張資料表（Table），可以用Excel或GoogleSheet來想，一個檔案就是一個資料庫，而裡面的工作表(Sheet)就是資料表。
+而我們可以從中以許多不同的方式進行增查改刪(CRUD)或重建數據。</p>
+<h2 id="利用excel建立你的資料庫思維">利用Excel建立你的資料庫思維</h2>
+<hr>
+<p>我們可以用Excel來簡略的認識資料庫，這邊來舉個情境:
+因為COVID-19疫情蔓延，醫療院所紛紛設立了遠距門診提供病人視訊看診，我們來用Excel檔製作一個遠距門診的資料集合。</p>
+<p>首先我們會需要新增一個Excel檔案，並且定義工作表(Sheet)要存放的資料，那我們簡單列出幾個項目，看診日期、掛號科別、時段、醫師、病人、身分證、手機
+<img src="https://i.imgur.com/g6yxwrR.png" alt=""></p>
+<p>再來我們需要填入一些資料</p>
+<p><img src="https://i.imgur.com/AuhQDvC.png" alt=""></p>
+<p>在填入時可以發現，在都不調整直接輸入的情況下，輸入完手機後0會不見，原因是因為Excel把手機號碼當成是<strong>數字型態</strong>所以去除了0</p>
+<p>我們需要從格式中把此欄位調整成文字，再輸入一次才會看到有0喔!</p>
+<p>欄位的格式，也就是資料表中的<strong>資料型態</strong>，在設計資料庫時一定要注意。</p>
+<p><img src="https://i.imgur.com/ixMKZ9k.png" alt=""></p>
+<h2 id="透過匯入精靈匯入excel">透過匯入精靈匯入Excel</h2>
+<hr>
+<p>我們可以把一個Excel檔案視為一個資料庫(Database)
+接下來一步一步教大家使用工具快速建立一個資料庫</p>
+<h3 id="step1-開啟ssms連線資料庫">Step1. 開啟SSMS連線資料庫</h3>
+<p>開啟後會需要輸入伺服器名稱與驗證，用上一篇工具與環境教學中的LocalDB路徑，並選擇Windows驗證(無須輸入帳密)按下連線即可登入</p>
+<p><img src="https://i.imgur.com/YpZBD1u.png" alt=""></p>
+<p>看到左邊的物件總管中有資料庫清單就是成功連線了。</p>
+<p><img src="https://i.imgur.com/7wnDb8v.png" alt=""></p>
+<h3 id="step2-建立空白資料庫">Step2. 建立空白資料庫</h3>
+<p>對資料庫的圖示按右鍵，選擇[新增資料庫]</p>
+<p><img src="https://i.imgur.com/VqWrlnx.png" alt=""></p>
+<p>輸入資料庫名稱，既然我們的EXCEL檔是做遠距看診，名稱就訂為TeleClinic</p>
+<p><img src="https://i.imgur.com/u8Z8oz3.png" alt=""></p>
+<p>按下確定後就新增完成啦!
+可以按下資料庫左邊的 + 符號展開資料庫清單，可以看到我們的TeleClinic資料庫就是成功囉!</p>
+<p><img src="https://i.imgur.com/Ho8vUwa.png" alt=""></p>
+<h3 id="step3-匯入excel建立資料表與資料">Step3. 匯入Excel建立資料表與資料</h3>
+<p>對資料庫按右鍵 &gt; 工作 &gt; 匯入資料
+<img src="https://i.imgur.com/D99VGPH.png" alt=""></p>
+<p>開啟後執行下一步
+<img src="https://i.imgur.com/W2J89M4.jpg" alt=""></p>
+<p><strong>接下來很重要</strong><br>
+資料來源請選擇 [Microsoft Excel]
+Excel檔案路徑 請尋找你儲存的Excel位置
+並且確認Excel版本是否與你電腦上安裝的相同 
+(因新版Excel需要安裝ACE.OLED驅動程式，故範例為可直接使用的Excel 97-2003)
+並確認 [第一個資料列有資料行名稱] 已勾選，再按Next</p>
+<p><img src="https://i.imgur.com/sBrEdTE.jpg" alt=""></p>
+<p>若大家有出現下面錯誤訊息就代表你的Excel版本選擇不對</p>
+<p>可以把你的Excel檔案另存為 Excel 97-2003格式或是依據訊息安裝ACE.OLED程式</p>
+<p><img src="https://i.imgur.com/qUoxdcI.jpg" alt=""></p>
+<p>選擇目的地為 SQL Server Native Client 11.0 (即SQL Server)
+選擇後畫面會出現伺服器名稱與驗證</p>
+<p>理論上預設會帶出你登入的伺服器與資料庫，若沒有的話再自行輸入。
+資料庫請選擇剛剛建立的空白資料庫 TeleClinic ，進行下一步</p>
+<p><img src="https://i.imgur.com/9CLbgdu.jpg" alt=""></p>
+<p>選擇 從一個多個資料表或檢視表複製資料(預設)，進行下一步</p>
+<p><img src="https://i.imgur.com/4FgUYW3.jpg" alt=""></p>
+<p>可以看到我們剛剛的工作表<strong>遠距門診</strong>出現了</p>
+<p><img src="https://i.imgur.com/fwCTqOV.jpg" alt=""></p>
+<p>按下<strong>編輯對應</strong>，可以看到我們剛剛輸入的欄位</p>
+<p>有趣的是可以看到看診日期的類型自動轉換為 datetime，其餘的為nvarchar (可以先粗淺的把它視為是文字)，確認欄位無誤後按下確定，進行下一步</p>
+<p><img src="https://i.imgur.com/rpWQOaJ.jpg" alt=""></p>
+<p>直接按下 <strong>[Finish]</strong></p>
+<p><img src="https://i.imgur.com/9KggilN.jpg" alt=""></p>
+<p>按下 <strong>[Finish]</strong></p>
+<p><img src="https://i.imgur.com/wNtwsuo.jpg" alt=""></p>
+<p>執行完成，可以看到訊息中顯示有4個資料列，就是我們Excel表中寫入的資料</p>
+<p><img src="https://i.imgur.com/M0dvh4a.jpg" alt=""></p>
+<h2 id="開啟資料表">開啟資料表</h2>
+<hr>
+<p>執行完成後，點擊TeleClinc資料庫旁邊的 + 符號 展開細項，在點擊資料表 旁邊的+符號 展開資料表，可以看到剛剛匯入的 <strong>遠距門診資料表</strong>
+右鍵選擇 [選取前1000個資料列]</p>
+<p><img src="https://i.imgur.com/rorfHGR.png" alt=""></p>
+<p>大功告成，可以看到我們順利的把Excel建立的工作表與資料匯入資料庫囉!</p>
+<p><img src="https://i.imgur.com/3r9RFk9.png" alt=""></p>
+<h2 id="結語">結語</h2>
+<hr>
+<p>本篇僅是讓初學者快速入門學習建立資料庫，對於資料表與欄位的命名方式(如不要使用中文)、主索引的建立以及欄位型態等會在後續文章中陸續說明，有興趣深入研究者也可用本文章中的關鍵字在Google搜尋其他作者的文章。</p>
+<h2 id="參考資料">參考資料</h2>
+<p><a href="https://en.itpedia.nl/2020/01/20/de-relationele-database-het-hart-van-saas/">https://en.itpedia.nl/2020/01/20/de-relationele-database-het-hart-van-saas/</a>
+<a href="https://blog.techbridge.cc/2020/02/09/sql-basic-tutorial/">https://blog.techbridge.cc/2020/02/09/sql-basic-tutorial/</a></p>
+</div>
+        <hr class="py-2">
+        <aside id="meta">
+            <div class="grid grid-cols-2">
+                <div class="col-span-1">
+                    
+                    <a class="previous lg:text-l" href="https://devbricker.github.io/post/database/sql-server/sqlserverbasic2/">
+                        <div
+                            class="transition-colors rounded-md duration-300 border border-gray-600 hover:border-black h-auto m-3 text-center py-3 lg:py-1">
+                            <span class="icon-keyboard_arrow_left"></span> SQL Server 快速上手 (2) - 工具與環境
+                        </div>
+                    </a>
+                    
+                </div>
+                
+                <a class="next lg:text-l" href="https://devbricker.github.io/post/database/sql-server/sqlserverbasic4/">
+                    <div
+                        class="transition-colors rounded-md duration-300 col-span-1 border border-gray-600 hover:border-black h-auto m-3 text-center py-3 lg:py-1">
+                        SQL Server 快速上手 (4) - 基礎語法 <span class="icon-keyboard_arrow_right"></span>
+                    </div>
+                </a>
+                
+            </div>
+        </aside>
+         <section>
+    <div class="col-span-6 text-3xl md:text-2xl pb-4 pt-2 font-bold border-b-2">留言板</div>
+    <div class="mt-5 md:col-span-2">
+        <div class="shadow overflow-hidden sm:rounded-md">
+            <div class="px-4 py-2 bg-white sm:p-4">
+                <div class="grid grid-cols-6 gap-5">
+                    <div class="col-span-6 sm:col-span-3">
+                        <label for="first-name" class="block text-md font-medium text-gray-700">稱呼</label>
+                        <input type="text" name="first-name" id="first-name" autocomplete="given-name"
+                            class="showinput px-2 min-h-35 mt-1 border border-gray-900 focus:ring-gray-500 focus:border-gray-500 block w-full shadow-md rounded-md">
+                        <span
+                            class="showError hidden items-center font-medium tracking-wide text-red-500 text-xs mt-1 ml-1">
+                            稱呼必填!
+                        </span>
+                    </div>
+                    <div class="col-span-6">
+                        <label for="comment" class="block text-md font-medium text-gray-700">留言及發文</label>
+                        <textarea type="text" name="comment" id="comment" autocomplete="comment"
+                            class="showinput px-2 py-2 mt-1 min-h-100 border border-gray-900 focus:ring-gray-500 focus:border-gray-500 block w-full shadow-md rounded-md"></textarea>
+                        <span
+                            class="showError hidden items-center font-medium tracking-wide text-red-500 text-xs mt-1 ml-1">
+                            留言必填!
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="px-4 pt-1 pb-4 text-right sm:p-4">
+                <button id="save" onclick="setDoc()"
+                    class="inline-flex justify-center py-2 px-4 border border-gray-900 shadow-sm text-sm font-medium rounded-md text-white bg-gray-900 hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                    提交
+                </button>
+            </div>
+            <div class="px-4 py-4">
+                <div class="col-span-6 text-xl pb-4 border-b-2">歷史留言</div>
+                <div id="message-container" class="py-3">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script type="module">
+    import { collection } from "https://www.gstatic.com/firebasejs/9.1.3/firebase-firestore.js";
+    import { init, getDb, QueryComment, ReplyComment, LeaveComment, showNotifications, showAlert, showTemplate } from "/js/firebase.js"
+    window.onload = function () {
+        window.initfirebase = init()
+        window.db = getDb()
+        window.LeaveComment = LeaveComment
+        window.QueryComment = QueryComment
+        window.ReplyComment = ReplyComment
+        window.showNotifications = showNotifications
+        window.showTemplate = showTemplate
+        window.showAlert = showAlert
+        const h1 = document.getElementById('asfafjghqugf1')
+        if (h1) {
+            getDoc()
+        }
+    }
+</script>
+<script>
+    function getDoc() {
+        const h1 = document.getElementById('asfafjghqugf1').innerText
+        const name = document.getElementById('first-name').value
+        const res = window.QueryComment(window.db, 'BrickerMessageBox/article/' + h1, h1)
+        res.then((x) => {
+            x.forEach((doc) => {
+                const data = doc.data()
+                window.showTemplate(data.name, data.comment, data.date, data.reply, window.db, 'BrickerMessageBox/article/' + h1)
+            });
+        }).catch((e) => {
+            window.showAlert(e)
+            setTimeout(() => {
+                const dom = document.getElementById('alert-32532662362')
+                document.getElementById('alert-32532662362').parentElement.removeChild(dom)
+            }, 3000)
+            document.getElementById('save').disabled = true
+        })
+
+    }
+
+    function setDoc() {
+        const h1 = document.getElementById('asfafjghqugf1').innerText
+        const name = document.getElementById('first-name').value
+        const comment = document.getElementById('comment').value
+        if (!name || !comment) {
+            const dom = document.getElementsByClassName('showError')
+            const dom2 = document.getElementsByClassName('showinput')
+            for (let i = 0; i < dom.length; i++) {
+                dom[i].classList.remove('hidden')
+                dom2[i].classList.add('border-red-500')
+            }
+            return
+        }
+        document.getElementById('save').disabled = true
+        const res = window.LeaveComment(window.db, 'BrickerMessageBox/article/' + h1, name, comment)
+        res.then((x) => {
+            window.showNotifications()
+            setTimeout(() => {
+                const dom = document.getElementById('notification')
+                document.getElementById('notification').parentElement.removeChild(dom)
+            }, 3000)
+            document.getElementById('save').innerText = '成功提交！'
+            document.getElementById('save').disabled = true
+            const parent = document.getElementById('message-container')
+            while (parent.firstChild) {
+                parent.firstChild.remove()
+            } 0
+            
+            getDoc()
+        }).catch((e) => {
+            window.showAlert(e)
+            setTimeout(() => {
+                const dom = document.getElementById('alert-32532662362')
+                document.getElementById('alert-32532662362').parentElement.removeChild(dom)
+            }, 3000)
+            document.getElementById('save').disabled = true
+        })
+
+    }
+</script>
+        <hr class="py-2">
+        <div class="mb-3">
+            
+        </div>
+    </div>
+    <div  id="sidebar" class="hidden lg:block lg:col-span-2 xl:col-span-1 full">
+        
+        
+
+
+
+<div class="mx-auto w-full px-3 pb-3">
+    <h1 class="mb-4 pl-2 text-xl font-bold text-gray-700 border-gray-400 border-b-2 pb-2">文件分類</h1>
+    
+    
+    <div
+        class="flex items-center bg-indigo-500 rounded-md px-3 text-gray-700 cursor-pointer hover:bg-gray-800 hover:text-white transition duration-500 ease-in-out hover:shadow hover:bg-indigo-600">
+        <div>
+            <svg fill="currentColor" class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                <path d="M0 4c0-1.1.9-2 2-2h7l2 2h7a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4z"></path>
+            </svg>
+
+        </div>
+        <div class=" mr-auto">
+            <a class="text-center block duration-100 py-2 px-1 mx-4"
+                href="https://devbricker.github.io//archives/aspnetcore">aspnetcore (5)</a>
+        </div>
+    </div>
+    
+    <div
+        class="flex items-center bg-indigo-500 rounded-md px-3 text-gray-700 cursor-pointer hover:bg-gray-800 hover:text-white transition duration-500 ease-in-out hover:shadow hover:bg-indigo-600">
+        <div>
+            <svg fill="currentColor" class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                <path d="M0 4c0-1.1.9-2 2-2h7l2 2h7a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4z"></path>
+            </svg>
+
+        </div>
+        <div class=" mr-auto">
+            <a class="text-center block duration-100 py-2 px-1 mx-4"
+                href="https://devbricker.github.io//archives/blockchain">blockchain (1)</a>
+        </div>
+    </div>
+    
+    <div
+        class="flex items-center bg-indigo-500 rounded-md px-3 text-gray-700 cursor-pointer hover:bg-gray-800 hover:text-white transition duration-500 ease-in-out hover:shadow hover:bg-indigo-600">
+        <div>
+            <svg fill="currentColor" class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                <path d="M0 4c0-1.1.9-2 2-2h7l2 2h7a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4z"></path>
+            </svg>
+
+        </div>
+        <div class=" mr-auto">
+            <a class="text-center block duration-100 py-2 px-1 mx-4"
+                href="https://devbricker.github.io//archives/blog-builder">blog-builder (2)</a>
+        </div>
+    </div>
+    
+    <div
+        class="flex items-center bg-indigo-500 rounded-md px-3 text-gray-700 cursor-pointer hover:bg-gray-800 hover:text-white transition duration-500 ease-in-out hover:shadow hover:bg-indigo-600">
+        <div>
+            <svg fill="currentColor" class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                <path d="M0 4c0-1.1.9-2 2-2h7l2 2h7a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4z"></path>
+            </svg>
+
+        </div>
+        <div class=" mr-auto">
+            <a class="text-center block duration-100 py-2 px-1 mx-4"
+                href="https://devbricker.github.io//archives/cloud">cloud (1)</a>
+        </div>
+    </div>
+    
+    <div
+        class="flex items-center bg-indigo-500 rounded-md px-3 text-gray-700 cursor-pointer hover:bg-gray-800 hover:text-white transition duration-500 ease-in-out hover:shadow hover:bg-indigo-600">
+        <div>
+            <svg fill="currentColor" class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                <path d="M0 4c0-1.1.9-2 2-2h7l2 2h7a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4z"></path>
+            </svg>
+
+        </div>
+        <div class=" mr-auto">
+            <a class="text-center block duration-100 py-2 px-1 mx-4"
+                href="https://devbricker.github.io//archives/devtools">devtools (14)</a>
+        </div>
+    </div>
+    
+    <div
+        class="flex items-center bg-indigo-500 rounded-md px-3 text-gray-700 cursor-pointer hover:bg-gray-800 hover:text-white transition duration-500 ease-in-out hover:shadow hover:bg-indigo-600">
+        <div>
+            <svg fill="currentColor" class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                <path d="M0 4c0-1.1.9-2 2-2h7l2 2h7a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4z"></path>
+            </svg>
+
+        </div>
+        <div class=" mr-auto">
+            <a class="text-center block duration-100 py-2 px-1 mx-4"
+                href="https://devbricker.github.io//archives/html">html (1)</a>
+        </div>
+    </div>
+    
+    
+</div>
+
+        
+
+<div class=" pt-2">
+    
+    <h1 class="pl-4 text-xl font-bold text-gray-700 border-gray-400 border-b-2 pb-2">主題</h1>
+    <div class="w-full rounded-lg px-2 py-2">
+        
+        <ul class="divide-y-2 divide-gray-100 ml-0  mb-2">
+            <li class="mx-1 hover:bg-gray-700  text-gray-700 hover:text-white my-2" style="list-style: none">
+                <a class="mx-1 font-bold " href="https://devbricker.github.io//categories/aws">Aws</a>
+            </li>
+        </ul>
+        
+        <ul class="divide-y-2 divide-gray-100 ml-0  mb-2">
+            <li class="mx-1 hover:bg-gray-700  text-gray-700 hover:text-white my-2" style="list-style: none">
+                <a class="mx-1 font-bold " href="https://devbricker.github.io//categories/database">Database</a>
+            </li>
+        </ul>
+        
+        <ul class="divide-y-2 divide-gray-100 ml-0  mb-2">
+            <li class="mx-1 hover:bg-gray-700  text-gray-700 hover:text-white my-2" style="list-style: none">
+                <a class="mx-1 font-bold " href="https://devbricker.github.io//categories/github">Github</a>
+            </li>
+        </ul>
+        
+        <ul class="divide-y-2 divide-gray-100 ml-0  mb-2">
+            <li class="mx-1 hover:bg-gray-700  text-gray-700 hover:text-white my-2" style="list-style: none">
+                <a class="mx-1 font-bold " href="https://devbricker.github.io//categories/html">HTML</a>
+            </li>
+        </ul>
+        
+        <ul class="divide-y-2 divide-gray-100 ml-0  mb-2">
+            <li class="mx-1 hover:bg-gray-700  text-gray-700 hover:text-white my-2" style="list-style: none">
+                <a class="mx-1 font-bold " href="https://devbricker.github.io//categories/hugo">Hugo</a>
+            </li>
+        </ul>
+        
+        <ul class="divide-y-2 divide-gray-100 ml-0  mb-2">
+            <li class="mx-1 hover:bg-gray-700  text-gray-700 hover:text-white my-2" style="list-style: none">
+                <a class="mx-1 font-bold " href="https://devbricker.github.io//categories/polygon">Polygon</a>
+            </li>
+        </ul>
+        
+        <ul class="divide-y-2 divide-gray-100 ml-0  mb-2">
+            <li class="mx-1 hover:bg-gray-700  text-gray-700 hover:text-white my-2" style="list-style: none">
+                <a class="mx-1 font-bold " href="https://devbricker.github.io//categories/sourcetree">Sourcetree</a>
+            </li>
+        </ul>
+        
+        <ul class="divide-y-2 divide-gray-100 ml-0  mb-2">
+            <li class="mx-1 hover:bg-gray-700  text-gray-700 hover:text-white my-2" style="list-style: none">
+                <a class="mx-1 font-bold " href="https://devbricker.github.io//categories/visual-studio-2019">Visual studio 2019</a>
+            </li>
+        </ul>
+        
+        <ul class="divide-y-2 divide-gray-100 ml-0  mb-2">
+            <li class="mx-1 hover:bg-gray-700  text-gray-700 hover:text-white my-2" style="list-style: none">
+                <a class="mx-1 font-bold " href="https://devbricker.github.io//categories/visual-studio-2022">Visual studio 2022</a>
+            </li>
+        </ul>
+        
+        <ul class="divide-y-2 divide-gray-100 ml-0  mb-2">
+            <li class="mx-1 hover:bg-gray-700  text-gray-700 hover:text-white my-2" style="list-style: none">
+                <a class="mx-1 font-bold " href="https://devbricker.github.io//categories/visual-studio-2022-preview">Visual studio 2022 preview</a>
+            </li>
+        </ul>
+        
+        <ul class="divide-y-2 divide-gray-100 ml-0  mb-2">
+            <li class="mx-1 hover:bg-gray-700  text-gray-700 hover:text-white my-2" style="list-style: none">
+                <a class="mx-1 font-bold " href="https://devbricker.github.io//categories/visual-studio-code">Visual studio code</a>
+            </li>
+        </ul>
+        
+    </div>
+</div>
+
+
+        
+        
+    </div>
+</div>
+
+            </div>
+        </div>
+        <div
+        class="bg-white w-full pr-6 pl-6  lg:pl-12 lg:pr-12 md:pl-7 md:pr-7 pb-5  container-fluid mx-auto flex-grow  lg:px-0">
+            
+
+
+<div class="mt-5 border-t border-gray-500 mx-auto">
+    <h1 class=" mt-4 mb-4 text-xl font-bold text-gray-900 w-full text-left">最近釋出</h1>
+    <div class="flex overflow-x-auto w-full">
+        
+
+        <div
+            class="relative rounded-lg shadow-md border-gray-900 border-2 border-solid flex flex-col mr-4 px-4 pb-4 min-w-1/2 md:min-w-1/2 lg:min-w-1/5 xl:min-w-1/5  min-h-100">
+            <div class="mt-4"><a href="/post/blockchain/moralis/polygon-matic-moralis/"
+                    class="text-gray-900 font-bold text-xl font-medium hover:underline">
+                    Polygon (Matic) 從零開始 發行自己的虛擬貨幣(Token)</a></div>
+            <div class="flex items-center justify-between mt-4">
+                <div class=" flex items-center">
+                    <p class="text-sm text-gray-600 flex items-center pb-1 absolute bottom-2 right-4">
+                        <time><span class="icon-access_time mr-1"></span>2021/08/22</time>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div
+            class="relative rounded-lg shadow-md border-gray-900 border-2 border-solid flex flex-col mr-4 px-4 pb-4 min-w-1/2 md:min-w-1/2 lg:min-w-1/5 xl:min-w-1/5  min-h-100">
+            <div class="mt-4"><a href="/post/devtools/visualstudio2022testeeplorer/"
+                    class="text-gray-900 font-bold text-xl font-medium hover:underline">
+                    Visual Studio 2022 Preview 跨平台遠端單元測試</a></div>
+            <div class="flex items-center justify-between mt-4">
+                <div class=" flex items-center">
+                    <p class="text-sm text-gray-600 flex items-center pb-1 absolute bottom-2 right-4">
+                        <time><span class="icon-access_time mr-1"></span>2021/09/13</time>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div
+            class="relative rounded-lg shadow-md border-gray-900 border-2 border-solid flex flex-col mr-4 px-4 pb-4 min-w-1/2 md:min-w-1/2 lg:min-w-1/5 xl:min-w-1/5  min-h-100">
+            <div class="mt-4"><a href="/post/hugo/markdown/markdown_basic_ide/"
+                    class="text-gray-900 font-bold text-xl font-medium hover:underline">
+                    Markdown 從零開始 開發工具篇</a></div>
+            <div class="flex items-center justify-between mt-4">
+                <div class=" flex items-center">
+                    <p class="text-sm text-gray-600 flex items-center pb-1 absolute bottom-2 right-4">
+                        <time><span class="icon-access_time mr-1"></span>2021/08/28</time>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div
+            class="relative rounded-lg shadow-md border-gray-900 border-2 border-solid flex flex-col mr-4 px-4 pb-4 min-w-1/2 md:min-w-1/2 lg:min-w-1/5 xl:min-w-1/5  min-h-100">
+            <div class="mt-4"><a href="/post/cloud/aws/%E8%A6%AA%E6%84%9B%E7%9A%84%E6%88%91%E6%8A%8Ahttp%E7%84%A1%E7%97%9B%E8%AE%8A%E6%88%90https%E4%BA%86_20210725/"
+                    class="text-gray-900 font-bold text-xl font-medium hover:underline">
+                    親愛的，我把HTTP無痛變成HTTPS了</a></div>
+            <div class="flex items-center justify-between mt-4">
+                <div class=" flex items-center">
+                    <p class="text-sm text-gray-600 flex items-center pb-1 absolute bottom-2 right-4">
+                        <time><span class="icon-access_time mr-1"></span>2021/07/25</time>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div
+            class="relative rounded-lg shadow-md border-gray-900 border-2 border-solid flex flex-col mr-4 px-4 pb-4 min-w-1/2 md:min-w-1/2 lg:min-w-1/5 xl:min-w-1/5  min-h-100">
+            <div class="mt-4"><a href="/post/devtools/aspnetcorewebdeploy/"
+                    class="text-gray-900 font-bold text-xl font-medium hover:underline">
+                    Visual Studio 2019的WebDeploy到IIS發生憑證無效</a></div>
+            <div class="flex items-center justify-between mt-4">
+                <div class=" flex items-center">
+                    <p class="text-sm text-gray-600 flex items-center pb-1 absolute bottom-2 right-4">
+                        <time><span class="icon-access_time mr-1"></span>2021/10/08</time>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div
+            class="relative rounded-lg shadow-md border-gray-900 border-2 border-solid flex flex-col mr-4 px-4 pb-4 min-w-1/2 md:min-w-1/2 lg:min-w-1/5 xl:min-w-1/5  min-h-100">
+            <div class="mt-4"><a href="/post/aspnetcore/aspnetcoremvc1/"
+                    class="text-gray-900 font-bold text-xl font-medium hover:underline">
+                    ASP .NET Core MVC 從零開始 (1) - 建立專案</a></div>
+            <div class="flex items-center justify-between mt-4">
+                <div class=" flex items-center">
+                    <p class="text-sm text-gray-600 flex items-center pb-1 absolute bottom-2 right-4">
+                        <time><span class="icon-access_time mr-1"></span>2021/10/31</time>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div
+            class="relative rounded-lg shadow-md border-gray-900 border-2 border-solid flex flex-col mr-4 px-4 pb-4 min-w-1/2 md:min-w-1/2 lg:min-w-1/5 xl:min-w-1/5  min-h-100">
+            <div class="mt-4"><a href="/post/html/html_basics/"
+                    class="text-gray-900 font-bold text-xl font-medium hover:underline">
+                    HTML 從零開始</a></div>
+            <div class="flex items-center justify-between mt-4">
+                <div class=" flex items-center">
+                    <p class="text-sm text-gray-600 flex items-center pb-1 absolute bottom-2 right-4">
+                        <time><span class="icon-access_time mr-1"></span>2021/10/13</time>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div
+            class="relative rounded-lg shadow-md border-gray-900 border-2 border-solid flex flex-col mr-4 px-4 pb-4 min-w-1/2 md:min-w-1/2 lg:min-w-1/5 xl:min-w-1/5  min-h-100">
+            <div class="mt-4"><a href="/post/database/sql-server/sqlserverbasic2/"
+                    class="text-gray-900 font-bold text-xl font-medium hover:underline">
+                    SQL Server 快速上手 (2) - 工具與環境</a></div>
+            <div class="flex items-center justify-between mt-4">
+                <div class=" flex items-center">
+                    <p class="text-sm text-gray-600 flex items-center pb-1 absolute bottom-2 right-4">
+                        <time><span class="icon-access_time mr-1"></span>2021/10/17</time>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div
+            class="relative rounded-lg shadow-md border-gray-900 border-2 border-solid flex flex-col mr-4 px-4 pb-4 min-w-1/2 md:min-w-1/2 lg:min-w-1/5 xl:min-w-1/5  min-h-100">
+            <div class="mt-4"><a href="/post/hugo/deploy/hugo_environment/"
+                    class="text-gray-900 font-bold text-xl font-medium hover:underline">
+                    Hugo 從零開始 環境安裝(Windows)</a></div>
+            <div class="flex items-center justify-between mt-4">
+                <div class=" flex items-center">
+                    <p class="text-sm text-gray-600 flex items-center pb-1 absolute bottom-2 right-4">
+                        <time><span class="icon-access_time mr-1"></span>2021/08/07</time>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div
+            class="relative rounded-lg shadow-md border-gray-900 border-2 border-solid flex flex-col mr-4 px-4 pb-4 min-w-1/2 md:min-w-1/2 lg:min-w-1/5 xl:min-w-1/5  min-h-100">
+            <div class="mt-4"><a href="/post/hugo/deploy/hugo_build1/"
+                    class="text-gray-900 font-bold text-xl font-medium hover:underline">
+                    Hugo 從零開始 建立自己的部落格</a></div>
+            <div class="flex items-center justify-between mt-4">
+                <div class=" flex items-center">
+                    <p class="text-sm text-gray-600 flex items-center pb-1 absolute bottom-2 right-4">
+                        <time><span class="icon-access_time mr-1"></span>2021/08/07</time>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>
+        </div>  
+
+        
+
+
+
+<div class='pr-6 pl-6  lg:pl-12 lg:pr-12 md:pl-7 md:pr-7 w-full bg-warmgray-700'>
+    <h1 class="pt-4 text-xl font-bold text-white pb-4">標籤</h1>
+    
+    <div class='flex flex-wrap -m-1 pb-4'>
+        <a href="/tags/apigateway">
+            <span
+                class="m-1 duration-100 bg-white hover:bg-gray-300 rounded-full px-2 font-bold text-md leading-loose cursor-pointer hover:text-blue-900 ">apigateway</span>
+        </a>
+        <a href="/tags/git">
+            <span
+                class="m-1 duration-100 bg-white hover:bg-gray-300 rounded-full px-2 font-bold text-md leading-loose cursor-pointer hover:text-blue-900 ">git</span>
+        </a>
+        <a href="/tags/html">
+            <span
+                class="m-1 duration-100 bg-white hover:bg-gray-300 rounded-full px-2 font-bold text-md leading-loose cursor-pointer hover:text-blue-900 ">html</span>
+        </a>
+        <a href="/tags/markdown">
+            <span
+                class="m-1 duration-100 bg-white hover:bg-gray-300 rounded-full px-2 font-bold text-md leading-loose cursor-pointer hover:text-blue-900 ">markdown</span>
+        </a>
+        <a href="/tags/moralis">
+            <span
+                class="m-1 duration-100 bg-white hover:bg-gray-300 rounded-full px-2 font-bold text-md leading-loose cursor-pointer hover:text-blue-900 ">moralis</span>
+        </a>
+        <a href="/tags/openzeppelin">
+            <span
+                class="m-1 duration-100 bg-white hover:bg-gray-300 rounded-full px-2 font-bold text-md leading-loose cursor-pointer hover:text-blue-900 ">openzeppelin</span>
+        </a>
+        <a href="/tags/proxy">
+            <span
+                class="m-1 duration-100 bg-white hover:bg-gray-300 rounded-full px-2 font-bold text-md leading-loose cursor-pointer hover:text-blue-900 ">proxy</span>
+        </a>
+        <a href="/tags/remix">
+            <span
+                class="m-1 duration-100 bg-white hover:bg-gray-300 rounded-full px-2 font-bold text-md leading-loose cursor-pointer hover:text-blue-900 ">remix</span>
+        </a>
+        <a href="/tags/sql-server">
+            <span
+                class="m-1 duration-100 bg-white hover:bg-gray-300 rounded-full px-2 font-bold text-md leading-loose cursor-pointer hover:text-blue-900 ">sql-server</span>
+        </a>
+        <a href="/tags/tool">
+            <span
+                class="m-1 duration-100 bg-white hover:bg-gray-300 rounded-full px-2 font-bold text-md leading-loose cursor-pointer hover:text-blue-900 ">tool</span>
+        </a>
+        <a href="/tags/%E5%95%8F%E9%A1%8C%E8%A7%A3%E6%B1%BA">
+            <span
+                class="m-1 duration-100 bg-white hover:bg-gray-300 rounded-full px-2 font-bold text-md leading-loose cursor-pointer hover:text-blue-900 ">問題解決</span>
+        </a>
+        <a href="/tags/%E7%92%B0%E5%A2%83%E8%A8%AD%E5%AE%9A">
+            <span
+                class="m-1 duration-100 bg-white hover:bg-gray-300 rounded-full px-2 font-bold text-md leading-loose cursor-pointer hover:text-blue-900 ">環境設定</span>
+        </a>
+    </div>
+</div>
+
+<footer
+    class="pr-6 pl-6 lg:pl-12 lg:pr-12 md:pl-7 md:pr-7 bg-warmgray-700 text-white p-6 w-full border-t border-gray-200">
+    
+    <div class="container-fluid mr-auto ml-auto">
+        <p>&copy; 2022 <a href="https://devbricker.github.io/" class="hover:text-gray-500">DevBricker</a></p>
+    </div>
+    <div class="hidden lg:col-span-full xl:col-span-full lg:hidden"></div>
+    <script>
+        function openSideBar() {
+            let elem = document.getElementById('sidebar')
+            let main = document.getElementById('main')
+            if (elem.classList.contains('full')) {
+                elem.classList.remove('full')
+                elem.classList.add('non-full')
+                elem.classList.add('lg:hidden')
+                main.classList.add('lg:col-span-full')
+                main.classList.add('xl:col-span-full')
+            } else {
+                elem.classList.add('full')
+                elem.classList.remove('non-full')
+                elem.classList.remove('lg:hidden')
+                main.classList.remove('lg:col-span-full')
+                main.classList.remove('xl:col-span-full')
+            }
+        }
+    </script>
+</footer></div>
+</body>
+
+</html>

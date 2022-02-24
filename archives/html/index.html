@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+
+<html lang="zh-TW">
+<head>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-204784534-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-204784534-1');
+</script>
+
+
+<title>DevBricker | HTML</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+    
+    
+    <meta name="description" content="DevBricker | ">
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/little_bot2.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/little_bot2.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/little_bot2.png">
+    <link rel="manifest" href="/favicon/site.webmanifest" />
+    <link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#5bbad5" />
+    <link rel="shortcut icon" href="/favicon/little_bot2.png" />
+    <meta name="theme-color" content="#ffffff">
+    <meta property="og:title" content="DevBricker | HTML" />
+    
+    
+    
+    <link rel="stylesheet" href="https://devbricker.github.io/css/styles.min.9212b55dbd0e8549cf2c0cc6313f912fdf23793d0d89fd5706d03aa9cbc42ee9.css">
+    
+    <link href="/css/blonde.min.css" rel="stylesheet" type="text/css" media="print"
+        onload="this.media='all'">
+    
+
+
+	
+
+
+<meta property="og:site_name" content="DevBricker">
+
+<meta property="og:url" content="https://devbricker.github.io/archives/html/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="">
+
+<link rel="canonical" href="https://devbricker.github.io/archives/html/">
+
+
+<meta property="article:published_time" content="2021-10-13T00:00:00&#43;00:00">
+<meta property="article:updated_time" content="2021-10-13T00:00:00&#43;00:00">
+
+
+
+
+
+<meta property="og:image" content="https://devbricker.github.io/">
+<meta property="og:image:url" content="https://devbricker.github.io/">
+
+    
+    <link rel="stylesheet" href="/css/custom.css">
+    <link rel="stylesheet" href="/css/code.css">
+    <link rel="stylesheet" href="/css/prism.css">
+    
+    <meta name="robots" content="index, follow, archive">
+    
+    <script src="https://devbricker.github.io/js/prism.js"></script>
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="https://devbricker.github.io/sitemap.xml">
+    
+</head><body class="font-sans">
+    <div
+        class="min-w-screen min-h-screen flex flex-col items-center bg-warmgray-700"><div class="w-full">
+    <div class="container-fluid w-full mr-auto ml-auto pr-6 pl-6 lg:pl-10 lg:pr-10 md:pl-5 md:pr-5">
+        <nav class="flex items-center justify-between flex-wrap pt-4 pb-4 ">
+            <div class="flex items-center flex-no-shrink text-white mr-6">
+                <img style="width:44px" src="/favicon/little_bot2.png">
+                <a href="https://devbricker.github.io/"><span class="font-semibold text-2xl tracking-tight">DevBricker</span></a>
+            </div>
+            <div class="flex md:hidden">
+                
+                <button id="hamburgerbtn" class="flex items-center px-3 py-1 text-gray-300 hover:text-white"
+                    aria-label="Hamburger Button">
+                    <span class="icon-menu text-2xl"></span>
+                </button>
+            </div>
+            <div class="hidden w-full md:flex md:flex-row sm:items-center md:w-auto" id="mobileMenu">
+                <div class="text-sm lg:flex-grow">
+                </div>
+                <div class="navmenu">
+                    
+                    <a href="/"
+                        class="no-underline block mt-4 sm:inline-block sm:mt-0 text-white hover:text-gray-400 mr-4">
+                        主頁
+                    </a>
+                    
+                    <a href="/about/"
+                        class="no-underline block mt-4 sm:inline-block sm:mt-0 text-white hover:text-gray-400 mr-4">
+                        關於我們
+                    </a>
+                    
+                </div>
+                <div class="text-white invisible md:visible ">
+                    <span>|</span>
+                </div>
+                <div class="text-white invisible md:visible ">
+                    <button onclick="openSideBar()" class="focus:outline-none" aria-label="open Side">
+                        <span>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 pt-2" viewBox="0 0 20 20"
+                                fill="currentColor">
+                                <path fill-rule="evenodd"
+                                    d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                        </span>
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </div>
+</div>
+<style>
+    .active {
+        display: block;
+    }
+</style>
+
+<script>
+    let hamburger = document.getElementById('hamburgerbtn');
+    let mobileMenu = document.getElementById('mobileMenu');
+    hamburger.addEventListener('click', function () {
+        mobileMenu.classList.toggle('active');
+    });
+</script><div class="bg-white w-full border-t border-gray-200 pt-4 container-fluid mx-auto flex-grow"
+            id="content">
+            <div class="pr-6 pl-6 lg:pl-12 lg:pr-12 md:pl-7 md:pr-7  mx-auto">
+<div class="grid md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-5 gap-4">
+  <div id="main" class="col-span-5 md:col-span-4 lg:col-span-4 xl:col-span-4 mb-3">
+    <h1 class="mb-4 pl-2 text-xl font-bold text-gray-900">HTML</h1>
+    <div class="grid md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-3 gap-5 place-content-start">
+      
+      
+      
+      
+      
+      
+      <a href="/post/html/html_basics/">
+        <div
+    class="relative lg:flex flex-row bg-white min-h-300 md:min-h-350 lg:max-w-full lg:flex hover4 space-y-2 items-start justify-center h-full rounded-xl lg:space-x-10 border-2 border-gray-700">
+    <div class="lg:w-4/4">
+        <div class="py-3 px-4 justify-between leading-normal max-w-full w-full">
+            <div class="pb-4">
+                
+                
+                <div
+                    class="text-xs inline-flex items-center font-bold leading-sm uppercase px-2 py-1 bg-blue-200 text-blue-700 rounded-full">
+                    <span class="icon-local_offer mr-1"></span> HTML
+                </div>
+
+                
+                
+            </div>
+            <p class="w-full leading-8 text-gray-900 text-2xl mb-3 font-semibold">HTML 從零開始</p>
+            <p class="w-full leading-7 text-base pb-5 text-sm tracking-wide  text-gray-700">超文本標記語言（英語：HyperText Markup Language，簡稱：HTML）是一種用於建立網頁的標準標記語言。HTML是一種基礎技術，常與C...</p>
+
+            <p class="text-sm text-gray-600 absolute  bottom-4 left-4 ">
+                <time><span class="icon-access_time mr-1"></span>2021/10/13</time>
+            </p>
+            <div class="flex justify-end absolute  bottom-4 right-4">
+                <div class="rounded " style="width:100px">
+                    <div class=" border rounded-lg border-gray-800 px-4">
+                        <p class="m-auto  text-sm font-medium leading-normal text-center text-gray-700 py-2">
+                            點擊閱讀
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+      </a>
+      
+      
+
+      
+    </div>
+  </div>
+  <div id="sidebar" class="hidden lg:block lg:col-span-2 xl:col-span-1 full">
+    
+    
+
+
+
+<div class="mx-auto w-full px-3 pb-3">
+    <h1 class="mb-4 pl-2 text-xl font-bold text-gray-700 border-gray-400 border-b-2 pb-2">文件分類</h1>
+    
+    
+    <div
+        class="flex items-center bg-indigo-500 rounded-md px-3 text-gray-700 cursor-pointer hover:bg-gray-800 hover:text-white transition duration-500 ease-in-out hover:shadow hover:bg-indigo-600">
+        <div>
+            <svg fill="currentColor" class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                <path d="M0 4c0-1.1.9-2 2-2h7l2 2h7a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4z"></path>
+            </svg>
+
+        </div>
+        <div class=" mr-auto">
+            <a class="text-center block duration-100 py-2 px-1 mx-4"
+                href="https://devbricker.github.io//archives/aspnetcore">aspnetcore (5)</a>
+        </div>
+    </div>
+    
+    <div
+        class="flex items-center bg-indigo-500 rounded-md px-3 text-gray-700 cursor-pointer hover:bg-gray-800 hover:text-white transition duration-500 ease-in-out hover:shadow hover:bg-indigo-600">
+        <div>
+            <svg fill="currentColor" class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                <path d="M0 4c0-1.1.9-2 2-2h7l2 2h7a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4z"></path>
+            </svg>
+
+        </div>
+        <div class=" mr-auto">
+            <a class="text-center block duration-100 py-2 px-1 mx-4"
+                href="https://devbricker.github.io//archives/blockchain">blockchain (1)</a>
+        </div>
+    </div>
+    
+    <div
+        class="flex items-center bg-indigo-500 rounded-md px-3 text-gray-700 cursor-pointer hover:bg-gray-800 hover:text-white transition duration-500 ease-in-out hover:shadow hover:bg-indigo-600">
+        <div>
+            <svg fill="currentColor" class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                <path d="M0 4c0-1.1.9-2 2-2h7l2 2h7a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4z"></path>
+            </svg>
+
+        </div>
+        <div class=" mr-auto">
+            <a class="text-center block duration-100 py-2 px-1 mx-4"
+                href="https://devbricker.github.io//archives/blog-builder">blog-builder (2)</a>
+        </div>
+    </div>
+    
+    <div
+        class="flex items-center bg-indigo-500 rounded-md px-3 text-gray-700 cursor-pointer hover:bg-gray-800 hover:text-white transition duration-500 ease-in-out hover:shadow hover:bg-indigo-600">
+        <div>
+            <svg fill="currentColor" class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                <path d="M0 4c0-1.1.9-2 2-2h7l2 2h7a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4z"></path>
+            </svg>
+
+        </div>
+        <div class=" mr-auto">
+            <a class="text-center block duration-100 py-2 px-1 mx-4"
+                href="https://devbricker.github.io//archives/cloud">cloud (1)</a>
+        </div>
+    </div>
+    
+    <div
+        class="flex items-center bg-indigo-500 rounded-md px-3 text-gray-700 cursor-pointer hover:bg-gray-800 hover:text-white transition duration-500 ease-in-out hover:shadow hover:bg-indigo-600">
+        <div>
+            <svg fill="currentColor" class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                <path d="M0 4c0-1.1.9-2 2-2h7l2 2h7a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4z"></path>
+            </svg>
+
+        </div>
+        <div class=" mr-auto">
+            <a class="text-center block duration-100 py-2 px-1 mx-4"
+                href="https://devbricker.github.io//archives/devtools">devtools (14)</a>
+        </div>
+    </div>
+    
+    <div
+        class="flex items-center bg-indigo-500 rounded-md px-3 text-gray-700 cursor-pointer hover:bg-gray-800 hover:text-white transition duration-500 ease-in-out hover:shadow hover:bg-indigo-600">
+        <div>
+            <svg fill="currentColor" class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                <path d="M0 4c0-1.1.9-2 2-2h7l2 2h7a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4z"></path>
+            </svg>
+
+        </div>
+        <div class=" mr-auto">
+            <a class="text-center block duration-100 py-2 px-1 mx-4"
+                href="https://devbricker.github.io//archives/html">html (1)</a>
+        </div>
+    </div>
+    
+    
+</div>
+
+    
+
+<div class=" pt-2">
+    
+    <h1 class="pl-4 text-xl font-bold text-gray-700 border-gray-400 border-b-2 pb-2">主題</h1>
+    <div class="w-full rounded-lg px-2 py-2">
+        
+        <ul class="divide-y-2 divide-gray-100 ml-0  mb-2">
+            <li class="mx-1 hover:bg-gray-700  text-gray-700 hover:text-white my-2" style="list-style: none">
+                <a class="mx-1 font-bold " href="https://devbricker.github.io//categories/aws">Aws</a>
+            </li>
+        </ul>
+        
+        <ul class="divide-y-2 divide-gray-100 ml-0  mb-2">
+            <li class="mx-1 hover:bg-gray-700  text-gray-700 hover:text-white my-2" style="list-style: none">
+                <a class="mx-1 font-bold " href="https://devbricker.github.io//categories/database">Database</a>
+            </li>
+        </ul>
+        
+        <ul class="divide-y-2 divide-gray-100 ml-0  mb-2">
+            <li class="mx-1 hover:bg-gray-700  text-gray-700 hover:text-white my-2" style="list-style: none">
+                <a class="mx-1 font-bold " href="https://devbricker.github.io//categories/github">Github</a>
+            </li>
+        </ul>
+        
+        <ul class="divide-y-2 divide-gray-100 ml-0  mb-2">
+            <li class="mx-1 hover:bg-gray-700  text-gray-700 hover:text-white my-2" style="list-style: none">
+                <a class="mx-1 font-bold " href="https://devbricker.github.io//categories/html">HTML</a>
+            </li>
+        </ul>
+        
+        <ul class="divide-y-2 divide-gray-100 ml-0  mb-2">
+            <li class="mx-1 hover:bg-gray-700  text-gray-700 hover:text-white my-2" style="list-style: none">
+                <a class="mx-1 font-bold " href="https://devbricker.github.io//categories/hugo">Hugo</a>
+            </li>
+        </ul>
+        
+        <ul class="divide-y-2 divide-gray-100 ml-0  mb-2">
+            <li class="mx-1 hover:bg-gray-700  text-gray-700 hover:text-white my-2" style="list-style: none">
+                <a class="mx-1 font-bold " href="https://devbricker.github.io//categories/polygon">Polygon</a>
+            </li>
+        </ul>
+        
+        <ul class="divide-y-2 divide-gray-100 ml-0  mb-2">
+            <li class="mx-1 hover:bg-gray-700  text-gray-700 hover:text-white my-2" style="list-style: none">
+                <a class="mx-1 font-bold " href="https://devbricker.github.io//categories/sourcetree">Sourcetree</a>
+            </li>
+        </ul>
+        
+        <ul class="divide-y-2 divide-gray-100 ml-0  mb-2">
+            <li class="mx-1 hover:bg-gray-700  text-gray-700 hover:text-white my-2" style="list-style: none">
+                <a class="mx-1 font-bold " href="https://devbricker.github.io//categories/visual-studio-2019">Visual studio 2019</a>
+            </li>
+        </ul>
+        
+        <ul class="divide-y-2 divide-gray-100 ml-0  mb-2">
+            <li class="mx-1 hover:bg-gray-700  text-gray-700 hover:text-white my-2" style="list-style: none">
+                <a class="mx-1 font-bold " href="https://devbricker.github.io//categories/visual-studio-2022">Visual studio 2022</a>
+            </li>
+        </ul>
+        
+        <ul class="divide-y-2 divide-gray-100 ml-0  mb-2">
+            <li class="mx-1 hover:bg-gray-700  text-gray-700 hover:text-white my-2" style="list-style: none">
+                <a class="mx-1 font-bold " href="https://devbricker.github.io//categories/visual-studio-2022-preview">Visual studio 2022 preview</a>
+            </li>
+        </ul>
+        
+        <ul class="divide-y-2 divide-gray-100 ml-0  mb-2">
+            <li class="mx-1 hover:bg-gray-700  text-gray-700 hover:text-white my-2" style="list-style: none">
+                <a class="mx-1 font-bold " href="https://devbricker.github.io//categories/visual-studio-code">Visual studio code</a>
+            </li>
+        </ul>
+        
+    </div>
+</div>
+
+
+    
+  </div>
+</div>
+
+            </div>
+        </div>
+        <div
+        class="bg-white w-full pr-6 pl-6  lg:pl-12 lg:pr-12 md:pl-7 md:pr-7 pb-5  container-fluid mx-auto flex-grow  lg:px-0">
+            
+
+
+<div class="mt-5 border-t border-gray-500 mx-auto">
+    <h1 class=" mt-4 mb-4 text-xl font-bold text-gray-900 w-full text-left">最近釋出</h1>
+    <div class="flex overflow-x-auto w-full">
+        
+
+        <div
+            class="relative rounded-lg shadow-md border-gray-900 border-2 border-solid flex flex-col mr-4 px-4 pb-4 min-w-1/2 md:min-w-1/2 lg:min-w-1/5 xl:min-w-1/5  min-h-100">
+            <div class="mt-4"><a href="/post/devtools/visualstudiocodeingithub/"
+                    class="text-gray-900 font-bold text-xl font-medium hover:underline">
+                    Visual studio code隱身在GitHub內的秘密</a></div>
+            <div class="flex items-center justify-between mt-4">
+                <div class=" flex items-center">
+                    <p class="text-sm text-gray-600 flex items-center pb-1 absolute bottom-2 right-4">
+                        <time><span class="icon-access_time mr-1"></span>2021/08/21</time>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div
+            class="relative rounded-lg shadow-md border-gray-900 border-2 border-solid flex flex-col mr-4 px-4 pb-4 min-w-1/2 md:min-w-1/2 lg:min-w-1/5 xl:min-w-1/5  min-h-100">
+            <div class="mt-4"><a href="/post/hugo/markdown/markdown_basic_ide/"
+                    class="text-gray-900 font-bold text-xl font-medium hover:underline">
+                    Markdown 從零開始 開發工具篇</a></div>
+            <div class="flex items-center justify-between mt-4">
+                <div class=" flex items-center">
+                    <p class="text-sm text-gray-600 flex items-center pb-1 absolute bottom-2 right-4">
+                        <time><span class="icon-access_time mr-1"></span>2021/08/28</time>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div
+            class="relative rounded-lg shadow-md border-gray-900 border-2 border-solid flex flex-col mr-4 px-4 pb-4 min-w-1/2 md:min-w-1/2 lg:min-w-1/5 xl:min-w-1/5  min-h-100">
+            <div class="mt-4"><a href="/post/hugo/markdown/markdown_basic_tutorial/"
+                    class="text-gray-900 font-bold text-xl font-medium hover:underline">
+                    Markdown 從零開始 基本文法篇</a></div>
+            <div class="flex items-center justify-between mt-4">
+                <div class=" flex items-center">
+                    <p class="text-sm text-gray-600 flex items-center pb-1 absolute bottom-2 right-4">
+                        <time><span class="icon-access_time mr-1"></span>2021/08/28</time>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div
+            class="relative rounded-lg shadow-md border-gray-900 border-2 border-solid flex flex-col mr-4 px-4 pb-4 min-w-1/2 md:min-w-1/2 lg:min-w-1/5 xl:min-w-1/5  min-h-100">
+            <div class="mt-4"><a href="/post/html/html_basics/"
+                    class="text-gray-900 font-bold text-xl font-medium hover:underline">
+                    HTML 從零開始</a></div>
+            <div class="flex items-center justify-between mt-4">
+                <div class=" flex items-center">
+                    <p class="text-sm text-gray-600 flex items-center pb-1 absolute bottom-2 right-4">
+                        <time><span class="icon-access_time mr-1"></span>2021/10/13</time>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div
+            class="relative rounded-lg shadow-md border-gray-900 border-2 border-solid flex flex-col mr-4 px-4 pb-4 min-w-1/2 md:min-w-1/2 lg:min-w-1/5 xl:min-w-1/5  min-h-100">
+            <div class="mt-4"><a href="/post/hugo/deploy/hugo_build1/"
+                    class="text-gray-900 font-bold text-xl font-medium hover:underline">
+                    Hugo 從零開始 建立自己的部落格</a></div>
+            <div class="flex items-center justify-between mt-4">
+                <div class=" flex items-center">
+                    <p class="text-sm text-gray-600 flex items-center pb-1 absolute bottom-2 right-4">
+                        <time><span class="icon-access_time mr-1"></span>2021/08/07</time>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div
+            class="relative rounded-lg shadow-md border-gray-900 border-2 border-solid flex flex-col mr-4 px-4 pb-4 min-w-1/2 md:min-w-1/2 lg:min-w-1/5 xl:min-w-1/5  min-h-100">
+            <div class="mt-4"><a href="/post/hugo/deploy/hugo_environment/"
+                    class="text-gray-900 font-bold text-xl font-medium hover:underline">
+                    Hugo 從零開始 環境安裝(Windows)</a></div>
+            <div class="flex items-center justify-between mt-4">
+                <div class=" flex items-center">
+                    <p class="text-sm text-gray-600 flex items-center pb-1 absolute bottom-2 right-4">
+                        <time><span class="icon-access_time mr-1"></span>2021/08/07</time>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div
+            class="relative rounded-lg shadow-md border-gray-900 border-2 border-solid flex flex-col mr-4 px-4 pb-4 min-w-1/2 md:min-w-1/2 lg:min-w-1/5 xl:min-w-1/5  min-h-100">
+            <div class="mt-4"><a href="/post/database/sql-server/sqlserverbasic1/"
+                    class="text-gray-900 font-bold text-xl font-medium hover:underline">
+                    SQL Server 快速上手 (1)-資料庫簡介</a></div>
+            <div class="flex items-center justify-between mt-4">
+                <div class=" flex items-center">
+                    <p class="text-sm text-gray-600 flex items-center pb-1 absolute bottom-2 right-4">
+                        <time><span class="icon-access_time mr-1"></span>2021/10/15</time>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div
+            class="relative rounded-lg shadow-md border-gray-900 border-2 border-solid flex flex-col mr-4 px-4 pb-4 min-w-1/2 md:min-w-1/2 lg:min-w-1/5 xl:min-w-1/5  min-h-100">
+            <div class="mt-4"><a href="/post/blockchain/moralis/polygon-matic-moralis/"
+                    class="text-gray-900 font-bold text-xl font-medium hover:underline">
+                    Polygon (Matic) 從零開始 發行自己的虛擬貨幣(Token)</a></div>
+            <div class="flex items-center justify-between mt-4">
+                <div class=" flex items-center">
+                    <p class="text-sm text-gray-600 flex items-center pb-1 absolute bottom-2 right-4">
+                        <time><span class="icon-access_time mr-1"></span>2021/08/22</time>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div
+            class="relative rounded-lg shadow-md border-gray-900 border-2 border-solid flex flex-col mr-4 px-4 pb-4 min-w-1/2 md:min-w-1/2 lg:min-w-1/5 xl:min-w-1/5  min-h-100">
+            <div class="mt-4"><a href="/post/aspnetcore/aspnetcoremvc2/"
+                    class="text-gray-900 font-bold text-xl font-medium hover:underline">
+                    ASP .NET Core MVC 從零開始 (2) - 建立資料庫模型 DataBase First</a></div>
+            <div class="flex items-center justify-between mt-4">
+                <div class=" flex items-center">
+                    <p class="text-sm text-gray-600 flex items-center pb-1 absolute bottom-2 right-4">
+                        <time><span class="icon-access_time mr-1"></span>2021/10/31</time>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div
+            class="relative rounded-lg shadow-md border-gray-900 border-2 border-solid flex flex-col mr-4 px-4 pb-4 min-w-1/2 md:min-w-1/2 lg:min-w-1/5 xl:min-w-1/5  min-h-100">
+            <div class="mt-4"><a href="/post/database/sql-server/sqlserverbasic4/"
+                    class="text-gray-900 font-bold text-xl font-medium hover:underline">
+                    SQL Server 快速上手 (4) - 基礎語法</a></div>
+            <div class="flex items-center justify-between mt-4">
+                <div class=" flex items-center">
+                    <p class="text-sm text-gray-600 flex items-center pb-1 absolute bottom-2 right-4">
+                        <time><span class="icon-access_time mr-1"></span>2021/10/21</time>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>
+        </div>  
+
+        
+
+
+
+<div class='pr-6 pl-6  lg:pl-12 lg:pr-12 md:pl-7 md:pr-7 w-full bg-warmgray-700'>
+    <h1 class="pt-4 text-xl font-bold text-white pb-4">標籤</h1>
+    
+    <div class='flex flex-wrap -m-1 pb-4'>
+        <a href="/tags/apigateway">
+            <span
+                class="m-1 duration-100 bg-white hover:bg-gray-300 rounded-full px-2 font-bold text-md leading-loose cursor-pointer hover:text-blue-900 ">apigateway</span>
+        </a>
+        <a href="/tags/git">
+            <span
+                class="m-1 duration-100 bg-white hover:bg-gray-300 rounded-full px-2 font-bold text-md leading-loose cursor-pointer hover:text-blue-900 ">git</span>
+        </a>
+        <a href="/tags/html">
+            <span
+                class="m-1 duration-100 bg-white hover:bg-gray-300 rounded-full px-2 font-bold text-md leading-loose cursor-pointer hover:text-blue-900 ">html</span>
+        </a>
+        <a href="/tags/markdown">
+            <span
+                class="m-1 duration-100 bg-white hover:bg-gray-300 rounded-full px-2 font-bold text-md leading-loose cursor-pointer hover:text-blue-900 ">markdown</span>
+        </a>
+        <a href="/tags/moralis">
+            <span
+                class="m-1 duration-100 bg-white hover:bg-gray-300 rounded-full px-2 font-bold text-md leading-loose cursor-pointer hover:text-blue-900 ">moralis</span>
+        </a>
+        <a href="/tags/openzeppelin">
+            <span
+                class="m-1 duration-100 bg-white hover:bg-gray-300 rounded-full px-2 font-bold text-md leading-loose cursor-pointer hover:text-blue-900 ">openzeppelin</span>
+        </a>
+        <a href="/tags/proxy">
+            <span
+                class="m-1 duration-100 bg-white hover:bg-gray-300 rounded-full px-2 font-bold text-md leading-loose cursor-pointer hover:text-blue-900 ">proxy</span>
+        </a>
+        <a href="/tags/remix">
+            <span
+                class="m-1 duration-100 bg-white hover:bg-gray-300 rounded-full px-2 font-bold text-md leading-loose cursor-pointer hover:text-blue-900 ">remix</span>
+        </a>
+        <a href="/tags/sql-server">
+            <span
+                class="m-1 duration-100 bg-white hover:bg-gray-300 rounded-full px-2 font-bold text-md leading-loose cursor-pointer hover:text-blue-900 ">sql-server</span>
+        </a>
+        <a href="/tags/tool">
+            <span
+                class="m-1 duration-100 bg-white hover:bg-gray-300 rounded-full px-2 font-bold text-md leading-loose cursor-pointer hover:text-blue-900 ">tool</span>
+        </a>
+        <a href="/tags/%E5%95%8F%E9%A1%8C%E8%A7%A3%E6%B1%BA">
+            <span
+                class="m-1 duration-100 bg-white hover:bg-gray-300 rounded-full px-2 font-bold text-md leading-loose cursor-pointer hover:text-blue-900 ">問題解決</span>
+        </a>
+        <a href="/tags/%E7%92%B0%E5%A2%83%E8%A8%AD%E5%AE%9A">
+            <span
+                class="m-1 duration-100 bg-white hover:bg-gray-300 rounded-full px-2 font-bold text-md leading-loose cursor-pointer hover:text-blue-900 ">環境設定</span>
+        </a>
+    </div>
+</div>
+
+<footer
+    class="pr-6 pl-6 lg:pl-12 lg:pr-12 md:pl-7 md:pr-7 bg-warmgray-700 text-white p-6 w-full border-t border-gray-200">
+    
+    <div class="container-fluid mr-auto ml-auto">
+        <p>&copy; 2022 <a href="https://devbricker.github.io/" class="hover:text-gray-500">DevBricker</a></p>
+    </div>
+    <div class="hidden lg:col-span-full xl:col-span-full lg:hidden"></div>
+    <script>
+        function openSideBar() {
+            let elem = document.getElementById('sidebar')
+            let main = document.getElementById('main')
+            if (elem.classList.contains('full')) {
+                elem.classList.remove('full')
+                elem.classList.add('non-full')
+                elem.classList.add('lg:hidden')
+                main.classList.add('lg:col-span-full')
+                main.classList.add('xl:col-span-full')
+            } else {
+                elem.classList.add('full')
+                elem.classList.remove('non-full')
+                elem.classList.remove('lg:hidden')
+                main.classList.remove('lg:col-span-full')
+                main.classList.remove('xl:col-span-full')
+            }
+        }
+    </script>
+</footer></div>
+</body>
+
+</html>

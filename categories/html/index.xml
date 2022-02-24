@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>HTML on DevBricker</title>
+    <link>https://devbricker.github.io/categories/html/</link>
+    <description>Recent content in HTML on DevBricker</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-TW</language>
+    <lastBuildDate>Wed, 13 Oct 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://devbricker.github.io/categories/html/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>HTML 從零開始</title>
+      <link>https://devbricker.github.io/post/html/html_basics/</link>
+      <pubDate>Wed, 13 Oct 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://devbricker.github.io/post/html/html_basics/</guid>
+      <description>超文本標記語言（英語：HyperText Markup Language，簡稱：HTML）是一種用於建立網頁的標準標記語言。HTML是一種基礎技術，常與C</description>
+    </item>
+    
+  </channel>
+</rss>

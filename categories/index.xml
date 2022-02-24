@@ -6,13 +6,40 @@
     <description>Recent content in Categories on DevBricker</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-TW</language>
-    <lastBuildDate>Wed, 15 Sep 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://devbricker.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 03 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://devbricker.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Database</title>
+      <link>https://devbricker.github.io/categories/database/</link>
+      <pubDate>Mon, 03 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://devbricker.github.io/categories/database/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Visual Studio 2022</title>
+      <link>https://devbricker.github.io/categories/visual-studio-2022/</link>
+      <pubDate>Sun, 07 Nov 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://devbricker.github.io/categories/visual-studio-2022/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>Visual Studio 2019</title>
       <link>https://devbricker.github.io/categories/visual-studio-2019/</link>
-      <pubDate>Wed, 15 Sep 2021 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 31 Oct 2021 00:00:00 +0000</pubDate>
       
       <guid>https://devbricker.github.io/categories/visual-studio-2019/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>HTML</title>
+      <link>https://devbricker.github.io/categories/html/</link>
+      <pubDate>Wed, 13 Oct 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://devbricker.github.io/categories/html/</guid>
       <description></description>
     </item>
     

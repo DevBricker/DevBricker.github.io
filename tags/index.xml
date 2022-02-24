@@ -6,13 +6,31 @@
     <description>Recent content in Tags on DevBricker</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-TW</language>
-    <lastBuildDate>Wed, 15 Sep 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://devbricker.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 03 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://devbricker.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>SQL SERVER</title>
+      <link>https://devbricker.github.io/tags/sql-server/</link>
+      <pubDate>Mon, 03 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://devbricker.github.io/tags/sql-server/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>Tool</title>
       <link>https://devbricker.github.io/tags/tool/</link>
-      <pubDate>Wed, 15 Sep 2021 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 07 Nov 2021 00:00:00 +0000</pubDate>
       
       <guid>https://devbricker.github.io/tags/tool/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>HTML</title>
+      <link>https://devbricker.github.io/tags/html/</link>
+      <pubDate>Wed, 13 Oct 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://devbricker.github.io/tags/html/</guid>
       <description></description>
     </item>
     

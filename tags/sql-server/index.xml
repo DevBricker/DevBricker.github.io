@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>SQL SERVER on DevBricker</title>
+    <link>https://devbricker.github.io/tags/sql-server/</link>
+    <description>Recent content in SQL SERVER on DevBricker</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-TW</language>
+    <lastBuildDate>Mon, 03 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://devbricker.github.io/tags/sql-server/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>使用 Data Migration Assistant (DMA) 移轉 Azure SQL DataBase</title>
+      <link>https://devbricker.github.io/post/database/sql-server/datamigrationassistant/</link>
+      <pubDate>Mon, 03 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://devbricker.github.io/post/database/sql-server/datamigrationassistant/</guid>
+      <description>Data Migration Assistant (DMA) 是微軟提供的 SQL Server 資料庫與帳戶移轉工具，本篇文章將介紹，如何一步一步將已經部屬在AWS上的SQL DataBase 無痛移轉到 Azure SQL DataBase上。 下</description>
+    </item>
+    
+    <item>
+      <title>SQL Server 快速上手 (5) - 資料型態(DataType)</title>
+      <link>https://devbricker.github.io/post/database/sql-server/sqlserverbasic5/</link>
+      <pubDate>Sat, 23 Oct 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://devbricker.github.io/post/database/sql-server/sqlserverbasic5/</guid>
+      <description>本篇以 SQL Server 2019 Express Edition 及 SQL Server Management Studio 18.9 為教學範例。 每種程式語言都有其定義的資料型態，SQL也有定義的資料型態 型態包括整數、精確位數、浮點數、字元、貨幣</description>
+    </item>
+    
+    <item>
+      <title>SQL Server 快速上手 (4) - 基礎語法</title>
+      <link>https://devbricker.github.io/post/database/sql-server/sqlserverbasic4/</link>
+      <pubDate>Thu, 21 Oct 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://devbricker.github.io/post/database/sql-server/sqlserverbasic4/</guid>
+      <description>本篇以 SQL Server 2019 Express Edition 及 SQL Server Management Studio 18.9 為教學範例。 SQL語言概要和分類 DDL（Data Definition Language） DDL 又稱為資料定義語言，用於定義數據庫結構或模</description>
+    </item>
+    
+    <item>
+      <title>SQL Server 快速上手 (3) - 建立你的第一個關聯式資料庫</title>
+      <link>https://devbricker.github.io/post/database/sql-server/sqlserverbasic3/</link>
+      <pubDate>Tue, 19 Oct 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://devbricker.github.io/post/database/sql-server/sqlserverbasic3/</guid>
+      <description>本篇以 SQL Server 2019 Express Edition 及 SQL Server Management Studio 18.9 為教學範例，透過SQL Server 匯入和匯出精靈 快速入門 概要 (圖源自ITpedia) 資料庫的應用落實在我們生活的任何角落，</description>
+    </item>
+    
+    <item>
+      <title>SQL Server 快速上手 (2) - 工具與環境</title>
+      <link>https://devbricker.github.io/post/database/sql-server/sqlserverbasic2/</link>
+      <pubDate>Sun, 17 Oct 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://devbricker.github.io/post/database/sql-server/sqlserverbasic2/</guid>
+      <description>本篇以 SQL Server 2019 Express 為教學範例，請確認SQL Server與SSMS版本一致 安裝環境要求 根據微軟官方說明，下列記憶體和處理器需求適用於所有版本的 SQL S</description>
+    </item>
+    
+    <item>
+      <title>SQL Server 快速上手 (1)-資料庫簡介</title>
+      <link>https://devbricker.github.io/post/database/sql-server/sqlserverbasic1/</link>
+      <pubDate>Fri, 15 Oct 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://devbricker.github.io/post/database/sql-server/sqlserverbasic1/</guid>
+      <description>有幸接到了某大學的課程講師邀約，要做為期一個月的SQL Server與 .Net MVC教學，做簡報之餘也把內容記錄在部落格分享囉! 概述 SQL Server 是由美國微軟</description>
+    </item>
+    
+  </channel>
+</rss>
